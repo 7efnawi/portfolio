@@ -62,17 +62,49 @@
   }
 
   .dark {
-    --background: 220 15% 8%;
-    --foreground: 0 0% 95%;
-    --primary: 220 50% 45%;
-    --primary-foreground: 220 15% 8%;
-    --primary-light: 220 50% 55%;
-    --card: 220 15% 12%;
-    --card-foreground: 0 0% 95%;
-    --muted: 220 15% 15%;
-    --muted-foreground: 220 15% 65%;
-    --border: 220 15% 20%;
-    --input: 220 15% 20%;
+    /* Enhanced Dark Mode - Professional & Accessible */
+    --background: 220 20% 6%;           /* Deep dark background #0f1419 */
+    --foreground: 0 0% 95%;             /* Light text for high contrast */
+    
+    /* Enhanced Primary Colors for Dark Mode */
+    --primary: 220 70% 55%;             /* Brighter blue for better visibility */
+    --primary-foreground: 220 20% 6%;  /* Dark text on primary */
+    --primary-light: 220 70% 65%;      /* Lighter variant */
+    --primary-glow: 220 70% 75%;       /* Glow effect */
+    
+    /* Secondary Colors */
+    --secondary: 220 15% 18%;           /* Darker gray surfaces */
+    --secondary-foreground: 0 0% 90%;  /* Light text */
+    --secondary-light: 220 15% 25%;    /* Lighter secondary */
+    
+    /* Accent Colors - Optimized for Dark */
+    --accent: 180 60% 55%;              /* Brighter teal */
+    --accent-foreground: 220 20% 6%;   /* Dark text on accent */
+    --accent-light: 180 60% 65%;       /* Lighter teal */
+    
+    /* Orange Accent */
+    --orange: 25 85% 60%;               /* Vibrant orange */
+    --orange-light: 25 85% 70%;        /* Lighter orange */
+    
+    /* UI Elements */
+    --card: 220 18% 10%;                /* Card backgrounds #1a1f26 */
+    --card-foreground: 0 0% 92%;       /* Card text */
+    --popover: 220 18% 10%;             /* Popover background */
+    --popover-foreground: 0 0% 92%;    /* Popover text */
+    
+    /* Form Elements */
+    --muted: 220 15% 14%;               /* Subtle backgrounds */
+    --muted-foreground: 220 10% 70%;   /* Muted text */
+    --border: 220 15% 22%;              /* Border color */
+    --input: 220 15% 16%;               /* Input backgrounds */
+    --ring: 220 70% 55%;                /* Focus rings */
+    
+    /* Enhanced shadows for dark mode */
+    --shadow-sm: 0 2px 4px hsla(220, 20%, 2%, 0.5);
+    --shadow-md: 0 4px 12px hsla(220, 20%, 2%, 0.6);
+    --shadow-lg: 0 8px 25px hsla(220, 20%, 2%, 0.7);
+    --shadow-glow: 0 0 30px hsl(var(--accent) / 0.4);
+    --shadow-orange-glow: 0 0 30px hsl(var(--orange) / 0.4);
   }
 }
 
@@ -86,6 +118,8 @@
     font-feature-settings: 'cv11', 'ss01';
     font-variation-settings: 'opsz' 32;
     scroll-behavior: smooth;
+    /* Ensure smooth transitions for dark mode */
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   html {
