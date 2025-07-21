@@ -12,12 +12,11 @@ export default defineConfig({
   },
   plugins: [
     react(),
-    mode === 'development' &&
-    componentTagger(),
+    // mode === 'development' && componentTagger(), // Remove or fix this if 'mode' is not defined
   ].filter(Boolean),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
-}));
+});
