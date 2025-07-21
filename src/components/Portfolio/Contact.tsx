@@ -1,21 +1,34 @@
-import { useState, useEffect, useRef } from 'react';
-import { Send, Mail, Phone, MapPin, Linkedin, Github, Twitter } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
-import { useToast } from '@/hooks/use-toast';
+import { useState, useEffect, useRef } from "react";
+import {
+  Send,
+  Mail,
+  Phone,
+  MapPin,
+  Linkedin,
+  Github,
+  Twitter,
+  Facebook,
+  Instagram,
+} from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { useToast } from "@/hooks/use-toast";
+import { portfolioData } from "@/lib/portfolio-data";
 
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
+  const [lastSubmission, setLastSubmission] = useState(0);
+  const [honeypot, setHoneypot] = useState("");
   const sectionRef = useRef<HTMLElement>(null);
   const { toast } = useToast();
 
@@ -36,102 +49,127 @@ const Contact = () => {
     return () => observer.disconnect();
   }, []);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
+  };
+
+  const validateForm = () => {
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      toast({
+        title: "Invalid email",
+        description: "Please enter a valid email address.",
+        variant: "destructive",
+      });
+      return false;
+    }
+
+    // Rate limiting (1 submission per 30 seconds)
+    const now = Date.now();
+    if (now - lastSubmission < 30000) {
+      toast({
+        title: "Please wait",
+        description: "You can submit another message in a few seconds.",
+        variant: "destructive",
+      });
+      return false;
+    }
+
+    // Check honeypot
+    if (honeypot) {
+      return false;
+    }
+
+    return true;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
+
     setIsSubmitting(true);
+    setLastSubmission(Date.now());
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    try {
+      // Your form submission logic here
+      await new Promise((resolve) => setTimeout(resolve, 1500));
 
-    toast({
-      title: "Message sent successfully!",
-      description: "Thank you for your message. I'll get back to you within 24 hours.",
-    });
+      toast({
+        title: "Message sent successfully!",
+        description:
+          "Thank you for your message. I'll get back to you within 24 hours.",
+      });
 
-    setFormData({ name: '', email: '', subject: '', message: '' });
-    setIsSubmitting(false);
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (error) {
+      toast({
+        title: "Error sending message",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-  const contactInfo = [
-    {
-      icon: Mail,
-      title: "Email",
-      value: "alex.chen@example.com",
-      link: "mailto:alex.chen@example.com"
-    },
-    {
-      icon: Phone,
-      title: "Phone",
-      value: "+1 (555) 123-4567",
-      link: "tel:+15551234567"
-    },
-    {
-      icon: MapPin,
-      title: "Location",
-      value: "San Francisco, CA",
-      link: "https://maps.google.com"
-    }
-  ];
-
-  const socialLinks = [
-    {
-      icon: Linkedin,
-      platform: "LinkedIn",
-      url: "https://linkedin.com/in/alexchen",
-      username: "@alexchen"
-    },
-    {
-      icon: Github,
-      platform: "GitHub",
-      url: "https://github.com/alexchen",
-      username: "@alexchen"
-    },
-    {
-      icon: Twitter,
-      platform: "Twitter",
-      url: "https://twitter.com/alexchen",
-      username: "@alexchen_ai"
-    }
-  ];
+  const iconMap = {
+    Mail,
+    Phone,
+    MapPin,
+    Linkedin,
+    Github,
+    Twitter,
+    Facebook,
+    Instagram,
+  };
 
   return (
     <section id="contact" ref={sectionRef} className="py-20">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
-          <div className={`text-center mb-16 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+          <div
+            className={`text-center mb-16 ${
+              isVisible ? "animate-fade-in-up" : "opacity-0"
+            }`}
+          >
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Get In Touch
+              {portfolioData.contact.title}
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Let's discuss how AI and data science can drive your business forward. I'm always excited to explore new opportunities and collaborations.
+              {portfolioData.contact.description}
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Information */}
-            <div className={`space-y-8 ${isVisible ? 'animate-fade-in-left' : 'opacity-0'}`} style={{animationDelay: '0.2s'}}>
+            <div
+              className={`space-y-8 ${
+                isVisible ? "animate-fade-in-left" : "opacity-0"
+              }`}
+              style={{ animationDelay: "0.2s" }}
+            >
               <div>
                 <h3 className="text-2xl font-semibold text-foreground mb-6">
-                  Let's Connect
+                  {portfolioData.contact.connectTitle}
                 </h3>
                 <p className="text-muted-foreground leading-relaxed mb-8">
-                  Whether you're looking to implement AI solutions, discuss data science strategies, 
-                  or explore collaboration opportunities, I'd love to hear from you. Feel free to 
-                  reach out through any of the channels below.
+                  {portfolioData.contact.connectDescription}
                 </p>
 
                 {/* Contact Details */}
                 <div className="space-y-4 mb-8">
-                  {contactInfo.map((info) => {
-                    const Icon = info.icon;
+                  {portfolioData.contact.contactInfo.map((info) => {
+                    const Icon = iconMap[info.icon as keyof typeof iconMap];
                     return (
                       <a
                         key={info.title}
@@ -142,7 +180,9 @@ const Contact = () => {
                           <Icon size={20} className="text-accent-foreground" />
                         </div>
                         <div>
-                          <h4 className="font-medium text-foreground">{info.title}</h4>
+                          <h4 className="font-medium text-foreground">
+                            {info.title}
+                          </h4>
                           <p className="text-muted-foreground">{info.value}</p>
                         </div>
                       </a>
@@ -152,10 +192,12 @@ const Contact = () => {
 
                 {/* Social Links */}
                 <div>
-                  <h4 className="font-semibold text-foreground mb-4">Follow Me</h4>
+                  <h4 className="font-semibold text-foreground mb-4">
+                    {portfolioData.contact.followMeTitle}
+                  </h4>
                   <div className="flex space-x-4">
-                    {socialLinks.map((social) => {
-                      const Icon = social.icon;
+                    {portfolioData.contact.socialLinks.map((social) => {
+                      const Icon = iconMap[social.icon as keyof typeof iconMap];
                       return (
                         <a
                           key={social.platform}
@@ -175,15 +217,28 @@ const Contact = () => {
             </div>
 
             {/* Contact Form */}
-            <div className={`${isVisible ? 'animate-fade-in-right' : 'opacity-0'}`} style={{animationDelay: '0.4s'}}>
+            <div
+              className={`${isVisible ? "animate-fade-in-right" : "opacity-0"}`}
+              style={{ animationDelay: "0.4s" }}
+            >
               <Card className="bg-gradient-card border-border/50">
                 <CardHeader>
                   <CardTitle className="text-2xl font-semibold text-foreground">
-                    Send a Message
+                    {portfolioData.contact.formTitle}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <form onSubmit={handleSubmit} className="space-y-6">
+                    {/* Honeypot field - hidden from real users */}
+                    <input
+                      type="text"
+                      name="_gotcha"
+                      style={{ display: "none" }}
+                      tabIndex={-1}
+                      autoComplete="off"
+                      onChange={(e) => setHoneypot(e.target.value)}
+                    />
+
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <Label htmlFor="name">Name</Label>
@@ -211,7 +266,7 @@ const Contact = () => {
                         />
                       </div>
                     </div>
-                    
+
                     <div className="space-y-2">
                       <Label htmlFor="subject">Subject</Label>
                       <Input
@@ -224,7 +279,7 @@ const Contact = () => {
                         className="border-border/50 focus:border-accent"
                       />
                     </div>
-                    
+
                     <div className="space-y-2">
                       <Label htmlFor="message">Message</Label>
                       <Textarea
@@ -238,7 +293,7 @@ const Contact = () => {
                         className="border-border/50 focus:border-accent resize-none"
                       />
                     </div>
-                    
+
                     <Button
                       type="submit"
                       size="lg"

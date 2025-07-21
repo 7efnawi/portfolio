@@ -1,7 +1,17 @@
-import { useState, useEffect } from 'react';
-import { Menu, X, Home, User, Code, Briefcase, GraduationCap, Mail } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import ThemeToggle from './ThemeToggle';
+import { useState, useEffect } from "react";
+import { portfolioData } from "@/lib/portfolio-data";
+import {
+  Menu,
+  X,
+  Home,
+  User,
+  Code,
+  Briefcase,
+  GraduationCap,
+  Mail,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import ThemeToggle from "./ThemeToggle";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,24 +21,23 @@ const Header = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navItems = [
-    { href: '#home', label: 'Home', icon: Home },
-    { href: '#about', label: 'About', icon: User },
-    { href: '#skills', label: 'Skills', icon: Code },
-    { href: '#projects', label: 'Projects', icon: Briefcase },
-    { href: '#experience', label: 'Experience', icon: Briefcase },
-    { href: '#education', label: 'Education', icon: GraduationCap },
-    { href: '#contact', label: 'Contact', icon: Mail }
+    { href: "#home", label: "Home", icon: Home },
+    { href: "#about", label: "About", icon: User },
+    { href: "#skills", label: "Skills", icon: Code },
+    { href: "#projects", label: "Projects", icon: Briefcase },
+    { href: "#education", label: "Education", icon: GraduationCap },
+    { href: "#contact", label: "Contact", icon: Mail },
   ];
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
       setIsMenuOpen(false);
     }
   };
@@ -37,14 +46,14 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-background/95 backdrop-blur-md border-b border-border shadow-md'
-          : 'bg-transparent'
+          ? "bg-background/95 backdrop-blur-md border-b border-border shadow-md"
+          : "bg-transparent"
       }`}
     >
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="text-2xl font-bold text-primary">
-            Alex Chen
+            {portfolioData.name}
           </div>
 
           {/* Desktop Navigation */}
