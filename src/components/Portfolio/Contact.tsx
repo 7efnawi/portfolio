@@ -17,6 +17,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { portfolioData } from "@/lib/portfolio-data";
+import emailjs from "emailjs-com";
+
+const SERVICE_ID = "service_pi13toy";
+const TEMPLATE_ID = "template_w2ty59l";
+const PUBLIC_KEY = "QxfHjpYPr2CJGL0iZ";
 
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -27,10 +32,10 @@ const Contact = () => {
     subject: "",
     message: "",
   });
-  const [lastSubmission, setLastSubmission] = useState(0);
-  const [honeypot, setHoneypot] = useState("");
   const sectionRef = useRef<HTMLElement>(null);
   const { toast } = useToast();
+  const [lastSubmission, setLastSubmission] = useState(0);
+  const [honeypot, setHoneypot] = useState("");
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -59,7 +64,6 @@ const Contact = () => {
   };
 
   const validateForm = () => {
-    // Basic email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
       toast({
@@ -69,8 +73,6 @@ const Contact = () => {
       });
       return false;
     }
-
-    // Rate limiting (1 submission per 30 seconds)
     const now = Date.now();
     if (now - lastSubmission < 30000) {
       toast({
@@ -80,35 +82,36 @@ const Contact = () => {
       });
       return false;
     }
-
-    // Check honeypot
     if (honeypot) {
       return false;
     }
-
     return true;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
     if (!validateForm()) {
       return;
     }
-
     setIsSubmitting(true);
     setLastSubmission(Date.now());
-
     try {
-      // Your form submission logic here
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        PUBLIC_KEY
+      );
       toast({
         title: "Message sent successfully!",
         description:
           "Thank you for your message. I'll get back to you within 24 hours.",
       });
-
       setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
       toast({
@@ -238,7 +241,6 @@ const Contact = () => {
                       autoComplete="off"
                       onChange={(e) => setHoneypot(e.target.value)}
                     />
-
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <Label htmlFor="name">Name</Label>
@@ -266,7 +268,6 @@ const Contact = () => {
                         />
                       </div>
                     </div>
-
                     <div className="space-y-2">
                       <Label htmlFor="subject">Subject</Label>
                       <Input
@@ -279,7 +280,6 @@ const Contact = () => {
                         className="border-border/50 focus:border-accent"
                       />
                     </div>
-
                     <div className="space-y-2">
                       <Label htmlFor="message">Message</Label>
                       <Textarea
@@ -293,24 +293,13 @@ const Contact = () => {
                         className="border-border/50 focus:border-accent resize-none"
                       />
                     </div>
-
                     <Button
                       type="submit"
-                      size="lg"
-                      disabled={isSubmitting}
                       className="w-full bg-gradient-primary text-primary-foreground hover:bg-primary-light hover-glow"
+                      disabled={isSubmitting}
                     >
-                      {isSubmitting ? (
-                        <>
-                          <div className="animate-spin mr-2 h-4 w-4 border-2 border-white border-t-transparent rounded-full"></div>
-                          Sending...
-                        </>
-                      ) : (
-                        <>
-                          <Send className="mr-2" size={20} />
-                          Send Message
-                        </>
-                      )}
+                      <Send className="mr-2" size={18} />
+                      {isSubmitting ? "Sending..." : "Send Message"}
                     </Button>
                   </form>
                 </CardContent>
