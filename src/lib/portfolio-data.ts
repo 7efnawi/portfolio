@@ -1,11 +1,142 @@
-export const portfolioData = {
+import { LucideIcon } from "lucide-react";
+
+interface HeroData {
+  name: string;
+  title: string;
+  description: string;
+  image: string;
+}
+
+interface Skill {
+  name: string;
+  icon: string;
+}
+
+interface SkillCategory {
+  title: string;
+  skills: Skill[];
+}
+
+interface AdditionalExpertise {
+  title: string;
+  items: string[];
+}
+
+interface SkillsData {
+  title: string;
+  description: string;
+  skillCategories: SkillCategory[];
+  additionalExpertise: AdditionalExpertise;
+}
+
+interface Project {
+  title: string;
+  category: string;
+  description: string;
+  technologies: string[];
+  impact: string;
+  github: string;
+  demo: string;
+  image: string;
+}
+
+interface ProjectsData {
+  title: string;
+  description: string;
+  projectList: Project[];
+}
+
+interface Experience {
+  title: string;
+  company: string;
+  location: string;
+  period: string;
+  achievements: string[];
+  technologies: string[];
+}
+
+interface ExperienceData {
+  title: string;
+  description: string;
+  experienceList: Experience[];
+}
+
+interface EducationItem {
+  degree: string;
+  specialization: string;
+  institution: string;
+  location: string;
+  period: string;
+  gpa: string;
+  highlights: string[];
+}
+
+interface Certification {
+  title: string;
+  issuer: string;
+  date: string;
+  credential?: string;
+  link: string;
+}
+
+interface Publication {
+  title: string;
+  journal: string;
+  date: string;
+  link: string;
+}
+
+interface EducationData {
+  title: string;
+  description: string;
+  educationList: EducationItem[];
+  certifications: Certification[];
+  publications: Publication[];
+}
+
+interface ContactInfo {
+  icon: string;
+  title: string;
+  value: string;
+  link: string;
+}
+
+interface SocialLink {
+  icon: string;
+  platform: string;
+  url: string;
+  username: string;
+}
+
+interface ContactData {
+  title: string;
+  description: string;
+  formTitle: string;
+  connectTitle: string;
+  connectDescription: string;
+  followMeTitle: string;
+  contactInfo: ContactInfo[];
+  socialLinks: SocialLink[];
+}
+
+interface PortfolioData {
+  name: string;
+  hero: HeroData;
+  skills: SkillsData;
+  projects: ProjectsData;
+  experience: ExperienceData;
+  education: EducationData;
+  contact: ContactData;
+}
+
+export const portfolioData: PortfolioData = {
   name: "Yousef Mahmoud",
   hero: {
     name: "Yousef Mahmoud",
     title: "ICT Student | AI & Data Science",
     description:
       "A detail-oriented Data Analyst and Python Developer with strong experience in turning raw data into actionable insights. Skilled in Python, Pandas, NumPy, Matplotlib, Excel, and SQL/MySQL. I specialize in data cleaning, analysis, and visualization for financial, business, and educational use cases. Passionate about solving real-world problems with data-driven solutions that are accurate, efficient, and client-focused.",
-    image: "/profile.jpg",
+    image: "/WhatsApp Image 2025-06-23 at 14.22.36_ae056ec4.jpg",
   },
   skills: {
     title: "Skills",

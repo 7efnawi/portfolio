@@ -153,40 +153,38 @@ const Contact = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="max-w-4xl mx-auto">
             {/* Contact Information */}
             <div
-              className={`space-y-8 ${
-                isVisible ? "animate-fade-in-left" : "opacity-0"
-              }`}
+              className={`space-y-8 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}
               style={{ animationDelay: "0.2s" }}
             >
               <div>
-                <h3 className="text-2xl font-semibold text-foreground mb-6">
+                <h3 className="text-3xl font-semibold text-foreground mb-6 text-center">
                   {portfolioData.contact.connectTitle}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed mb-8">
+                <p className="text-xl text-muted-foreground leading-relaxed mb-12 text-center max-w-2xl mx-auto">
                   {portfolioData.contact.connectDescription}
                 </p>
 
                 {/* Contact Details */}
-                <div className="space-y-4 mb-8">
+                <div className="grid md:grid-cols-2 gap-8 mb-12">
                   {portfolioData.contact.contactInfo.map((info) => {
                     const Icon = iconMap[info.icon as keyof typeof iconMap];
                     return (
                       <a
                         key={info.title}
                         href={info.link}
-                        className="flex items-center space-x-4 p-4 bg-gradient-card rounded-lg border border-border/50 hover-lift group"
+                        className="flex items-center space-x-6 p-6 bg-gradient-card rounded-lg border border-border/50 hover-lift group"
                       >
-                        <div className="w-12 h-12 bg-gradient-accent rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                          <Icon size={20} className="text-accent-foreground" />
+                        <div className="w-16 h-16 bg-gradient-accent rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform flex-shrink-0">
+                          <Icon size={28} className="text-accent-foreground" />
                         </div>
                         <div>
-                          <h4 className="font-medium text-foreground">
+                          <h4 className="text-xl font-medium text-foreground">
                             {info.title}
                           </h4>
-                          <p className="text-muted-foreground">{info.value}</p>
+                          <p className="text-lg text-muted-foreground">{info.value}</p>
                         </div>
                       </a>
                     );
@@ -194,11 +192,11 @@ const Contact = () => {
                 </div>
 
                 {/* Social Links */}
-                <div>
-                  <h4 className="font-semibold text-foreground mb-4">
+                <div className="text-center">
+                  <h4 className="text-2xl font-semibold text-foreground mb-6">
                     {portfolioData.contact.followMeTitle}
                   </h4>
-                  <div className="flex space-x-4">
+                  <div className="flex justify-center space-x-6">
                     {portfolioData.contact.socialLinks.map((social) => {
                       const Icon = iconMap[social.icon as keyof typeof iconMap];
                       return (
@@ -207,103 +205,16 @@ const Contact = () => {
                           href={social.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="w-12 h-12 bg-muted rounded-lg flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-colors hover-scale group"
+                          className="w-16 h-16 bg-muted rounded-full flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-colors hover-scale group"
                           title={`${social.platform} - ${social.username}`}
                         >
-                          <Icon size={20} />
+                          <Icon size={28} />
                         </a>
                       );
                     })}
                   </div>
                 </div>
               </div>
-            </div>
-
-            {/* Contact Form */}
-            <div
-              className={`${isVisible ? "animate-fade-in-right" : "opacity-0"}`}
-              style={{ animationDelay: "0.4s" }}
-            >
-              <Card className="bg-gradient-card border-border/50">
-                <CardHeader>
-                  <CardTitle className="text-2xl font-semibold text-foreground">
-                    {portfolioData.contact.formTitle}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    {/* Honeypot field - hidden from real users */}
-                    <input
-                      type="text"
-                      name="_gotcha"
-                      style={{ display: "none" }}
-                      tabIndex={-1}
-                      autoComplete="off"
-                      onChange={(e) => setHoneypot(e.target.value)}
-                    />
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="name">Name</Label>
-                        <Input
-                          id="name"
-                          name="name"
-                          value={formData.name}
-                          onChange={handleInputChange}
-                          placeholder="Your full name"
-                          required
-                          className="border-border/50 focus:border-accent"
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="email">Email</Label>
-                        <Input
-                          id="email"
-                          name="email"
-                          type="email"
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          placeholder="your.email@example.com"
-                          required
-                          className="border-border/50 focus:border-accent"
-                        />
-                      </div>
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="subject">Subject</Label>
-                      <Input
-                        id="subject"
-                        name="subject"
-                        value={formData.subject}
-                        onChange={handleInputChange}
-                        placeholder="What would you like to discuss?"
-                        required
-                        className="border-border/50 focus:border-accent"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="message">Message</Label>
-                      <Textarea
-                        id="message"
-                        name="message"
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        placeholder="Tell me about your project or question..."
-                        rows={6}
-                        required
-                        className="border-border/50 focus:border-accent resize-none"
-                      />
-                    </div>
-                    <Button
-                      type="submit"
-                      className="w-full bg-gradient-primary text-primary-foreground hover:bg-primary-light hover-glow"
-                      disabled={isSubmitting}
-                    >
-                      <Send className="mr-2" size={18} />
-                      {isSubmitting ? "Sending..." : "Send Message"}
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
             </div>
           </div>
         </div>

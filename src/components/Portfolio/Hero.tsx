@@ -41,7 +41,7 @@ const Hero = () => {
               {portfolioData.hero.name}
             </h1>
             <div
-              className="text-2xl md:text-3xl text-accent font-semibold mb-6 h-12 animate-fade-in-up"
+              className="text-2xl md:text-3xl text-accent font-semibold mb-6 animate-fade-in-up"
               style={{ animationDelay: "0.2s" }}
             >
               {portfolioData.hero.title}
