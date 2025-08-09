@@ -9,6 +9,9 @@ import {
   Twitter,
   Facebook,
   Instagram,
+  Download,
+  CheckCircle2,
+  Clock,
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -151,45 +154,57 @@ const Contact = () => {
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               {portfolioData.contact.description}
             </p>
+
+            {/* Quick badges */}
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-muted text-muted-foreground text-sm">
+                <CheckCircle2 className="h-4 w-4 text-accent" /> Open to internships & collaborations
+              </span>
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-muted text-muted-foreground text-sm">
+                <Clock className="h-4 w-4 text-accent" /> Response within 24h
+              </span>
+            </div>
+
+            {/* Primary CTAs */}
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+              {(() => {
+                const email = portfolioData.contact.contactInfo.find((i) => i.icon === "Mail")?.link || "mailto:7efnaw.ii@gmail.com";
+                return (
+                  <Button asChild size="lg" className="px-6">
+                    <a href={email} aria-label="Email Me">
+                      <Mail className="mr-2 h-5 w-5" /> Email Me
+                    </a>
+                  </Button>
+                );
+              })()}
+              {(() => {
+                const linkedin = portfolioData.contact.socialLinks.find((s) => s.platform.toLowerCase().includes("linkedin"))?.url;
+                return (
+                  <Button variant="outline" asChild size="lg" className="px-6">
+                    <a href={linkedin || "#"} target="_blank" rel="noopener noreferrer" aria-label="Visit LinkedIn">
+                      <Linkedin className="mr-2 h-5 w-5" /> LinkedIn
+                    </a>
+                  </Button>
+                );
+              })()}
+            </div>
+
+            {/* Subtle divider */}
+            <div className="mt-10 h-px w-24 mx-auto bg-gradient-to-r from-transparent via-border to-transparent" />
           </div>
 
           <div className="max-w-4xl mx-auto">
             {/* Contact Information */}
             <div
-              className={`space-y-8 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}
+              className={`space-y-8 ${
+                isVisible ? "animate-fade-in-up" : "opacity-0"
+              }`}
               style={{ animationDelay: "0.2s" }}
             >
               <div>
-                <h3 className="text-3xl font-semibold text-foreground mb-6 text-center">
-                  {portfolioData.contact.connectTitle}
-                </h3>
-                <p className="text-xl text-muted-foreground leading-relaxed mb-12 text-center max-w-2xl mx-auto">
-                  {portfolioData.contact.connectDescription}
-                </p>
+                {/* Removed 'Let's Connect' heading and description per request */}
 
-                {/* Contact Details */}
-                <div className="grid md:grid-cols-2 gap-8 mb-12">
-                  {portfolioData.contact.contactInfo.map((info) => {
-                    const Icon = iconMap[info.icon as keyof typeof iconMap];
-                    return (
-                      <a
-                        key={info.title}
-                        href={info.link}
-                        className="flex items-center space-x-6 p-6 bg-gradient-card rounded-lg border border-border/50 hover-lift group"
-                      >
-                        <div className="w-16 h-16 bg-gradient-accent rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform flex-shrink-0">
-                          <Icon size={28} className="text-accent-foreground" />
-                        </div>
-                        <div>
-                          <h4 className="text-xl font-medium text-foreground">
-                            {info.title}
-                          </h4>
-                          <p className="text-lg text-muted-foreground">{info.value}</p>
-                        </div>
-                      </a>
-                    );
-                  })}
-                </div>
+                {/* Contact Details removed per request */}
 
                 {/* Social Links */}
                 <div className="text-center">
