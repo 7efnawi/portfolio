@@ -318,6 +318,13 @@ export const portfolioData: PortfolioData = {
         credential: "VXdEPox6dM",
         link: "https://maharatech.gov.eg/mod/customcert/verify_certificate.php?code=VXdEPox6dM&qrcode=1",
       },
+      {
+        title: "Intermediate Python",
+        issuer: "DataCamp",
+        date: "Aug 2025",
+        credential: "",
+        link: "https://www.datacamp.com/completed/statement-of-accomplishment/course/63ccc2560823b51caf56588d12013cf7ac01a657",
+      },
     ],
     publications: [],
   },
