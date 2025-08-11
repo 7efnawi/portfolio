@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { GraduationCap, Award, BookOpen, ExternalLink } from "lucide-react";
+import { GraduationCap, Award, BookOpen, ExternalLink, CheckCircle } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { portfolioData } from "@/lib/portfolio-data";
 
 const Education = () => {
@@ -56,45 +57,43 @@ const Education = () => {
                 Academic Background
               </h3>
 
-              {portfolioData.education.educationList.map((edu, index) => (
+              {portfolioData.education.educationList.map((edu) => (
                 <Card
                   key={edu.degree}
-                  className="bg-gradient-card border-border/50 hover-lift"
+                  className="bg-gradient-card/80 backdrop-blur border border-border/60 hover:border-accent/40 shadow-sm hover:shadow-lg transition-all"
                 >
-                  <CardHeader>
-                    <CardTitle className="text-lg font-semibold text-foreground">
-                      {edu.degree}
-                    </CardTitle>
-                    <p className="text-accent font-medium">
-                      {edu.specialization}
-                    </p>
-                  </CardHeader>
-                  <CardContent className="space-y-3">
-                    <div className="flex justify-between items-start text-sm">
-                      <div>
-                        <p className="font-medium text-foreground">
-                          {edu.institution}
+                  <CardHeader className="pb-3">
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="min-w-0">
+                        <CardTitle className="text-lg font-semibold text-foreground">
+                          {edu.degree}
+                        </CardTitle>
+                        <p className="text-accent font-medium leading-tight mt-0.5">
+                          {edu.specialization}
                         </p>
-                        <p className="text-muted-foreground">{edu.location}</p>
                       </div>
-                      <div className="text-right">
-                        <p className="text-muted-foreground">{edu.period}</p>
-                        <Badge
-                          variant="secondary"
-                          className="bg-accent/10 text-accent"
-                        >
-                          GPA: {edu.gpa}
+                      <div className="text-right shrink-0">
+                        <Badge variant="outline" className="border-accent text-accent">
+                          {edu.period}
                         </Badge>
                       </div>
                     </div>
-                    <ul className="space-y-1">
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="flex flex-wrap items-center justify-between gap-3 text-sm">
+                      <div className="text-foreground/90">
+                        <p className="font-medium">{edu.institution}</p>
+                        <p className="text-muted-foreground">{edu.location}</p>
+                      </div>
+                      <Badge variant="secondary" className="bg-accent/10 text-accent">
+                        {edu.gpa}
+                      </Badge>
+                    </div>
+                    <ul className="space-y-2">
                       {edu.highlights.map((highlight, hIndex) => (
-                        <li
-                          key={hIndex}
-                          className="text-sm text-muted-foreground flex items-start"
-                        >
-                          <span className="text-accent mr-2">•</span>
-                          {highlight}
+                        <li key={hIndex} className="text-sm text-muted-foreground flex items-start gap-2">
+                          <CheckCircle size={16} className="text-accent mt-0.5" />
+                          <span>{highlight}</span>
                         </li>
                       ))}
                     </ul>
@@ -115,54 +114,43 @@ const Education = () => {
                 Professional Certifications
               </h3>
 
-              {portfolioData.education.certifications.map((cert, index) => (
+              {portfolioData.education.certifications.map((cert) => (
                 <Card
                   key={cert.title}
-                  className="bg-gradient-card border-border/50 hover-lift"
+                  className="bg-gradient-card/80 backdrop-blur border border-border/60 hover:border-accent/40 shadow-sm hover:shadow-lg transition-all"
                 >
                   <CardContent className="p-6">
-                    <div className="flex justify-between items-start mb-3">
-                      <div className="flex-1">
-                        <h4 className="font-semibold text-foreground mb-1">
+                    <div className="flex flex-wrap justify-between items-start gap-3 mb-2">
+                      <div className="flex-1 min-w-0">
+                        <h4 className="font-semibold text-foreground leading-tight">
                           {cert.title}
                         </h4>
-                        <p className="text-accent font-medium text-sm">
+                        <p className="text-accent font-medium text-sm mt-0.5">
                           {cert.issuer}
                         </p>
                       </div>
-                      <div className="text-right">
-                        <Badge
-                          variant="outline"
-                          className="border-accent text-accent"
-                        >
-                          {cert.date}
-                        </Badge>
-                      </div>
+                      <Badge variant="outline" className="border-accent text-accent">
+                        {cert.date}
+                      </Badge>
                     </div>
-                    <p className="text-xs text-muted-foreground mb-3 font-mono">
-                      ID: {cert.credential}
-                    </p>
-                    {cert.link && (
-                      <a
-                        href={cert.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block mb-3"
-                      >
-                        <button
-                          type="button"
-                          className="px-4 py-2 bg-accent text-accent-foreground rounded-2xl font-semibold shadow hover:bg-accent/80 transition-colors transform-gpu hover:scale-105 duration-200"
-                        >
-                          Show Credential
-                        </button>
-                      </a>
+                    {cert.credential && (
+                      <p className="text-xs text-muted-foreground mb-3 font-mono truncate">
+                        Credential ID: {cert.credential}
+                      </p>
                     )}
-                    {Array.isArray(cert.skills) && cert.skills.length > 0 && (
+                    {cert.link && (
+                      <Button asChild size="sm" className="bg-gradient-primary text-primary-foreground hover:bg-primary-light mb-3">
+                        <a href={cert.link} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink size={14} className="mr-2" /> View Credential
+                        </a>
+                      </Button>
+                    )}
+                    {Array.isArray((cert as any).skills) && (cert as any).skills.length > 0 && (
                       <div className="flex flex-wrap gap-2">
-                        {cert.skills.map((skill) => (
+                        {((cert as any).skills as string[]).map((skill) => (
                           <span
                             key={skill}
-                            className="px-2 py-1 bg-muted text-muted-foreground rounded text-xs"
+                            className="px-2 py-1 bg-muted/70 backdrop-blur text-muted-foreground rounded-full text-xs border border-border/40"
                           >
                             {skill}
                           </span>
