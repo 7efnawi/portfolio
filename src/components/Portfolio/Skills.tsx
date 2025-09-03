@@ -90,20 +90,20 @@ const Skills = () => {
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
           <div
-            className={`text-center mb-16 ${
+            className={`text-center mb-12 md:mb-16 ${
               isVisible ? "animate-fade-in-up" : "opacity-0"
             }`}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
               {portfolioData.skills.title}
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto">
               {portfolioData.skills.description}
             </p>
           </div>
 
           {/* Skills Grid */}
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {portfolioData.skills.skillCategories.map(
               (category, categoryIndex) => (
                 <Card
@@ -114,12 +114,12 @@ const Skills = () => {
                   style={{ animationDelay: `${categoryIndex * 0.1}s` }}
                 >
                   <CardHeader>
-                    <CardTitle className="text-xl font-semibold text-foreground flex items-center">
-                      <div className="w-2 h-8 bg-gradient-accent rounded-full mr-3"></div>
+                    <CardTitle className="text-lg sm:text-xl font-semibold text-foreground flex items-center">
+                      <div className="w-2 h-6 sm:h-8 bg-gradient-accent rounded-full mr-3"></div>
                       {category.title}
                     </CardTitle>
                   </CardHeader>
-                  <CardContent className="space-y-3">
+                  <CardContent className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
                     {category.skills.map((skill) => {
                       const Icon = iconMap[skill.icon as keyof typeof iconMap];
                       return (
@@ -128,7 +128,7 @@ const Skills = () => {
                           className="flex items-center gap-3 py-1"
                         >
                           {Icon && <Icon className="text-accent" size={20} />}
-                          <span className="font-medium text-foreground">
+                          <span className="text-sm sm:text-base font-medium text-foreground">
                             {skill.name}
                           </span>
                         </div>

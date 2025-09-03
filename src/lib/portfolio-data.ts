@@ -243,9 +243,8 @@ export const portfolioData: PortfolioData = {
         degree:
           "Pearson BTEC International Level 3 Extended Diploma in Electrical and Electronics Engineering",
         specialization: "Electrical and Electronics Engineering",
-        institution:
-          "El Salam Technical Integrated Cluster, El Salam, Cairo, Egypt",
-        location: "Cairo, Egypt",
+        institution: "El Salam Technical Integrated Cluster",
+        location: "El Salam, Cairo, Egypt",
         period: "Graduation: May 2023",
         gpa: "95.3% (Triple-grade DISTINCTION DISTINCTION MERIT)",
         highlights: [],
@@ -254,7 +253,7 @@ export const portfolioData: PortfolioData = {
         degree:
           "Bachelor's degree in Information and Communication Technology (ICT)",
         specialization: "Artificial Intelligence and Data Science",
-        institution: "New Cairo Technological University, New Cairo, Egypt",
+        institution: "New Cairo Technological University",
         location: "New Cairo, Egypt",
         period: "Expected Graduation: May 2027",
         gpa: "",

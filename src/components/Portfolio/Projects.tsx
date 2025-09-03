@@ -44,14 +44,14 @@ const Projects = () => {
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
           <div
-            className={`text-center mb-16 ${
+            className={`text-center mb-12 md:mb-16 ${
               isVisible ? "animate-fade-in-up" : "opacity-0"
             }`}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
               {portfolioData.projects.title}
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto">
               {portfolioData.projects.description}
             </p>
           </div>
@@ -246,8 +246,7 @@ const ProjectsCarousel = ({
             >
               {/* Project Image */}
               <div
-                className="relative overflow-hidden bg-muted flex items-center justify-center"
-                style={{ height: "12rem" }}
+                className="relative overflow-hidden bg-muted flex items-center justify-center h-48 sm:h-56 md:h-60"
               >
                 <img
                   src={project.image}
@@ -272,7 +271,7 @@ const ProjectsCarousel = ({
               <CardHeader>
                 <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0">
-                    <CardTitle className="text-xl font-semibold text-foreground group-hover:text-accent transition-colors">
+                    <CardTitle className="text-lg sm:text-xl font-semibold text-foreground group-hover:text-accent transition-colors">
                       {project.title}
                     </CardTitle>
                     {/* Animated underline */}
@@ -280,7 +279,7 @@ const ProjectsCarousel = ({
                   </div>
                   <Badge
                     variant="secondary"
-                    className="bg-accent/10 text-accent border-accent/20 shadow-sm shrink-0"
+                    className="bg-accent/10 text-accent border-accent/20 shadow-sm shrink-0 text-xs sm:text-sm"
                   >
                     {project.category}
                   </Badge>
@@ -288,7 +287,7 @@ const ProjectsCarousel = ({
               </CardHeader>
 
             <CardContent className="space-y-4">
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                 {project.description}
               </p>
 
@@ -304,18 +303,18 @@ const ProjectsCarousel = ({
               </div>
 
               <div className="bg-accent/10 border-l-4 border-accent/70 p-3 rounded">
-                <p className="text-sm font-medium text-foreground">
+                <p className="text-xs sm:text-sm font-medium text-foreground">
                   <strong>Impact:</strong> {project.impact}
                 </p>
               </div>
 
               {/* CTA bar */}
-              <div className="flex space-x-3 pt-2 bg-background/40 backdrop-blur-md p-2 rounded-lg border border-border/40">
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 pt-2 bg-background/40 backdrop-blur-md p-2 rounded-lg border border-border/40">
                 {project.github ? (
                   <Button
                     size="sm"
                     variant="outline"
-                    className="border-accent text-accent hover:bg-accent hover:text-accent-foreground flex-1 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                    className="w-full sm:w-auto border-accent text-accent hover:bg-accent hover:text-accent-foreground flex-1 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
                     asChild
                   >
                     <a
@@ -331,7 +330,7 @@ const ProjectsCarousel = ({
                 {project.demo ? (
                   <Button
                     size="sm"
-                    className="bg-gradient-primary text-primary-foreground hover:bg-primary-light flex-1 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                    className="w-full sm:w-auto bg-gradient-primary text-primary-foreground hover:bg-primary-light flex-1 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
                     asChild
                   >
                     <a

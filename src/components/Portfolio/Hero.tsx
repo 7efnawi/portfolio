@@ -24,8 +24,9 @@ const Hero = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col md:flex-row items-center justify-center gap-12">
           {/* Profile Image Left */}
+          {/* Profile Image Left */}
           <div className="flex-shrink-0 mb-8 md:mb-0">
-            <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-primary p-3 shadow-xl flex items-center justify-center">
+            <div className="w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-full bg-gradient-primary p-2 sm:p-3 shadow-xl flex items-center justify-center">
               <div className="w-full h-full rounded-full bg-muted flex items-center justify-center overflow-hidden">
                 <img
                   src={portfolioData.hero.image}
@@ -37,17 +38,17 @@ const Hero = () => {
           </div>
           {/* Text Content Right */}
           <div className="flex-1 text-center md:text-left">
-            <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-4 animate-fade-in-up">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-3 animate-fade-in-up">
               {portfolioData.hero.name}
             </h1>
             <div
-              className="text-2xl md:text-3xl text-accent font-semibold mb-6 animate-fade-in-up"
+              className="text-xl sm:text-2xl md:text-3xl text-accent font-semibold mb-5 animate-fade-in-up"
               style={{ animationDelay: "0.2s" }}
             >
               {portfolioData.hero.title}
             </div>
             <p
-              className="text-lg md:text-xl text-muted-foreground max-w-2xl md:max-w-2xl lg:max-w-3xl mb-8 leading-relaxed animate-fade-in-up"
+              className="text-md sm:text-lg text-muted-foreground max-w-md mx-auto md:mx-0 md:max-w-2xl mb-8 leading-relaxed animate-fade-in-up"
               style={{ animationDelay: "0.4s" }}
             >
               {portfolioData.hero.description}

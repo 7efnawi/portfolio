@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { GraduationCap, Award, BookOpen, ExternalLink, CheckCircle } from "lucide-react";
+import { GraduationCap, Award, BookOpen, ExternalLink, CheckCircle, Calendar, MapPin } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -72,22 +72,28 @@ const Education = () => {
                           {edu.specialization}
                         </p>
                       </div>
-                      <div className="text-right shrink-0">
-                        <Badge variant="outline" className="border-accent text-accent">
-                          {edu.period}
-                        </Badge>
-                      </div>
                     </div>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    <div className="flex flex-wrap items-center justify-between gap-3 text-sm">
+                    <div className="flex flex-wrap items-start justify-between gap-3 text-sm">
                       <div className="text-foreground/90">
                         <p className="font-medium">{edu.institution}</p>
-                        <p className="text-muted-foreground">{edu.location}</p>
+                        <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-muted-foreground">
+                          <span className="inline-flex items-center gap-1.5">
+                            <MapPin size={14} className="text-accent" />
+                            <span>{edu.location}</span>
+                          </span>
+                          <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full border border-accent/40 text-accent bg-accent/10">
+                            <Calendar size={14} />
+                            <span className="font-medium">{edu.period}</span>
+                          </span>
+                        </div>
                       </div>
-                      <Badge variant="secondary" className="bg-accent/10 text-accent">
-                        {edu.gpa}
-                      </Badge>
+                      {edu.gpa ? (
+                        <Badge variant="secondary" className="bg-accent/10 text-accent">
+                          {edu.gpa}
+                        </Badge>
+                      ) : null}
                     </div>
                     <ul className="space-y-2">
                       {edu.highlights.map((highlight, hIndex) => (
