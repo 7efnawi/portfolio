@@ -5,10 +5,10 @@ backend:
   name: github
   repo: 7efnawi/portfolio
   branch: main
-  # IMPORTANT: Set this to your production URL after creating the GitHub OAuth App
-  # Example: https://your-portfolio.vercel.app
-  # base_url: https://YOUR-PRODUCTION-DOMAIN
-  auth_endpoint: api/oauth
+  # IMPORTANT: Set this to your production URL
+  base_url: https://portfolio-kohl-nine-61.vercel.app
+  # OAuth initiation endpoint (handled by api/oauth/authorize.ts)
+  auth_endpoint: api/oauth/authorize
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
