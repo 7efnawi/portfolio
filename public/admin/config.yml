@@ -1,0 +1,143 @@
+local_backend: true # Enable local backend for development (works with `npm run dev`)
+
+# Production backend on Vercel: GitHub
+backend:
+  name: github
+  repo: 7efnawi/portfolio
+  branch: main
+  # IMPORTANT: Set this to your production URL after creating the GitHub OAuth App
+  # Example: https://your-portfolio.vercel.app
+  # base_url: https://YOUR-PRODUCTION-DOMAIN
+  auth_endpoint: api/oauth
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "portfolio"
+    label: "Portfolio"
+    files:
+      - file: "src/lib/portfolio-data.json"
+        label: "Portfolio Data"
+        name: "portfolioData"
+        fields:
+          - { label: "Name", name: "name", widget: "string" }
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Image", name: "image", widget: "image" }
+          - label: "Skills"
+            name: "skills"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - label: "Skill Categories"
+                name: "skillCategories"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - label: "Skills"
+                    name: "skills"
+                    widget: "list"
+                    fields:
+                      - { label: "Name", name: "name", widget: "string" }
+                      - { label: "Icon", name: "icon", widget: "string" }
+          - label: "Projects"
+            name: "projects"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - label: "Project List"
+                name: "projectList"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Category", name: "category", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+                  - { label: "Technologies", name: "technologies", widget: "list", field: { label: "Technology", name: "technology", widget: "string" } }
+                  - { label: "Impact", name: "impact", widget: "text" }
+                  - { label: "GitHub", name: "github", widget: "string" }
+                  - { label: "Demo", name: "demo", widget: "string" }
+                  - { label: "Image", name: "image", widget: "image" }
+          - label: "Experience"
+            name: "experience"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - label: "Experience List"
+                name: "experienceList"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Company", name: "company", widget: "string" }
+                  - { label: "Location", name: "location", widget: "string" }
+                  - { label: "Period", name: "period", widget: "string" }
+                  - { label: "Achievements", name: "achievements", widget: "list", field: { label: "Achievement", name: "achievement", widget: "string" } }
+                  - { label: "Technologies", name: "technologies", widget: "list", field: { label: "Technology", name: "technology", widget: "string" } }
+          - label: "Education"
+            name: "education"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - label: "Education List"
+                name: "educationList"
+                widget: "list"
+                fields:
+                  - { label: "Degree", name: "degree", widget: "string" }
+                  - { label: "Specialization", name: "specialization", widget: "string" }
+                  - { label: "Institution", name: "institution", widget: "string" }
+                  - { label: "Location", name: "location", widget: "string" }
+                  - { label: "Period", name: "period", widget: "string" }
+                  - { label: "GPA", name: "gpa", widget: "string" }
+                  - { label: "Highlights", name: "highlights", widget: "list", field: { label: "Highlight", name: "highlight", widget: "string" } }
+              - label: "Certifications"
+                name: "certifications"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Issuer", name: "issuer", widget: "string" }
+                  - { label: "Date", name: "date", widget: "string" }
+                  - { label: "Credential", name: "credential", widget: "string" }
+                  - { label: "Link", name: "link", widget: "string" }
+              - label: "Publications"
+                name: "publications"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Journal", name: "journal", widget: "string" }
+                  - { label: "Date", name: "date", widget: "string" }
+                  - { label: "Link", name: "link", widget: "string" }
+          - label: "Contact"
+            name: "contact"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Form Title", name: "formTitle", widget: "string" }
+              - { label: "Connect Title", name: "connectTitle", widget: "string" }
+              - { label: "Connect Description", name: "connectDescription", widget: "text" }
+              - { label: "Follow Me Title", name: "followMeTitle", widget: "string" }
+              - label: "Contact Info"
+                name: "contactInfo"
+                widget: "list"
+                fields:
+                  - { label: "Icon", name: "icon", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Value", name: "value", widget: "string" }
+                  - { label: "Link", name: "link", widget: "string" }
+              - label: "Social Links"
+                name: "socialLinks"
+                widget: "list"
+                fields:
+                  - { label: "Icon", name: "icon", widget: "string" }
+                  - { label: "Platform", name: "platform", widget: "string" }
+                  - { label: "URL", name: "url", widget: "string" }
+                  - { label: "Username", name: "username", widget: "string" }
