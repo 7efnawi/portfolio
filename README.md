@@ -42,7 +42,7 @@ I am passionate about turning raw data into actionable insights and building dat
 [![Email](https://img.shields.io/badge/Email-7efnaw.ii@gmail.com-red?logo=gmail&logoColor=white&style=for-the-badge)](mailto:7efnaw.ii@gmail.com)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue?logo=linkedin&logoColor=white&style=for-the-badge)](https://www.linkedin.com/in/yousef-mahmoud-157b23219)
 [![GitHub](https://img.shields.io/badge/GitHub-7efnawi-181717?logo=github&logoColor=white&style=for-the-badge)](https://github.com/7efnawi)
-[![Portfolio](https://img.shields.io/badge/Portfolio-Live-green?logo=vercel&logoColor=white&style=for-the-badge)](http://localhost:8080)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Live-green?logo=vercel&logoColor=white&style=for-the-badge)]([http://localhost:8080](https://portfolio-kohl-nine-61.vercel.app/))
 
 ---
 
