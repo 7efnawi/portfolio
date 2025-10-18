@@ -50,9 +50,10 @@ collections:
               - label: "Additional Expertise"
                 name: "additionalExpertise"
                 widget: "object"
+                required: false
                 fields:
-                  - { label: "Title", name: "title", widget: "string" }
-                  - { label: "Items", name: "items", widget: "list", field: { label: "Item", name: "item", widget: "string" } }
+                  - { label: "Title", name: "title", widget: "string", required: false }
+                  - { label: "Items", name: "items", widget: "list", required: false, field: { label: "Item", name: "item", widget: "string" } }
           - label: "Projects"
             name: "projects"
             widget: "object"
@@ -68,8 +69,8 @@ collections:
                   - { label: "Description", name: "description", widget: "text" }
                   - { label: "Technologies", name: "technologies", widget: "list", field: { label: "Technology", name: "technology", widget: "string" } }
                   - { label: "Impact", name: "impact", widget: "text" }
-                  - { label: "GitHub", name: "github", widget: "string" }
-                  - { label: "Demo", name: "demo", widget: "string" }
+                  - { label: "GitHub", name: "github", widget: "string", required: false }
+                  - { label: "Demo", name: "demo", widget: "string", required: false }
                   - { label: "Image", name: "image", widget: "image" }
           - label: "Experience"
             name: "experience"
@@ -102,7 +103,7 @@ collections:
                   - { label: "Institution", name: "institution", widget: "string" }
                   - { label: "Location", name: "location", widget: "string" }
                   - { label: "Period", name: "period", widget: "string" }
-                  - { label: "GPA", name: "gpa", widget: "string" }
+                  - { label: "GPA", name: "gpa", widget: "string", required: false }
                   - { label: "Highlights", name: "highlights", widget: "list", field: { label: "Highlight", name: "highlight", widget: "string" } }
               - label: "Certifications"
                 name: "certifications"
@@ -111,7 +112,7 @@ collections:
                   - { label: "Title", name: "title", widget: "string" }
                   - { label: "Issuer", name: "issuer", widget: "string" }
                   - { label: "Date", name: "date", widget: "string" }
-                  - { label: "Credential", name: "credential", widget: "string" }
+                  - { label: "Credential", name: "credential", widget: "string", required: false }
                   - { label: "Link", name: "link", widget: "string" }
               - label: "Publications"
                 name: "publications"
