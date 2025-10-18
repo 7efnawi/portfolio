@@ -33,12 +33,25 @@ export default async function handler(req: Request): Promise<Response> {
 <body>
 <script>
   (function() {
-    var payload = { token: ${JSON.stringify(data.access_token)}, provider: 'github' };
+    var payload = 'authorization:github:success:${JSON.stringify({ token: data.access_token, provider: 'github' })}';
+    
+    // Try multiple methods to communicate with parent window
     if (window.opener) {
+      // Method 1: postMessage
+      window.opener.postMessage(payload, window.location.origin);
       window.opener.postMessage(payload, '*');
-      window.close();
+      
+      // Method 2: Direct callback (for Decap CMS)
+      if (window.opener.authCallback) {
+        window.opener.authCallback(${JSON.stringify(data.access_token)});
+      }
+      
+      // Close after a short delay to ensure message is received
+      setTimeout(function() {
+        window.close();
+      }, 1000);
     } else {
-      document.body.innerText = 'Token received. You may close this window.';
+      document.body.innerHTML = '<h2>Authentication Successful!</h2><p>Token received. You may close this window and return to the admin page.</p>';
     }
   })();
 </script>
