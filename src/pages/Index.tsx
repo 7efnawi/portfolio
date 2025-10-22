@@ -1,52 +1,31 @@
-import { useEffect } from "react";
-import Header from "@/components/Portfolio/Header";
-import Hero from "@/components/Portfolio/Hero";
-import About from "@/components/Portfolio/About";
-import Skills from "@/components/Portfolio/Skills";
-import Projects from "@/components/Portfolio/Projects";
-import Education from "@/components/Portfolio/Education";
-import Contact from "@/components/Portfolio/Contact";
+import { motion } from "framer-motion";
+import HeaderEnhanced from "@/components/Portfolio/HeaderEnhanced";
+import HeroEnhanced from "@/components/Portfolio/HeroEnhanced";
+import AboutEnhanced from "@/components/Portfolio/AboutEnhanced";
+import SkillsEnhanced from "@/components/Portfolio/SkillsEnhanced";
+import ProjectsEnhanced from "@/components/Portfolio/ProjectsEnhanced";
+import EducationEnhanced from "@/components/Portfolio/EducationEnhanced";
+import ContactEnhanced from "@/components/Portfolio/ContactEnhanced";
 import Footer from "@/components/Portfolio/Footer";
+import ScrollProgress from "@/components/Portfolio/ScrollProgress";
 
 const Index = () => {
-  useEffect(() => {
-    // Add scroll reveal functionality
-    const revealElements = document.querySelectorAll(
-      '[class*="animate-fade-in"]'
-    );
-
-    const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-fade-in-up");
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      }
-    );
-
-    revealElements.forEach((el) => {
-      revealObserver.observe(el);
-    });
-
-    return () => revealObserver.disconnect();
-  }, []);
-
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Education />
-        <Contact />
-      </main>
+    <div className="min-h-screen bg-background relative">
+      <ScrollProgress />
+      <HeaderEnhanced />
+      <motion.main
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <HeroEnhanced />
+        <AboutEnhanced />
+        <SkillsEnhanced />
+        <ProjectsEnhanced />
+        <EducationEnhanced />
+        <ContactEnhanced />
+      </motion.main>
       <Footer />
     </div>
   );
