@@ -9,28 +9,21 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary text-primary-foreground py-12 relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute inset-0 bg-gradient-primary opacity-90"></div>
-      <div className="absolute top-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-0 w-72 h-72 bg-orange/10 rounded-full blur-3xl"></div>
-
-      <div className="container mx-auto px-4 relative z-10">
+    <footer className="bg-gray-900 text-white py-12">
+      <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
-          {/* Main Footer Content */}
           <div className="text-center mb-8">
-            <h3 className="text-3xl font-bold mb-4">Yousef Mahmoud</h3>
-            <p className="text-primary-foreground/80 text-lg mb-6 max-w-2xl mx-auto">
+            <h3 className="text-2xl font-bold mb-4">Yousef Mahmoud</h3>
+            <p className="text-gray-400 text-base mb-6 max-w-2xl mx-auto">
               ICT Student | AI & Data Science Enthusiast. Passionate about
               leveraging artificial intelligence and data science to contribute
               to innovative projects.
             </p>
 
-            {/* Quick Links */}
             <div className="flex flex-wrap justify-center gap-6 text-sm mb-8">
               {[
-                { href: "#about", label: "About" },
-                { href: "#skills", label: "Skills" },
+                { href: "#home", label: "Home" },
+                { href: "#about", label: "Skills" },
                 { href: "#projects", label: "Projects" },
                 { href: "#education", label: "Education" },
                 { href: "#contact", label: "Contact" },
@@ -41,7 +34,7 @@ const Footer = () => {
                     const element = document.querySelector(link.href);
                     element?.scrollIntoView({ behavior: "smooth" });
                   }}
-                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                  className="text-gray-400 hover:text-white transition-colors"
                 >
                   {link.label}
                 </button>
@@ -49,14 +42,11 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Bottom Bar */}
-          <div className="border-t border-primary-foreground/20 pt-8">
+          <div className="border-t border-gray-800 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center">
-              <div className="flex items-center text-sm text-primary-foreground/60 mb-4 md:mb-0">
-                <span>
-                  © {currentYear} Yousef Mahmoud Ibrahim Hefnawi. Made with
-                </span>
-                <Heart size={16} className="mx-2 text-red-400" />
+              <div className="flex items-center text-sm text-gray-500 mb-4 md:mb-0">
+                <span>© {currentYear} Yousef Mahmoud. Made with</span>
+                <Heart size={16} className="mx-2 text-red-500" />
                 <span>and lots of coffee.</span>
               </div>
 
@@ -64,7 +54,7 @@ const Footer = () => {
                 onClick={scrollToTop}
                 variant="outline"
                 size="sm"
-                className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10"
+                className="border-gray-700 text-gray-300 hover:bg-gray-800"
               >
                 <ArrowUp size={16} className="mr-2" />
                 Back to Top
