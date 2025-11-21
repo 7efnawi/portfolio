@@ -9,12 +9,12 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 text-white py-12">
+    <footer className="bg-background border-t border-border text-foreground py-12">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold mb-4">Yousef Mahmoud</h3>
-            <p className="text-gray-400 text-base mb-6 max-w-2xl mx-auto">
+            <h3 className="text-2xl font-bold mb-4 text-accent">Yousef Mahmoud</h3>
+            <p className="text-muted-foreground text-base mb-6 max-w-2xl mx-auto">
               ICT Student | AI & Data Science Enthusiast. Passionate about
               leveraging artificial intelligence and data science to contribute
               to innovative projects.
@@ -34,7 +34,7 @@ const Footer = () => {
                     const element = document.querySelector(link.href);
                     element?.scrollIntoView({ behavior: "smooth" });
                   }}
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="text-muted-foreground hover:text-accent transition-colors"
                 >
                   {link.label}
                 </button>
@@ -42,9 +42,9 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="border-t border-gray-800 pt-8">
+          <div className="border-t border-border pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center">
-              <div className="flex items-center text-sm text-gray-500 mb-4 md:mb-0">
+              <div className="flex items-center text-sm text-muted-foreground mb-4 md:mb-0">
                 <span>© {currentYear} Yousef Mahmoud. Made with</span>
                 <Heart size={16} className="mx-2 text-red-500" />
                 <span>and lots of coffee.</span>
@@ -54,7 +54,7 @@ const Footer = () => {
                 onClick={scrollToTop}
                 variant="outline"
                 size="sm"
-                className="border-gray-700 text-gray-300 hover:bg-gray-800"
+                className="border-border text-muted-foreground hover:bg-accent/10 hover:text-accent"
               >
                 <ArrowUp size={16} className="mr-2" />
                 Back to Top

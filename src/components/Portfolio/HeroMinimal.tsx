@@ -1,146 +1,165 @@
 import { motion } from "framer-motion";
 import { portfolioData } from "@/lib/portfolio-data";
-import { Mail, Download, Linkedin, Github, ArrowDown } from "lucide-react";
+import { Mail, Linkedin, Github, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const HeroMinimal = () => {
-  const scrollToNext = () => {
-    const aboutSection = document.querySelector("#about");
-    aboutSection?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center pt-20 md:pt-0 relative bg-white"
+      className="min-h-screen flex items-center relative overflow-hidden"
     >
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-3xl mx-auto text-center"
-        >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-0">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-7xl mx-auto">
+          {/* Left Content */}
           <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
-            className="mb-8"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="space-y-5 lg:space-y-6"
           >
-            <img
-              src={portfolioData.hero.image}
-              alt={portfolioData.hero.name}
-              className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover mx-auto border-4 border-gray-200"
+            {/* Main Heading */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              className="space-y-2"
+            >
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground leading-tight">
+                Welcome to{" "}
+                <span className="text-accent block sm:inline">
+                  {portfolioData.hero.name.split(" ")[0]}'s
+                </span>{" "}
+                Space
+              </h1>
+            </motion.div>
+
+            {/* Title/Role */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              className="space-y-2"
+            >
+              <p className="text-base sm:text-lg lg:text-xl text-muted-foreground">
+                I'm a
+              </p>
+              <p className="text-lg sm:text-xl lg:text-2xl text-accent font-semibold leading-relaxed">
+                {portfolioData.hero.title}
+              </p>
+            </motion.div>
+
+            {/* Tagline */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+              className="py-1"
+            >
+              <p className="text-xs sm:text-sm text-accent-light font-semibold tracking-widest uppercase">
+                Patterns, Insights, Action
+              </p>
+            </motion.div>
+
+            {/* Description */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+              className="prose prose-invert max-w-none"
+            >
+              <div className="text-sm lg:text-base text-muted-foreground leading-relaxed space-y-3 whitespace-pre-line">
+                {portfolioData.hero.description}
+              </div>
+            </motion.div>
+
+            {/* Social Icons */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+              className="flex items-center gap-4 pt-2"
+            >
+              {[
+                { href: "https://www.linkedin.com/in/yousef-mahmoud-157b23219", icon: Linkedin, label: "LinkedIn" },
+                { href: "https://github.com/7efnawi", icon: Github, label: "GitHub" },
+                { href: "https://wa.me/1234567890", icon: MessageCircle, label: "WhatsApp" },
+                { href: "mailto:7efnaw.ii@gmail.com", icon: Mail, label: "Email" },
+              ].map((social, index) => (
+                <motion.a
+                  key={index}
+                  href={social.href}
+                  target={social.href.includes("http") ? "_blank" : undefined}
+                  rel={social.href.includes("http") ? "noopener noreferrer" : undefined}
+                  className="w-12 h-12 rounded-full border-2 border-muted-foreground/40 flex items-center justify-center text-foreground hover:bg-accent hover:border-accent hover:text-white transition-all duration-300"
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  aria-label={social.label}
+                >
+                  <social.icon className="w-5 h-5" />
+                </motion.a>
+              ))}
+            </motion.div>
+
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7, duration: 0.8 }}
+              className="flex flex-col sm:flex-row gap-4 pt-4"
+            >
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-2 border-accent text-accent hover:bg-accent hover:text-white px-8 py-6 text-base font-medium transition-all duration-300"
+                asChild
+              >
+                <a
+                  href="/Yousef Mahmoud Hefnawi.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2"
+                >
+                  See my CV
+                </a>
+              </Button>
+
+              <Button
+                size="lg"
+                className="bg-accent text-white hover:bg-accent-light px-8 py-6 text-base font-medium transition-all duration-300"
+                asChild
+              >
+                <a href="#contact" className="flex items-center justify-center gap-2">
+                  Contact Me
+                </a>
+              </Button>
+            </motion.div>
+          </motion.div>
+
+          {/* Right Content - Profile Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="relative hidden lg:flex justify-center items-center"
+          >
+            <motion.img
+              src="/profile_pic.jpg"
+              alt="Yousef Mahmoud"
+              loading="eager"
+              fetchPriority="high"
+              className="w-full max-w-md h-auto object-cover rounded-full border-4 border-accent/20 drop-shadow-2xl"
+              animate={{
+                y: [0, -15, 0],
+              }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
             />
           </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            className="text-5xl md:text-6xl font-bold text-gray-900 mb-4"
-          >
-            {portfolioData.hero.name}
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            className="text-2xl md:text-3xl text-gray-600 mb-6"
-          >
-            {portfolioData.hero.title}
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-lg text-gray-500 max-w-2xl mx-auto mb-8 leading-relaxed"
-          >
-            {portfolioData.hero.description}
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-8"
-          >
-            <Button
-              size="lg"
-              className="bg-gray-900 text-white hover:bg-gray-800 px-8 py-3 text-base"
-              asChild
-            >
-              <a href="mailto:7efnaw.ii@gmail.com" className="flex items-center justify-center gap-2">
-                <Mail className="w-5 h-5" />
-                Get In Touch
-              </a>
-            </Button>
-
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-2 border-gray-900 text-gray-900 hover:bg-gray-50 px-8 py-3 text-base"
-              asChild
-            >
-              <a
-                href="https://drive.google.com/file/d/1Fv_JPSUg_pdEk6e-P7DmhlHFT5AZyAuG/view?usp=sharing"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2"
-              >
-                <Download className="w-5 h-5" />
-                Download Resume
-              </a>
-            </Button>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-            className="flex justify-center gap-6"
-          >
-            {[
-              { href: "https://www.linkedin.com/in/yousef-mahmoud-157b23219", icon: Linkedin },
-              { href: "https://github.com/7efnawi", icon: Github },
-              { href: "mailto:7efnaw.ii@gmail.com", icon: Mail },
-            ].map((social, index) => (
-              <motion.a
-                key={index}
-                href={social.href}
-                target={social.href.includes("linkedin") || social.href.includes("github") ? "_blank" : undefined}
-                rel={social.href.includes("linkedin") || social.href.includes("github") ? "noopener noreferrer" : undefined}
-                className="text-gray-600 hover:text-gray-900 transition-colors"
-                whileHover={{ scale: 1.2 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <social.icon size={24} />
-              </motion.a>
-            ))}
-          </motion.div>
-        </motion.div>
-
-        <motion.button
-          onClick={scrollToNext}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-gray-600 hover:text-gray-900 transition-colors"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1, y: [0, 10, 0] }}
-          transition={{
-            opacity: { delay: 1, duration: 0.5 },
-            y: {
-              delay: 1.5,
-              duration: 1.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-            },
-          }}
-          whileHover={{ scale: 1.2 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          <ArrowDown size={32} />
-        </motion.button>
+        </div>
       </div>
     </section>
   );

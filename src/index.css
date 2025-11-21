@@ -8,37 +8,42 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 220 15% 15%;
+    /* New Theme - Black/Blue/Green/Yellow Palette */
+    --background: 0 0% 0%;            /* #000000 - Black background */
+    --foreground: 0 0% 95%;           /* Light text */
     
-    /* Professional Portfolio Colors */
-    --primary: 220 50% 20%;           /* Navy Blue */
-    --primary-foreground: 0 0% 98%;
-    --primary-light: 220 50% 35%;
-    --primary-glow: 220 50% 45%;
+    /* Primary Colors */
+    --primary: 202 82% 32%;           /* #0F6292 - Dark Blue */
+    --primary-foreground: 0 0% 95%;
+    --primary-light: 202 82% 42%;
+    --primary-glow: 202 82% 52%;
     
-    --secondary: 220 10% 25%;         /* Charcoal Gray */
-    --secondary-foreground: 0 0% 98%;
-    --secondary-light: 220 10% 40%;
+    /* Secondary Colors */
+    --secondary: 0 0% 0%;             /* #000000 - Same as background */
+    --secondary-foreground: 0 0% 95%;
+    --secondary-light: 0 0% 10%;
     
-    --accent: 180 50% 50%;            /* Teal */
-    --accent-foreground: 0 0% 98%;
-    --accent-light: 180 50% 65%;
+    /* Accent Colors */
+    --accent: 115 100% 50%;           /* #16FF00 - Bright Green */
+    --accent-foreground: 0 0% 0%;     /* Dark text on bright green */
+    --accent-light: 115 100% 60%;
     
-    --orange: 25 80% 55%;             /* Orange accent */
-    --orange-light: 25 80% 70%;
+    /* Highlight/Yellow accent */
+    --orange: 56 100% 50%;            /* #FFED00 - Yellow */
+    --orange-light: 56 100% 60%;
     
-    --muted: 220 15% 95%;
-    --muted-foreground: 220 15% 45%;
+    /* UI Elements */
+    --muted: 202 30% 15%;
+    --muted-foreground: 202 10% 65%;
     
-    --card: 0 0% 100%;
-    --card-foreground: 220 15% 15%;
+    --card: 202 40% 10%;
+    --card-foreground: 0 0% 92%;
     
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 15% 15%;
-    --border: 220 15% 90%;
-    --input: 220 15% 90%;
-    --ring: 220 50% 20%;
+    --popover: 202 40% 10%;
+    --popover-foreground: 0 0% 92%;
+    --border: 202 30% 20%;
+    --input: 202 30% 15%;
+    --ring: 115 100% 50%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
     --radius: 0.75rem;
@@ -46,15 +51,15 @@
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
     --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-light)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 50%, hsl(var(--accent)) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--primary)) 100%);
     --gradient-card: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(var(--muted)) 100%);
     
     /* Shadows */
-    --shadow-sm: 0 2px 4px hsl(var(--primary) / 0.1);
-    --shadow-md: 0 4px 12px hsl(var(--primary) / 0.15);
-    --shadow-lg: 0 8px 25px hsl(var(--primary) / 0.2);
-    --shadow-glow: 0 0 30px hsl(var(--accent) / 0.3);
-    --shadow-orange-glow: 0 0 30px hsl(var(--orange) / 0.3);
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.6);
+    --shadow-glow: 0 0 30px hsl(var(--orange) / 0.5);
+    --shadow-orange-glow: 0 0 30px hsl(var(--orange) / 0.5);
     
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -62,49 +67,35 @@
   }
 
   .dark {
-    /* Enhanced Dark Mode - Professional & Accessible */
-    --background: 220 20% 6%;           /* Deep dark background #0f1419 */
-    --foreground: 0 0% 95%;             /* Light text for high contrast */
-    
-    /* Enhanced Primary Colors for Dark Mode */
-    --primary: 220 70% 55%;             /* Brighter blue for better visibility */
-    --primary-foreground: 220 20% 6%;  /* Dark text on primary */
-    --primary-light: 220 70% 65%;      /* Lighter variant */
-    --primary-glow: 220 70% 75%;       /* Glow effect */
-    
-    /* Secondary Colors */
-    --secondary: 220 15% 18%;           /* Darker gray surfaces */
-    --secondary-foreground: 0 0% 90%;  /* Light text */
-    --secondary-light: 220 15% 25%;    /* Lighter secondary */
-    
-    /* Accent Colors - Optimized for Dark */
-    --accent: 180 60% 55%;              /* Brighter teal */
-    --accent-foreground: 220 20% 6%;   /* Dark text on accent */
-    --accent-light: 180 60% 65%;       /* Lighter teal */
-    
-    /* Orange Accent */
-    --orange: 25 85% 60%;               /* Vibrant orange */
-    --orange-light: 25 85% 70%;        /* Lighter orange */
-    
-    /* UI Elements */
-    --card: 220 18% 10%;                /* Card backgrounds #1a1f26 */
-    --card-foreground: 0 0% 92%;       /* Card text */
-    --popover: 220 18% 10%;             /* Popover background */
-    --popover-foreground: 0 0% 92%;    /* Popover text */
-    
-    /* Form Elements */
-    --muted: 220 15% 14%;               /* Subtle backgrounds */
-    --muted-foreground: 220 10% 70%;   /* Muted text */
-    --border: 220 15% 22%;              /* Border color */
-    --input: 220 15% 16%;               /* Input backgrounds */
-    --ring: 220 70% 55%;                /* Focus rings */
-    
-    /* Enhanced shadows for dark mode */
-    --shadow-sm: 0 2px 4px hsla(220, 20%, 2%, 0.5);
-    --shadow-md: 0 4px 12px hsla(220, 20%, 2%, 0.6);
-    --shadow-lg: 0 8px 25px hsla(220, 20%, 2%, 0.7);
-    --shadow-glow: 0 0 30px hsl(var(--accent) / 0.4);
-    --shadow-orange-glow: 0 0 30px hsl(var(--orange) / 0.4);
+    /* Same as light mode - using dark theme throughout */
+    --background: 0 0% 0%;
+    --foreground: 0 0% 95%;
+    --primary: 202 82% 32%;
+    --primary-foreground: 0 0% 95%;
+    --primary-light: 202 82% 42%;
+    --primary-glow: 202 82% 52%;
+    --secondary: 0 0% 0%;
+    --secondary-foreground: 0 0% 95%;
+    --secondary-light: 0 0% 10%;
+    --accent: 115 100% 50%;
+    --accent-foreground: 0 0% 0%;
+    --accent-light: 115 100% 60%;
+    --orange: 56 100% 50%;
+    --orange-light: 56 100% 60%;
+    --muted: 202 30% 15%;
+    --muted-foreground: 202 10% 65%;
+    --card: 202 40% 10%;
+    --card-foreground: 0 0% 92%;
+    --popover: 202 40% 10%;
+    --popover-foreground: 0 0% 92%;
+    --border: 202 30% 20%;
+    --input: 202 30% 15%;
+    --ring: 115 100% 50%;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.6);
+    --shadow-glow: 0 0 30px hsl(var(--orange) / 0.5);
+    --shadow-orange-glow: 0 0 30px hsl(var(--orange) / 0.5);
   }
 }
 
@@ -231,10 +222,10 @@
 
   @keyframes pulse-glow {
     0%, 100% {
-      box-shadow: 0 0 20px hsl(var(--accent) / 0.3);
+      box-shadow: 0 0 20px hsl(var(--orange) / 0.3);
     }
     50% {
-      box-shadow: 0 0 40px hsl(var(--accent) / 0.6);
+      box-shadow: 0 0 40px hsl(var(--orange) / 0.6);
     }
   }
 
@@ -394,24 +385,42 @@
   .ripple {
     position: absolute;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.6);
+    background: hsl(var(--orange) / 0.6);
     animation: ripple 0.6s ease-out;
   }
 
   /* Glow border animation */
   @keyframes glow-border {
     0%, 100% {
-      border-color: hsl(var(--accent) / 0.5);
-      box-shadow: 0 0 10px hsl(var(--accent) / 0.3);
+      border-color: hsl(var(--orange) / 0.5);
+      box-shadow: 0 0 10px hsl(var(--orange) / 0.3);
     }
     50% {
-      border-color: hsl(var(--accent));
-      box-shadow: 0 0 20px hsl(var(--accent) / 0.6);
+      border-color: hsl(var(--orange));
+      box-shadow: 0 0 20px hsl(var(--orange) / 0.6);
     }
   }
 
   .glow-border {
     animation: glow-border 2s ease-in-out infinite;
+  }
+
+  /* Marquee Animation */
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-scroll {
+    animation: scroll 30s linear infinite;
+  }
+
+  .pause-on-hover:hover .animate-scroll {
+    animation-play-state: paused;
   }
 
   /* Gradient border */
@@ -481,5 +490,41 @@
   .gpu-accelerated {
     transform: translateZ(0);
     backface-visibility: hidden;
+  }
+
+  /* Starry space background */
+  .space-background {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .space-background::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(2px 2px at 20% 30%, hsl(var(--orange)), transparent),
+      radial-gradient(2px 2px at 60% 70%, hsl(var(--orange)), transparent),
+      radial-gradient(1px 1px at 50% 50%, hsl(var(--orange)), transparent),
+      radial-gradient(1px 1px at 80% 10%, hsl(var(--orange)), transparent),
+      radial-gradient(2px 2px at 90% 60%, hsl(var(--orange)), transparent),
+      radial-gradient(1px 1px at 33% 80%, hsl(var(--orange)), transparent),
+      radial-gradient(1px 1px at 15% 90%, hsl(var(--orange)), transparent);
+    background-size: 200% 200%;
+    background-position: 0% 0%;
+    animation: twinkle 100s ease-in-out infinite;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  @keyframes twinkle {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.6;
+      transform: scale(1.05);
+    }
   }
 }

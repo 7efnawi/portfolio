@@ -2,74 +2,89 @@
   "name": "Yousef Mahmoud",
   "hero": {
     "name": "Yousef Mahmoud",
-    "title": "Data Scientist | Machine Learning",
-    "description": "Detail-oriented Data Scientist with hands-on experience in analytics and ML. I create reproducible pipelines, train and evaluate models, and communicate results through intuitive visualizations that drive real-world decisions.",
-    "image": "/profile_pic.jpg"
+    "title": "Third-Year ICT Student | Aspiring Data Analyst | Python | SQL | Power BI | Data Visualization",
+    "description": "I turn overwhelmed business owners into confident decision-makers. By leveraging Python and SQL for deep analysis and Power BI/Excel for visualization, I simplify complex datasets into clear stories.\n\nLet's discuss how we can unlock the value in your data today.",
+    "image": "/uploads/profile_pic.jpg"
   },
   "skills": {
-    "title": "Skills",
-    "description": "Programming, data science, machine learning, and essential soft skills for modern technology projects.",
-    "skillCategories": [
+    "title": "My Skills",
+    "description": "A blend of technical expertise and interpersonal abilities that empower me to deliver data-driven solutions effectively.",
+    "hardSkills": [
       {
-        "title": "Programming Languages",
-        "skills": [
-          { "name": "Python", "icon": "Code" },
-          { "name": "C++", "icon": "Code2" },
-          { "name": "C", "icon": "Code2" },
-          { "name": "JAVA", "icon": "Code2" }
-        ]
+        "name": "Python",
+        "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
       },
       {
-        "title": "Data Science & Machine Learning",
-        "skills": [
-          { "name": "Machine Learning", "icon": "Brain" },
-          { "name": "TensorFlow", "icon": "FunctionSquare" },
-          { "name": "PyTorch", "icon": "Flame" },
-          { "name": "Data Structure & Algorithm", "icon": "ListTree" },
-          { "name": "NumPy", "icon": "Sigma" },
-          { "name": "Pandas", "icon": "Table" },
-          { "name": "Matplotlib", "icon": "BarChart3" },
-          { "name": "Seaborn", "icon": "Waves" },
-          { "name": "Plotly", "icon": "LineChart" },
-          { "name": "Scikit-learn", "icon": "Workflow" },
-          { "name": "Data Base", "icon": "Database" },
-          { "name": "MYSQL", "icon": "Database" }
-        ]
+        "name": "SQL",
+        "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
       },
       {
-        "title": "Tools & Platforms",
-        "skills": [
-          { "name": "Jupyter Notebook", "icon": "Notebook" },
-          { "name": "Google Colab", "icon": "Cloud" },
-          {
-            "name": "MS Office (Excel, Word, PowerPoint, Outlook, Access)",
-            "icon": "FileText"
-          },
-          { "name": "Excel", "icon": "FileSpreadsheet" },
-          { "name": "Power Query", "icon": "Workflow" },
-          { "name": "Power BI", "icon": "BarChart3" }
-        ]
+        "name": "Power BI",
+        "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg"
       },
       {
-        "title": "Soft Skills",
-        "skills": [
-          { "name": "Time management", "icon": "Clock" },
-          { "name": "Communication", "icon": "MessageCircle" },
-          { "name": "Adaptability", "icon": "RefreshCcw" },
-          { "name": "Problem-solving", "icon": "Puzzle" },
-          { "name": "Teamwork", "icon": "Users" },
-          { "name": "Creativity", "icon": "Sparkles" },
-          { "name": "Leadership", "icon": "Crown" },
-          { "name": "Interpersonal skills", "icon": "Handshake" },
-          { "name": "Work ethic", "icon": "CheckCircle2" },
-          { "name": "Attention to detail", "icon": "Search" }
-        ]
+        "name": "Excel",
+        "iconUrl": "https://img.icons8.com/fluency/48/microsoft-excel-2025.png"
+      },
+      {
+        "name": "Pandas",
+        "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg"
+      },
+      {
+        "name": "NumPy",
+        "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg"
+      },
+      {
+        "name": "GitHub",
+        "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+      },
+      {
+        "name": "Git",
+        "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+      },
+      {
+        "name": "Office 365",
+        "iconUrl": "https://img.icons8.com/fluency/48/microsoft-365.png"
+      },
+      {
+        "name": "Jupyter",
+        "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original-wordmark.svg"
+      },
+      {
+        "name": "Google Colab",
+        "iconUrl": "https://img.icons8.com/color/48/google-colab.png"
       }
     ],
-    "additionalExpertise": {
-      "title": "Additional Expertise",
-      "items": []
-    }
+    "softSkills": [
+      {
+        "name": "Communication",
+        "icon": "MessageSquare"
+      },
+      {
+        "name": "Problem Solving",
+        "icon": "Puzzle"
+      },
+      {
+        "name": "Critical Thinking",
+        "icon": "BrainCircuit"
+      },
+      {
+        "name": "Storytelling",
+        "icon": "BookOpen"
+      },
+      {
+        "name": "Adaptability",
+        "icon": "RefreshCw"
+      },
+      {
+        "name": "Leadership",
+        "icon": "Users"
+      },
+      {
+        "name": "Time Management",
+        "icon": "Clock"
+      }
+    ]
   },
   "projects": {
     "title": "Projects",
@@ -88,13 +103,13 @@
         "impact": "Provides intelligent, context-aware suggestions for various environments.",
         "github": "",
         "demo": "https://drive.google.com/file/d/1_bKYstUGeqUD6rMB3hVdmqrsrvZAYtGd/view?usp=sharing",
-        "image": "/logo_withoutbg (1).png"
+        "image": "/uploads/logo_withoutbg-1-.png"
       }
     ]
   },
   "experience": {
     "title": "Experience",
-    "description": "",
+    "description": "3 Months with freelancing projects",
     "experienceList": []
   },
   "education": {

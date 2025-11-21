@@ -5,14 +5,14 @@ import { Badge } from "@/components/ui/badge";
 
 const ProjectsMinimal = () => {
   return (
-    <section id="projects" className="py-20 md:py-32 bg-gray-50">
+    <section id="projects" className="py-20 md:py-32 bg-background">
       <div className="container mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 text-center"
+          className="text-4xl md:text-5xl font-bold text-foreground mb-4 text-center"
         >
           {portfolioData.projects.title}
         </motion.h2>
@@ -22,7 +22,7 @@ const ProjectsMinimal = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-lg text-gray-600 text-center max-w-2xl mx-auto mb-16"
+          className="text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-16"
         >
           {portfolioData.projects.description}
         </motion.p>
@@ -36,25 +36,25 @@ const ProjectsMinimal = () => {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ y: -8 }}
-              className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all"
+              className="bg-card border border-border rounded-lg overflow-hidden shadow-md hover:shadow-glow transition-all"
             >
-              <div className="relative h-48 overflow-hidden bg-gray-200">
+              <div className="relative h-48 overflow-hidden bg-muted">
                 <img
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                 />
                 <div className="absolute top-0 right-0 m-3">
-                  <Badge className="bg-gray-900 text-white">{project.category}</Badge>
+                  <Badge className="bg-primary text-primary-foreground">{project.category}</Badge>
                 </div>
               </div>
 
               <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
+                <h3 className="text-xl font-bold text-foreground mb-3 line-clamp-2">
                   {project.title}
                 </h3>
 
-                <p className="text-gray-600 mb-4 line-clamp-3 text-sm">
+                <p className="text-muted-foreground mb-4 line-clamp-3 text-sm">
                   {project.description}
                 </p>
 
@@ -63,7 +63,7 @@ const ProjectsMinimal = () => {
                     <Badge
                       key={techIndex}
                       variant="outline"
-                      className="text-xs border-gray-300 text-gray-700"
+                      className="text-xs border-accent/50 text-accent"
                     >
                       {tech}
                     </Badge>
@@ -71,7 +71,7 @@ const ProjectsMinimal = () => {
                   {project.technologies.length > 2 && (
                     <Badge
                       variant="outline"
-                      className="text-xs border-gray-300 text-gray-700"
+                      className="text-xs border-accent/50 text-accent"
                     >
                       +{project.technologies.length - 2}
                     </Badge>
@@ -84,7 +84,7 @@ const ProjectsMinimal = () => {
                       href={project.demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded text-sm hover:bg-gray-800 transition-colors"
+                      className="flex items-center gap-2 px-4 py-2 bg-accent text-accent-foreground rounded text-sm hover:bg-accent/90 transition-colors font-medium"
                     >
                       <ExternalLink size={16} />
                       Demo
@@ -95,7 +95,7 @@ const ProjectsMinimal = () => {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 border border-gray-300 text-gray-900 rounded text-sm hover:bg-gray-50 transition-colors"
+                      className="flex items-center gap-2 px-4 py-2 border border-border text-foreground rounded text-sm hover:bg-accent/10 transition-colors"
                     >
                       <Github size={16} />
                       Code

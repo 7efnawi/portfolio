@@ -5,14 +5,14 @@ import { Badge } from "@/components/ui/badge";
 
 const EducationMinimal = () => {
   return (
-    <section id="education" className="py-20 md:py-32 bg-white">
+    <section id="education" className="py-20 md:py-32 bg-background">
       <div className="container mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 text-center"
+          className="text-4xl md:text-5xl font-bold text-foreground mb-4 text-center"
         >
           {portfolioData.education.title}
         </motion.h2>
@@ -22,14 +22,14 @@ const EducationMinimal = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-lg text-gray-600 text-center max-w-2xl mx-auto mb-16"
+          className="text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-16"
         >
           {portfolioData.education.description}
         </motion.p>
 
         <div className="max-w-4xl mx-auto">
           <div className="mb-16">
-            <h3 className="text-2xl font-semibold text-gray-900 mb-8">Education</h3>
+            <h3 className="text-2xl font-semibold text-foreground mb-8">Education</h3>
             <div className="space-y-6">
               {portfolioData.education.educationList.map((edu, index) => (
                 <motion.div
@@ -38,26 +38,26 @@ const EducationMinimal = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="pb-6 border-b border-gray-200 last:border-b-0"
+                  className="pb-6 border-b border-border last:border-b-0"
                 >
-                  <h4 className="text-lg font-bold text-gray-900 mb-2">
+                  <h4 className="text-lg font-bold text-accent mb-2">
                     {edu.degree}
                   </h4>
-                  <p className="text-gray-600 font-medium mb-3">{edu.institution}</p>
-                  <p className="text-gray-600 mb-3">{edu.specialization}</p>
+                  <p className="text-foreground font-medium mb-3">{edu.institution}</p>
+                  <p className="text-muted-foreground mb-3">{edu.specialization}</p>
 
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-3 text-sm text-gray-500">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-3 text-sm text-muted-foreground">
                     <div className="flex items-center gap-2">
-                      <Calendar size={16} />
+                      <Calendar size={16} className="text-accent" />
                       {edu.period}
                     </div>
                     <div className="flex items-center gap-2">
-                      <MapPin size={16} />
+                      <MapPin size={16} className="text-accent" />
                       {edu.location}
                     </div>
                     {edu.gpa && (
                       <div className="flex items-center gap-2">
-                        <Award size={16} />
+                        <Award size={16} className="text-accent" />
                         {edu.gpa}
                       </div>
                     )}
@@ -68,7 +68,7 @@ const EducationMinimal = () => {
           </div>
 
           <div>
-            <h3 className="text-2xl font-semibold text-gray-900 mb-8">Certifications</h3>
+            <h3 className="text-2xl font-semibold text-foreground mb-8">Certifications</h3>
             <div className="space-y-4">
               {portfolioData.education.certifications.map((cert, index) => (
                 <motion.div
@@ -80,14 +80,14 @@ const EducationMinimal = () => {
                     duration: 0.6,
                     delay: (portfolioData.education.educationList.length + index) * 0.05,
                   }}
-                  className="p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                  className="p-4 bg-card border border-border rounded-lg hover:border-accent/50 transition-colors"
                 >
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
                     <div className="flex-1">
-                      <h4 className="font-bold text-gray-900 mb-1">{cert.title}</h4>
-                      <p className="text-sm text-gray-600 mb-2">{cert.issuer}</p>
-                      <div className="flex items-center gap-2 text-xs text-gray-500">
-                        <Calendar size={14} />
+                      <h4 className="font-bold text-foreground mb-1">{cert.title}</h4>
+                      <p className="text-sm text-muted-foreground mb-2">{cert.issuer}</p>
+                      <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                        <Calendar size={14} className="text-accent" />
                         {cert.date}
                       </div>
                     </div>
@@ -96,7 +96,7 @@ const EducationMinimal = () => {
                         href={cert.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-gray-900 hover:text-gray-600 transition-colors"
+                        className="flex items-center gap-2 text-accent hover:text-accent-light transition-colors"
                       >
                         <ExternalLink size={16} />
                       </a>

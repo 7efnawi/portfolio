@@ -47,12 +47,16 @@ const Hero = () => {
             >
               {portfolioData.hero.title}
             </div>
-            <p
-              className="text-md sm:text-lg text-muted-foreground max-w-md mx-auto md:mx-0 md:max-w-2xl mb-8 leading-relaxed animate-fade-in-up"
+            <div
+              className="text-md sm:text-lg text-muted-foreground max-w-md mx-auto md:mx-0 md:max-w-2xl mb-8 leading-relaxed animate-fade-in-up space-y-4"
               style={{ animationDelay: "0.4s" }}
             >
-              {portfolioData.hero.description}
-            </p>
+              {portfolioData.hero.description.split('\n\n').map((paragraph, index) => (
+                <p key={index} className="leading-relaxed">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
             <div
               className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start items-center mb-12 animate-fade-in-up"
               style={{ animationDelay: "0.6s" }}

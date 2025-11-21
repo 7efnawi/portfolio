@@ -7,17 +7,10 @@ import { Button } from "@/components/ui/button";
 const HeaderMinimal = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [hidden, setHidden] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    const previous = scrollY.getPrevious() ?? 0;
-    if (latest > previous && latest > 150) {
-      setHidden(true);
-    } else {
-      setHidden(false);
-    }
     setIsScrolled(latest > 50);
   });
 
@@ -41,9 +34,8 @@ const HeaderMinimal = () => {
 
   const navItems = [
     { href: "#home", label: "Home" },
-    { href: "#about", label: "Skills" },
+    { href: "#about", label: "About" },
     { href: "#projects", label: "Projects" },
-    { href: "#education", label: "Education" },
     { href: "#contact", label: "Contact" },
   ];
 
@@ -57,29 +49,24 @@ const HeaderMinimal = () => {
 
   return (
     <motion.header
-      variants={{
-        visible: { y: 0 },
-        hidden: { y: "-100%" },
-      }}
-      animate={hidden ? "hidden" : "visible"}
-      transition={{ duration: 0.3, ease: "easeInOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm"
-          : "bg-white"
+          ? "bg-background/95 backdrop-blur-sm border-b border-border shadow-md"
+          : "bg-transparent"
       }`}
     >
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <motion.button
-            className="text-xl font-bold text-gray-900 cursor-pointer"
+            className="text-xl font-bold cursor-pointer"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
             whileHover={{ scale: 1.05 }}
             onClick={() => scrollToSection("#home")}
           >
-            {portfolioData.name.split(" ")[0]}
+            <span className="text-foreground">{portfolioData.name.split(" ")[0]}</span>
+            <span className="text-accent"> Mahmoud</span>
           </motion.button>
 
           <div className="hidden md:flex items-center space-x-8">
@@ -90,7 +77,7 @@ const HeaderMinimal = () => {
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}
                   className={`text-sm font-medium transition-colors duration-200 ${
-                    isActive ? "text-gray-900 border-b-2 border-gray-900" : "text-gray-600 hover:text-gray-900"
+                    isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                   }`}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -102,6 +89,21 @@ const HeaderMinimal = () => {
                 </motion.button>
               );
             })}
+            
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: navItems.length * 0.05 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Button
+                onClick={() => scrollToSection("#contact")}
+                className="bg-accent hover:bg-accent-light text-white font-medium px-6 py-2 rounded-md transition-all"
+              >
+                Contact Me!
+              </Button>
+            </motion.div>
           </div>
 
           <div className="md:hidden">
@@ -110,7 +112,7 @@ const HeaderMinimal = () => {
                 variant="ghost"
                 size="icon"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-gray-900 hover:bg-gray-100"
+                className="text-foreground hover:bg-muted"
               >
                 <AnimatePresence mode="wait" initial={false}>
                   {isMenuOpen ? (
@@ -150,7 +152,7 @@ const HeaderMinimal = () => {
               className="md:hidden mt-4 overflow-hidden"
             >
               <motion.div
-                className="rounded-lg border border-gray-200 bg-white shadow-md overflow-hidden"
+                className="rounded-lg border border-border bg-card shadow-md overflow-hidden"
                 initial={{ y: -20 }}
                 animate={{ y: 0 }}
                 exit={{ y: -20 }}
@@ -163,8 +165,8 @@ const HeaderMinimal = () => {
                       onClick={() => scrollToSection(item.href)}
                       className={`w-full px-4 py-3 text-left text-sm font-medium transition-colors duration-200 ${
                         isActive
-                          ? "text-gray-900 bg-gray-100"
-                          : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                          ? "text-foreground bg-muted"
+                          : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                       }`}
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
@@ -175,6 +177,19 @@ const HeaderMinimal = () => {
                     </motion.button>
                   );
                 })}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: navItems.length * 0.05 }}
+                  className="p-4"
+                >
+                  <Button
+                    onClick={() => scrollToSection("#contact")}
+                    className="w-full bg-accent hover:bg-accent-light text-white"
+                  >
+                    Contact Me!
+                  </Button>
+                </motion.div>
               </motion.div>
             </motion.div>
           )}
@@ -185,3 +200,4 @@ const HeaderMinimal = () => {
 };
 
 export default HeaderMinimal;
+

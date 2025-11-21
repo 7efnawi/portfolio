@@ -9,7 +9,7 @@ import Footer from "@/components/Portfolio/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background space-background">
       <HeaderMinimal />
       <motion.main
         initial={{ opacity: 0 }}
