@@ -1,7 +1,25 @@
 import { motion } from "framer-motion";
 import { portfolioData } from "@/lib/portfolio-data";
-import { Mail, Linkedin, Github, MessageCircle } from "lucide-react";
+import { Mail, Linkedin, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
+const WhatsappIcon = ({ className }: { className?: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
+    <path d="M9 10a0.5 .5 0 0 0 1 0v-1a0.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a0.5 .5 0 0 0 0 -1h-1a0.5 .5 0 0 0 0 1" />
+  </svg>
+);
 
 const HeroMinimal = () => {
   return (
@@ -83,7 +101,7 @@ const HeroMinimal = () => {
               {[
                 { href: "https://www.linkedin.com/in/yousef-mahmoud-157b23219", icon: Linkedin, label: "LinkedIn" },
                 { href: "https://github.com/7efnawi", icon: Github, label: "GitHub" },
-                { href: "https://wa.me/1234567890", icon: MessageCircle, label: "WhatsApp" },
+                { href: "https://wa.me/201017906167", icon: WhatsappIcon, label: "WhatsApp" },
                 { href: "mailto:7efnaw.ii@gmail.com", icon: Mail, label: "Email" },
               ].map((social, index) => (
                 <motion.a
@@ -148,7 +166,7 @@ const HeroMinimal = () => {
               alt="Yousef Mahmoud"
               loading="eager"
               fetchPriority="high"
-              className="w-full max-w-md h-auto object-cover rounded-full border-4 border-accent/20 drop-shadow-2xl"
+              className="w-full max-w-md h-auto object-cover rounded-full border-4 border-accent/20 drop-shadow-[0_0_25px_#16FF00]"
               animate={{
                 y: [0, -15, 0],
               }}
