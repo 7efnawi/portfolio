@@ -211,6 +211,14 @@
     ],
     "certifications": [
       {
+        "title": "BCG - Data for Decision Makers Job Simulation",
+        "issuer": "Boston Consulting Group",
+        "date": "Nov 2025",
+        "credential": "",
+        "link": "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/BCG%20/Tcz8gTtprzAS4xSoK_BCG_ym5031970_1732294949494_completion_certificate.pdf",
+        "icon": "/cropped-Forage_Logo_Icon_Horiz_Green_RGB.png"
+      },
+      {
         "title": "Python Data Fundamentals",
         "issuer": "DataCamp",
         "date": "Sep 2025",
