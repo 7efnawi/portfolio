@@ -36,7 +36,7 @@
       },
       {
         "name": "GitHub",
-        "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+        "iconUrl": "https://img.icons8.com/ios-glyphs/48/ffffff/github.png"
       },
       {
         "name": "Git",
@@ -53,6 +53,10 @@
       {
         "name": "Google Colab",
         "iconUrl": "https://img.icons8.com/color/48/google-colab.png"
+      },
+      {
+        "name": "Matplotlib",
+        "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matplotlib/matplotlib-original.svg"
       }
     ],
     "softSkills": [
@@ -87,9 +91,79 @@
     ]
   },
   "projects": {
-    "title": "Projects",
+    "title": "My Projects",
     "description": "Selected projects demonstrating my skills in AI, deep learning, and IoT integration.",
     "projectList": [
+      {
+        "title": "Los Angeles Crime Analysis",
+        "category": "Data Analysis",
+        "description": "A data analysis project supporting the Los Angeles Police Department (LAPD) by exploring patterns in criminal activity across the city. The analysis focuses on identifying temporal, geographic, and demographic trends to inform resource allocation and policy decisions.",
+        "technologies": [
+          "Python",
+          "Data Analysis",
+          "Visualization"
+        ],
+        "impact": "Informs resource allocation and policy decisions for LAPD.",
+        "github": "https://github.com/7efnawi/Analyzing-Crime-in-Los-Angeles.git",
+        "demo": "",
+        "image": "/project photos/la_skyline.jpg"
+      },
+      {
+        "title": "Getting a Good Night's Sleep",
+        "category": "Data Analysis",
+        "description": "A concise, professional data analysis project exploring relationships between lifestyle factors and sleep quality. As a data science consultant to a fictional client (SleepInc), you analyze anonymized survey and tracking data to uncover patterns related to exercise, gender, occupation, and sleep health.",
+        "technologies": [
+          "Python",
+          "Data Analysis",
+          "Visualization"
+        ],
+        "impact": "Uncovered patterns related to lifestyle and sleep health for SleepInc.",
+        "github": "https://github.com/7efnawi/Getting-a-Good-Night-s-Sleep.git",
+        "demo": "",
+        "image": "/project photos/insomnia.jpg"
+      },
+      {
+        "title": "Sales Data Analysis",
+        "category": "Data Analysis",
+        "description": "This project analyzes sales data to extract valuable business insights. The analysis focuses on understanding product performance, customer behavior, and regional sales patterns to support data-driven decision making.",
+        "technologies": [
+          "Python",
+          "Data Analysis",
+          "Visualization"
+        ],
+        "impact": "Supported data-driven decision making through sales insights.",
+        "github": "https://github.com/7efnawi/Sales-Data-Analysis.git",
+        "demo": "",
+        "image": "/project photos/dataset-cover.jpg"
+      },
+      {
+        "title": "Retail Sales Data Analysis 2023",
+        "category": "Data Analysis",
+        "description": "A comprehensive data analysis project examining retail sales patterns, customer behavior, and business performance to drive strategic decision-making.",
+        "technologies": [
+          "Python",
+          "Data Analysis",
+          "Visualization"
+        ],
+        "impact": "Drove strategic decision-making through comprehensive sales analysis.",
+        "github": "https://github.com/7efnawi/Retail-Sales-Data-Analysis.git",
+        "demo": "",
+        "image": "/project photos/sales data.png"
+      },
+      {
+        "title": "Nobel Prize Data Analysis",
+        "category": "Data Analysis",
+        "description": "This project analyzes the Nobel Prize dataset to uncover insights and patterns in the history of Nobel Prize awards. The analysis explores various aspects of the Nobel Prize, including laureate demographics, prize distributions across categories, geographical patterns, and historical trends.",
+        "technologies": [
+          "Python",
+          "Data Analysis",
+          "Visualization"
+        ],
+        "impact": "Uncovered historical trends and patterns in Nobel Prize awards.",
+        "github": "https://github.com/7efnawi/Visualize-Nobel-prize.git",
+        "demo": "",
+        "image": "/project photos/Nobel_Prize.png"
+      },
       {
         "title": "AuraSense: Smart Context-Aware System using Object & Emotion Detection",
         "category": "AI & IoT",
@@ -113,8 +187,8 @@
     "experienceList": []
   },
   "education": {
-    "title": "Education",
-    "description": "Academic background in engineering and ICT with a focus on AI and data science.",
+    "title": "My Education",
+    "description": "",
     "educationList": [
       {
         "degree": "Pearson BTEC International Level 3 Extended Diploma in Electrical and Electronics Engineering",
@@ -126,8 +200,8 @@
         "highlights": []
       },
       {
-        "degree": "Bachelor's degree in Information and Communication Technology (ICT)",
-        "specialization": "Artificial Intelligence and Data Science",
+        "degree": "Bachelor of Technology in Information Technology",
+        "specialization": "Information and Communication Technology",
         "institution": "New Cairo Technological University",
         "location": "New Cairo, Egypt",
         "period": "Expected Graduation: May 2027",
@@ -137,77 +211,110 @@
     ],
     "certifications": [
       {
+        "title": "Python Data Fundamentals",
+        "issuer": "DataCamp",
+        "date": "Sep 2025",
+        "credential": "",
+        "link": "https://www.datacamp.com/completed/statement-of-accomplishment/track/913952e3f4dbb0b1c2ff22308c9925795f92cd32",
+        "icon": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%2322c55e' d='M12.946 18.151v-5.239L21.209 8.2L19.2 7.048l-6.254 3.567V5.36c0-.356-.192-.689-.5-.866L4.922.177a1.434 1.434 0 0 0-1.455.044a1.438 1.438 0 0 0-.676 1.224v14.777A1.44 1.44 0 0 0 4.92 17.49l6.032-3.44v4.683a1 1 0 0 0 .504.867l7.73 4.4l2.01-1.152l-8.25-4.697zM10.953 5.938v5.814L4.785 15.27V2.4l6.168 3.539v-.001z'%3E%3C/path%3E%3C/svg%3E"
+      },
+      {
+        "title": "Python Data Associate",
+        "issuer": "DataCamp",
+        "date": "Sep 2025",
+        "credential": "",
+        "link": "https://www.datacamp.com/certificate/PDA0016313095863",
+        "icon": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%2322c55e' d='M12.946 18.151v-5.239L21.209 8.2L19.2 7.048l-6.254 3.567V5.36c0-.356-.192-.689-.5-.866L4.922.177a1.434 1.434 0 0 0-1.455.044a1.438 1.438 0 0 0-.676 1.224v14.777A1.44 1.44 0 0 0 4.92 17.49l6.032-3.44v4.683a1 1 0 0 0 .504.867l7.73 4.4l2.01-1.152l-8.25-4.697zM10.953 5.938v5.814L4.785 15.27V2.4l6.168 3.539v-.001z'%3E%3C/path%3E%3C/svg%3E"
+      },
+      {
+        "title": "GitHub Foundations",
+        "issuer": "DataCamp",
+        "date": "Sep 2025",
+        "credential": "",
+        "link": "https://www.datacamp.com/completed/statement-of-accomplishment/track/4f36bdca39a9da90761816659ba24e4b09357c6a?utm_medium=organic_social&utm_campaign=sharewidget&utm_content=soa&utm_source=copylink",
+        "icon": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%2322c55e' d='M12.946 18.151v-5.239L21.209 8.2L19.2 7.048l-6.254 3.567V5.36c0-.356-.192-.689-.5-.866L4.922.177a1.434 1.434 0 0 0-1.455.044a1.438 1.438 0 0 0-.676 1.224v14.777A1.44 1.44 0 0 0 4.92 17.49l6.032-3.44v4.683a1 1 0 0 0 .504.867l7.73 4.4l2.01-1.152l-8.25-4.697zM10.953 5.938v5.814L4.785 15.27V2.4l6.168 3.539v-.001z'%3E%3C/path%3E%3C/svg%3E"
+      },
+      {
         "title": "Computer Network Fundamentals",
         "issuer": "MaharaTech - ITIMooca",
         "date": "Aug 2024",
         "credential": "gOJEo1BQHk",
-        "link": "https://maharatech.gov.eg/mod/customcert/verify_certificate.php?contextid=1712&code=gOJEo1BQHk&qrcode=1"
+        "link": "https://maharatech.gov.eg/mod/customcert/verify_certificate.php?contextid=1712&code=gOJEo1BQHk&qrcode=1",
+        "icon": "https://maharatech.gov.eg/theme/edumy/pix/home/maharaEN.png"
       },
       {
         "title": "Introduction to Cybersecurity",
         "issuer": "Cisco",
         "date": "Aug 2024",
         "credential": "",
-        "link": "https://www.credly.com/badges/60cd2263-0ddb-4043-a82a-ebb8bf82acbe/linked_in_profile"
+        "link": "https://www.credly.com/badges/60cd2263-0ddb-4043-a82a-ebb8bf82acbe/linked_in_profile",
+        "icon": "https://www.vectorlogo.zone/logos/cisco/cisco-icon.svg"
       },
       {
         "title": "Machine Learning with Python",
         "issuer": "Coursera",
         "date": "Aug 2024",
         "credential": "",
-        "link": "https://www.credly.com/badges/26439952-6061-4c57-a470-efb93d2a9808/linked_in_profile"
+        "link": "https://www.credly.com/badges/26439952-6061-4c57-a470-efb93d2a9808/linked_in_profile",
+        "icon": "https://upload.wikimedia.org/wikipedia/commons/9/97/Coursera-Logo_600x600.svg"
       },
       {
         "title": "Python Basic Certificate",
         "issuer": "HackerRank",
         "date": "Aug 2024",
         "credential": "1D9E1B3C44E8",
-        "link": "https://www.hackerrank.com/certificates/1d9e1b3c44e8"
+        "link": "https://www.hackerrank.com/certificates/1d9e1b3c44e8",
+        "icon": "https://cdn.prod.website-files.com/66b6d7fd4d3e9cef94717176/6765dc51a13e31531996cef3_logo-dark.svg"
       },
       {
         "title": "Python Essentials 1",
         "issuer": "Cisco",
         "date": "Jul 2024",
         "credential": "",
-        "link": "https://www.credly.com/badges/b5b38ee2-1646-4b5d-ac04-c2b584ca869b/linked_in_profile"
+        "link": "https://www.credly.com/badges/b5b38ee2-1646-4b5d-ac04-c2b584ca869b/linked_in_profile",
+        "icon": "https://www.vectorlogo.zone/logos/cisco/cisco-icon.svg"
       },
       {
         "title": "Delivering Quality Work with Agility",
         "issuer": "IBM",
         "date": "Jun 2024",
         "credential": "M3QAW54SZKT3",
-        "link": "https://www.coursera.org/account/accomplishments/records/M3QAW54SZKT3"
+        "link": "https://www.coursera.org/account/accomplishments/records/M3QAW54SZKT3",
+        "icon": "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg"
       },
       {
         "title": "C Programming - Basics to Advanced Level",
         "issuer": "Udemy",
         "date": "May 2024",
         "credential": "",
-        "link": "https://ude.my/UC-973386c7-6712-4fac-b643-be4f147e9edb"
+        "link": "https://ude.my/UC-973386c7-6712-4fac-b643-be4f147e9edb",
+        "icon": "https://www.vectorlogo.zone/logos/udemy/udemy-icon.svg"
       },
       {
         "title": "Mastering Object-Oriented Programming (OOP) using C++",
         "issuer": "MaharaTech - ITIMooca",
         "date": "Jul 2025",
         "credential": "VXdEPox6dM",
-        "link": "https://maharatech.gov.eg/mod/customcert/verify_certificate.php?code=VXdEPox6dM&qrcode=1"
+        "link": "https://maharatech.gov.eg/mod/customcert/verify_certificate.php?code=VXdEPox6dM&qrcode=1",
+        "icon": "https://maharatech.gov.eg/theme/edumy/pix/home/maharaEN.png"
       },
       {
         "title": "Intermediate Python",
         "issuer": "DataCamp",
         "date": "Aug 2025",
         "credential": "",
-        "link": "https://www.datacamp.com/completed/statement-of-accomplishment/course/63ccc2560823b51caf56588d12013cf7ac01a657"
+        "link": "https://www.datacamp.com/completed/statement-of-accomplishment/course/63ccc2560823b51caf56588d12013cf7ac01a657",
+        "icon": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%2322c55e' d='M12.946 18.151v-5.239L21.209 8.2L19.2 7.048l-6.254 3.567V5.36c0-.356-.192-.689-.5-.866L4.922.177a1.434 1.434 0 0 0-1.455.044a1.438 1.438 0 0 0-.676 1.224v14.777A1.44 1.44 0 0 0 4.92 17.49l6.032-3.44v4.683a1 1 0 0 0 .504.867l7.73 4.4l2.01-1.152l-8.25-4.697zM10.953 5.938v5.814L4.785 15.27V2.4l6.168 3.539v-.001z'%3E%3C/path%3E%3C/svg%3E"
       }
     ],
     "publications": []
   },
   "contact": {
-    "title": "Contact",
+    "title": "Contact Me",
     "description": "Feel free to reach out for collaboration, questions, or opportunities.",
     "formTitle": "Send a Message",
     "connectTitle": "Let's Connect",
-    "connectDescription": "I'm open to discussing projects, research, or networking in AI and data science.",
+    "connectDescription": "I'm open to discussing Data Analyst opportunities, projects, research, or networking in AI and data science.",
     "followMeTitle": "Follow Me",
     "contactInfo": [
       {

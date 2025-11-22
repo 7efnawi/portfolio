@@ -12,95 +12,54 @@ const ProjectsMinimal = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-bold text-foreground mb-4 text-center"
+          className="text-4xl md:text-5xl font-bold text-foreground mb-4 text-center font-science"
         >
-          {portfolioData.projects.title}
+          <span className="text-foreground">{portfolioData.projects.title.split(" ")[0]}</span>{" "}
+          <span className="text-accent">{portfolioData.projects.title.split(" ").slice(1).join(" ")}</span>
         </motion.h2>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-16"
-        >
-          {portfolioData.projects.description}
-        </motion.p>
+
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {portfolioData.projects.projectList.map((project, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -10, transition: { duration: 0.2 } }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ y: -8 }}
-              className="bg-card border border-border rounded-lg overflow-hidden shadow-md hover:shadow-glow transition-all"
+              transition={{ duration: 0.4, delay: index * 0.05 }}
+              className="group relative bg-black border-2 border-accent rounded-[2rem] p-5 overflow-hidden hover:shadow-[0_0_30px_#16FF00] transition-all duration-300 flex flex-col h-full"
             >
-              <div className="relative h-48 overflow-hidden bg-muted">
+              {/* Image */}
+              <div className="relative h-48 w-full mb-4 overflow-hidden rounded-xl bg-muted">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute top-0 right-0 m-3">
-                  <Badge className="bg-primary text-primary-foreground">{project.category}</Badge>
-                </div>
               </div>
 
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-foreground mb-3 line-clamp-2">
+              {/* Content */}
+              <div className="flex flex-col flex-grow text-center">
+                <h3 className="text-lg font-bold text-foreground mb-3 leading-tight">
                   {project.title}
                 </h3>
 
-                <p className="text-muted-foreground mb-4 line-clamp-3 text-sm">
+                <p className="text-sm text-muted-foreground mb-6 line-clamp-4 flex-grow">
                   {project.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.slice(0, 2).map((tech, techIndex) => (
-                    <Badge
-                      key={techIndex}
-                      variant="outline"
-                      className="text-xs border-accent/50 text-accent"
-                    >
-                      {tech}
-                    </Badge>
-                  ))}
-                  {project.technologies.length > 2 && (
-                    <Badge
-                      variant="outline"
-                      className="text-xs border-accent/50 text-accent"
-                    >
-                      +{project.technologies.length - 2}
-                    </Badge>
-                  )}
-                </div>
-
-                <div className="flex gap-3">
-                  {project.demo && (
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 bg-accent text-accent-foreground rounded text-sm hover:bg-accent/90 transition-colors font-medium"
-                    >
-                      <ExternalLink size={16} />
-                      Demo
-                    </a>
-                  )}
-                  {project.github && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 border border-border text-foreground rounded text-sm hover:bg-accent/10 transition-colors"
-                    >
-                      <Github size={16} />
-                      Code
-                    </a>
-                  )}
+                {/* Button */}
+                <div className="mt-auto pt-2 flex justify-center">
+                  <a
+                    href={project.demo || project.github || "#"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block px-8 py-2 border-2 border-[#FFED00] text-[#FFED00] rounded-full text-sm font-bold hover:bg-[#FFED00] hover:text-black transition-all duration-300"
+                  >
+                    View Project
+                  </a>
                 </div>
               </div>
             </motion.div>

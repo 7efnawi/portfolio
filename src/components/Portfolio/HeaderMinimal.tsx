@@ -16,7 +16,7 @@ const HeaderMinimal = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "projects", "education", "contact"];
+      const sections = ["home", "skills", "projects", "education", "contact"];
       const current = sections.find((section) => {
         const element = document.getElementById(section);
         if (element) {
@@ -34,8 +34,9 @@ const HeaderMinimal = () => {
 
   const navItems = [
     { href: "#home", label: "Home" },
-    { href: "#about", label: "About" },
+    { href: "#skills", label: "Skills" },
     { href: "#projects", label: "Projects" },
+    { href: "#education", label: "Education" },
     { href: "#contact", label: "Contact" },
   ];
 
@@ -49,10 +50,13 @@ const HeaderMinimal = () => {
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 font-science ${
         isScrolled
-          ? "bg-background/95 backdrop-blur-sm border-b border-border shadow-md"
-          : "bg-transparent"
+          ? "bg-background/80 backdrop-blur-md border-b border-border shadow-md"
+          : "bg-transparent backdrop-blur-sm"
       }`}
     >
       <nav className="container mx-auto px-4 py-4">

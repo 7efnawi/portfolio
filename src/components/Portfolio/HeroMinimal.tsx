@@ -27,14 +27,38 @@ const HeroMinimal = () => {
       id="home"
       className="min-h-screen flex items-center relative overflow-hidden"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-0">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-7xl mx-auto">
-          {/* Left Content */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-0 lg:pt-32">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center max-w-7xl mx-auto">
+          {/* Profile Image - Shows on top for mobile, right side for desktop */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="relative flex justify-center items-center lg:order-2"
+          >
+            <motion.img
+              src="/profile_pic.jpg"
+              alt="Yousef Mahmoud"
+              loading="eager"
+              fetchPriority="high"
+              className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-full lg:max-w-md lg:h-auto object-cover rounded-full border-4 border-accent/20 drop-shadow-[0_0_25px_#16FF00]"
+              animate={{
+                y: [0, -15, 0],
+              }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+          </motion.div>
+
+          {/* Left Content - Shows below image on mobile, left side on desktop */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-5 lg:space-y-6"
+            className="space-y-5 lg:space-y-6 lg:order-1"
           >
             {/* Main Heading */}
             <motion.div
@@ -43,7 +67,7 @@ const HeroMinimal = () => {
               transition={{ delay: 0.2, duration: 0.8 }}
               className="space-y-2"
             >
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground leading-tight">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground leading-tight font-science">
                 Welcome to{" "}
                 <span className="text-accent block sm:inline">
                   {portfolioData.hero.name.split(" ")[0]}'s
@@ -152,30 +176,6 @@ const HeroMinimal = () => {
                 </a>
               </Button>
             </motion.div>
-          </motion.div>
-
-          {/* Right Content - Profile Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative hidden lg:flex justify-center items-center"
-          >
-            <motion.img
-              src="/profile_pic.jpg"
-              alt="Yousef Mahmoud"
-              loading="eager"
-              fetchPriority="high"
-              className="w-full max-w-md h-auto object-cover rounded-full border-4 border-accent/20 drop-shadow-[0_0_25px_#16FF00]"
-              animate={{
-                y: [0, -15, 0],
-              }}
-              transition={{
-                duration: 6,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
           </motion.div>
         </div>
       </div>

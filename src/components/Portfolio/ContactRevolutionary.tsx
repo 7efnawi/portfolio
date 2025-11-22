@@ -175,8 +175,9 @@ const ContactRevolutionary = () => {
 
               <div className="space-y-4">
                 {portfolioData.contact.contactInfo.map((info, index) => {
-                  const IconComponent =
-                    Icons[info.icon as keyof typeof Icons] || Icons.Mail;
+                  const IconComponent = (
+                    Icons[info.icon as keyof typeof Icons] || Icons.Mail
+                  ) as React.ComponentType<{ className?: string }>;
                   return (
                     <motion.a
                       key={index}
@@ -217,8 +218,9 @@ const ContactRevolutionary = () => {
 
               <div className="grid grid-cols-2 gap-4">
                 {portfolioData.contact.socialLinks.map((social, index) => {
-                  const IconComponent =
-                    Icons[social.icon as keyof typeof Icons] || Icons.Globe;
+                  const IconComponent = (
+                    Icons[social.icon as keyof typeof Icons] || Icons.Globe
+                  ) as React.ComponentType<{ className?: string }>;
                   return (
                     <motion.a
                       key={index}

@@ -4,16 +4,17 @@ import * as Icons from "lucide-react";
 
 const SkillsMinimal = () => {
   return (
-    <section id="about" className="py-20 md:py-32 bg-background overflow-hidden">
+    <section id="skills" className="py-20 md:py-32 bg-background overflow-hidden">
       <div className="container mx-auto px-4 mb-12">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-bold text-foreground mb-4 text-center"
+          className="text-4xl md:text-5xl font-bold text-foreground mb-4 text-center font-science"
         >
-          {portfolioData.skills.title}
+          <span className="text-foreground">{portfolioData.skills.title.split(" ")[0]}</span>{" "}
+          <span className="text-accent">{portfolioData.skills.title.split(" ").slice(1).join(" ")}</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -28,7 +29,7 @@ const SkillsMinimal = () => {
 
       {/* Hard Skills Marquee */}
       <div className="mb-16">
-        <h3 className="text-2xl font-semibold text-foreground mb-8 text-center">
+        <h3 className="text-2xl font-semibold text-foreground mb-8 text-center font-science">
           Hard Skills
         </h3>
         <div className="relative w-full pause-on-hover">
@@ -58,14 +59,14 @@ const SkillsMinimal = () => {
 
       {/* Soft Skills Marquee (Reverse Direction or Same) */}
       <div>
-        <h3 className="text-2xl font-semibold text-foreground mb-8 text-center">
+        <h3 className="text-2xl font-semibold text-foreground mb-8 text-center font-science">
           Soft Skills
         </h3>
         <div className="relative w-full pause-on-hover">
           <div className="flex w-max animate-scroll gap-8" style={{ animationDirection: 'reverse' }}>
             {[...portfolioData.skills.softSkills, ...portfolioData.skills.softSkills, ...portfolioData.skills.softSkills].map(
               (skill, index) => {
-                const IconComponent = Icons[skill.icon as keyof typeof Icons] || Icons.Circle;
+                const IconComponent = (Icons as any)[skill.icon] || Icons.Circle;
                 return (
                   <div
                     key={`soft-${index}`}

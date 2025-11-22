@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&family=Science+Gothic:wght@100..900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -122,6 +122,10 @@
   /* Typography */
   .font-mono {
     font-family: 'Fira Code', monospace;
+  }
+  
+  .font-science {
+    font-family: 'Science Gothic', sans-serif;
   }
 
   /* Gradients */
@@ -416,7 +420,7 @@
   }
 
   .animate-scroll {
-    animation: scroll 30s linear infinite;
+    animation: scroll 60s linear infinite;
   }
 
   .pause-on-hover:hover .animate-scroll {

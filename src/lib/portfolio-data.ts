@@ -7,26 +7,21 @@ interface HeroData {
   image: string;
 }
 
-interface Skill {
+interface HardSkill {
+  name: string;
+  iconUrl: string;
+}
+
+interface SoftSkill {
   name: string;
   icon: string;
-}
-
-interface SkillCategory {
-  title: string;
-  skills: Skill[];
-}
-
-interface AdditionalExpertise {
-  title: string;
-  items: string[];
 }
 
 interface SkillsData {
   title: string;
   description: string;
-  skillCategories: SkillCategory[];
-  additionalExpertise: AdditionalExpertise;
+  hardSkills: HardSkill[];
+  softSkills: SoftSkill[];
 }
 
 interface Project {
@@ -77,6 +72,7 @@ interface Certification {
   date: string;
   credential?: string;
   link: string;
+  icon?: string;
 }
 
 interface Publication {
