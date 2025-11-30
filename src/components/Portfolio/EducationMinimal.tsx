@@ -76,13 +76,15 @@ const EducationMinimal = () => {
               {portfolioData.education.certifications.map((cert, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  whileHover={{ y: -5 }}
+                  style={{ originY: 0 }}
+                  initial={{ opacity: 0, scaleY: 0 }}
+                  whileInView={{ opacity: 1, scaleY: 1 }}
+                  whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{
-                    duration: 0.4,
-                    delay: index * 0.05,
+                    duration: 0.2,
+                    ease: "circOut",
+                    delay: index * 0.03,
                   }}
                   className="group p-5 bg-card/50 backdrop-blur-sm border border-border rounded-xl hover:border-accent hover:shadow-[0_0_15px_rgba(22,255,0,0.1)] transition-all duration-300 flex flex-col h-full"
                 >

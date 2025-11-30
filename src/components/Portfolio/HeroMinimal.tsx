@@ -37,11 +37,11 @@ const HeroMinimal = () => {
             className="relative flex justify-center items-center lg:order-2"
           >
             <motion.img
-              src="/profile_pic.jpg"
+              src="/Gemini_Generated_Image_v9jke4v9jke4v9jk.png"
               alt="Yousef Mahmoud"
               loading="eager"
               fetchPriority="high"
-              className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-full lg:max-w-md lg:h-auto object-cover rounded-full border-4 border-accent/20 drop-shadow-[0_0_25px_#16FF00]"
+              className="w-36 h-36 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-full lg:max-w-md lg:h-auto object-cover rounded-full border-4 border-accent/20 drop-shadow-[0_0_25px_#16FF00]"
               animate={{
                 y: [0, -15, 0],
               }}
