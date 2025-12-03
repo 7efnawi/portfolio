@@ -191,7 +191,7 @@
     "description": "",
     "educationList": [
       {
-        "degree": "Pearson BTEC International Level 3 Extended Diploma in Electrical and Electronics Engineering",
+        "degree": "Pearson BTEC International Level 3 Extended Diploma",
         "specialization": "Electrical and Electronics Engineering",
         "institution": "El Salam Technical Integrated Cluster",
         "location": "El Salam, Cairo, Egypt",
@@ -205,7 +205,7 @@
         "institution": "New Cairo Technological University",
         "location": "New Cairo, Egypt",
         "period": "Expected Graduation: May 2027",
-        "gpa": "",
+        "gpa": "Until Now: 3.22/4.0",
         "highlights": []
       }
     ],

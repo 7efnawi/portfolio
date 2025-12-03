@@ -70,68 +70,7 @@ const EducationMinimal = () => {
             </div>
           </div>
 
-          <div>
-            <h3 className="text-2xl font-semibold text-foreground mb-8 font-science">Certifications</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {portfolioData.education.certifications.map((cert, index) => (
-                <motion.div
-                  key={index}
-                  style={{ originY: 0 }}
-                  initial={{ opacity: 0, scaleY: 0 }}
-                  whileInView={{ opacity: 1, scaleY: 1 }}
-                  whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{
-                    duration: 0.2,
-                    ease: "circOut",
-                    delay: index * 0.03,
-                  }}
-                  className="group p-5 bg-card/50 backdrop-blur-sm border border-border rounded-xl hover:border-accent hover:shadow-[0_0_15px_rgba(22,255,0,0.1)] transition-all duration-300 flex flex-col h-full"
-                >
-                  <div className="flex justify-between items-start mb-4">
-                    <div className="p-2 bg-white rounded-lg w-12 h-12 flex items-center justify-center">
-                      {cert.icon ? (
-                        <img 
-                          src={cert.icon} 
-                          alt={cert.issuer} 
-                          className="w-full h-full object-contain"
-                        />
-                      ) : (
-                        <Award size={20} className="text-accent" />
-                      )}
-                    </div>
-                    {cert.link && (
-                      <a
-                        href={cert.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-accent transition-colors"
-                      >
-                        <ExternalLink size={18} />
-                      </a>
-                    )}
-                  </div>
 
-                  <div className="mb-4 flex-grow">
-                    <h4 className="font-bold text-foreground text-lg mb-2 leading-tight">
-                      {cert.title}
-                    </h4>
-                    <Badge
-                      variant="outline"
-                      className="text-xs font-normal text-muted-foreground border-border group-hover:border-accent/50 transition-colors"
-                    >
-                      {cert.issuer}
-                    </Badge>
-                  </div>
-
-                  <div className="mt-auto pt-4 border-t border-border/50 flex items-center gap-2 text-xs text-muted-foreground">
-                    <Calendar size={14} className="text-accent" />
-                    {cert.date}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </section>

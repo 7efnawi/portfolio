@@ -2,8 +2,9 @@ import { motion } from "framer-motion";
 import HeaderMinimal from "@/components/Portfolio/HeaderMinimal";
 import HeroMinimal from "@/components/Portfolio/HeroMinimal";
 import SkillsMinimal from "@/components/Portfolio/SkillsMinimal";
-import ProjectsMinimal from "@/components/Portfolio/ProjectsMinimal";
+import ProjectsModern from "@/components/Portfolio/ProjectsModern";
 import EducationMinimal from "@/components/Portfolio/EducationMinimal";
+import CertificationsModern from "@/components/Portfolio/CertificationsModern";
 import ContactMinimal from "@/components/Portfolio/ContactMinimal";
 import Footer from "@/components/Portfolio/Footer";
 
@@ -18,8 +19,9 @@ const Index = () => {
       >
         <HeroMinimal />
         <SkillsMinimal />
-        <ProjectsMinimal />
+        <ProjectsModern />
         <EducationMinimal />
+        <CertificationsModern />
         <ContactMinimal />
       </motion.main>
       <Footer />
