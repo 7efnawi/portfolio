@@ -4,7 +4,7 @@
     "name": "Yousef Mahmoud",
     "title": "Third-Year ICT Student | Aspiring Data Analyst | Python | SQL | Power BI | Data Visualization",
     "description": "I turn overwhelmed business owners into confident decision-makers. By leveraging Python and SQL for deep analysis and Power BI/Excel for visualization, I simplify complex datasets into clear stories.\n\nLet's discuss how we can unlock the value in your data today.",
-    "image": "/Gemini_Generated_Image_v9jke4v9jke4v9jk.png"
+    "image": "/profile_pic_updated.jpg"
   },
   "skills": {
     "title": "My Skills",
@@ -92,8 +92,22 @@
   },
   "projects": {
     "title": "My Projects",
-    "description": "Selected projects demonstrating my skills in AI, deep learning, and IoT integration.",
     "projectList": [
+      {
+        "title": "YouTube Trending Videos Analysis",
+        "category": "Data Analysis",
+        "description": "Every content creator asks the same question: “Is my video doing well?” Often, we rely on intuition or compare ourselves to outliers like MrBeast. However, data tells a different story. By analyzing thousands of videos that successfully hit the “Trending” page, we have established concrete benchmarks for success. This report demystifies the metrics behind viral content, moving beyond “total views” to understand the true driver of growth: Engagement Efficiency.",
+        "technologies": [
+          "Python",
+          "Excel",
+          "Data Analysis",
+          "Visualization"
+        ],
+        "impact": "Established data-driven benchmarks for viral success, identifying 'Engagement Efficiency' as a key predictor over simple view counts, empowering creators to optimize content strategies.",
+        "github": "https://github.com/7efnawi/CodeAlpha_Youtube-trending-videos.git",
+        "demo": "",
+        "image": "/project photos/youtube pic.jpeg"
+      },
       {
         "title": "Los Angeles Crime Analysis",
         "category": "Data Analysis",
@@ -362,6 +376,12 @@
         "platform": "GitHub",
         "url": "https://github.com/7efnawi",
         "username": "@7efnawi"
+      },
+      {
+        "icon": "Tiktok",
+        "platform": "TikTok",
+        "url": "https://www.tiktok.com/@7efnaw.i?is_from_webapp=1&sender_device=pc",
+        "username": "@7efnaw.i"
       }
     ]
   }

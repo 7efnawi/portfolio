@@ -1,18 +1,20 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { portfolioData } from "@/lib/portfolio-data";
-import { Github, ExternalLink, X, ChevronRight, Layers, Code, Zap } from "lucide-react";
+import { Github, ExternalLink, X, ChevronRight, Code, Zap, ArrowLeft } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import ProjectGlassFolder from "./ProjectGlassFolder";
 
 const ProjectsModern = () => {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
+  const [showGrid, setShowGrid] = useState(false);
   const { projectList, title, description } = portfolioData.projects;
 
   const currentProject = selectedProject !== null ? projectList[selectedProject] : null;
 
   return (
-    <section id="projects" className="py-20 relative overflow-hidden">
+    <section id="projects" className="py-20 relative overflow-hidden min-h-screen">
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[100px]" />
@@ -20,76 +22,123 @@ const ProjectsModern = () => {
       </div>
 
       <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary bg-300% animate-gradient">
-            {title}
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {description}
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projectList.map((project, index) => (
+        <AnimatePresence mode="wait">
+          {!showGrid ? (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -10, scale: 1.02 }}
-              onClick={() => setSelectedProject(index)}
-              className="group cursor-pointer relative rounded-2xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-md shadow-lg hover:shadow-accent/20 transition-all duration-300"
+              key="folder-view"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 1.1, filter: "blur(10px)" }}
+              transition={{ duration: 0.5 }}
+              className="flex flex-col items-center justify-center min-h-[60vh] w-full"
             >
-              {/* Image Overlay */}
-              <div className="relative h-48 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10" />
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute bottom-4 left-4 z-20">
-                  <Badge variant="secondary" className="mb-2 bg-primary/80 hover:bg-primary text-white border-none">
-                    {project.category}
-                  </Badge>
-                  <h3 className="text-xl font-bold text-white group-hover:text-accent transition-colors">
-                    {project.title}
-                  </h3>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="text-center mb-8 relative z-10"
+              >
+                <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 text-center font-science">
+                  <span className="text-white">{title.split(" ")[0]}</span>{" "}
+                  <span className="text-accent">{title.split(" ").slice(1).join(" ")}</span>
+                </h2>
+                <div className="flex items-center justify-center gap-2 text-accent font-medium">
+                  <span className="text-xl">📂</span>
+                  <span>{projectList.length} Files Found</span>
                 </div>
+              </motion.div>
+
+              <ProjectGlassFolder onOpen={() => setShowGrid(true)} />
+            </motion.div>
+          ) : (
+            <motion.div
+              key="grid-view"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 50 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+            >
+              {/* Back to Folder Button */}
+              <motion.button
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.3 }}
+                onClick={() => setShowGrid(false)}
+                className="absolute top-0 left-0 md:bg-white/5 md:hover:bg-white/10 p-2 md:px-4 md:py-2 rounded-full md:rounded-lg flex items-center gap-2 text-muted-foreground hover:text-accent transition-all z-20"
+              >
+                <ArrowLeft className="w-5 h-5" />
+                <span className="hidden md:inline">Back to Folder</span>
+              </motion.button>
+
+              <div className="text-center mb-16 relative pt-12 md:pt-0">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-center font-science">
+                  <span className="text-white">{title.split(" ")[0]}</span>{" "}
+                  <span className="text-accent">{title.split(" ").slice(1).join(" ")}</span>
+                </h2>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                  {description}
+                </p>
               </div>
 
-              <div className="p-6">
-                <p className="text-muted-foreground line-clamp-3 mb-4 text-sm">
-                  {project.description}
-                </p>
-                
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.slice(0, 3).map((tech, i) => (
-                    <span key={i} className="text-xs px-2 py-1 rounded-full bg-white/5 border border-white/10 text-muted-foreground">
-                      {tech}
-                    </span>
-                  ))}
-                  {project.technologies.length > 3 && (
-                    <span className="text-xs px-2 py-1 rounded-full bg-white/5 border border-white/10 text-muted-foreground">
-                      +{project.technologies.length - 3}
-                    </span>
-                  )}
-                </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {projectList.map((project, index) => (
+                  <motion.div
+                    key={index}
+                    style={{ originY: 0 }}
+                    initial={{ opacity: 0, scaleY: 0 }}
+                    whileInView={{ opacity: 1, scaleY: 1 }}
+                    viewport={{ once: true, amount: 0.1 }}
+                    transition={{ duration: 0.2, ease: "circOut", delay: index * 0.03 }}
+                    whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
+                    onClick={() => setSelectedProject(index)}
+                    className="group cursor-pointer relative rounded-2xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-md shadow-lg hover:shadow-accent/20 transition-all duration-300"
+                  >
+                    {/* Image Overlay */}
+                    <div className="relative h-48 overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10" />
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute bottom-4 left-4 z-20">
+                        <Badge variant="secondary" className="mb-2 bg-primary/80 hover:bg-primary text-white border-none">
+                          {project.category}
+                        </Badge>
+                        <h3 className="text-xl font-bold text-white group-hover:text-accent transition-colors">
+                          {project.title}
+                        </h3>
+                      </div>
+                    </div>
 
-                <div className="flex items-center text-accent text-sm font-medium group-hover:translate-x-2 transition-transform">
-                  View Details <ChevronRight className="w-4 h-4 ml-1" />
-                </div>
+                    <div className="p-6">
+                      <p className="text-muted-foreground line-clamp-3 mb-4 text-sm">
+                        {project.description}
+                      </p>
+                      
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {project.technologies.slice(0, 3).map((tech, i) => (
+                          <span key={i} className="text-xs px-2 py-1 rounded-full bg-white/5 border border-white/10 text-muted-foreground">
+                            {tech}
+                          </span>
+                        ))}
+                        {project.technologies.length > 3 && (
+                          <span className="text-xs px-2 py-1 rounded-full bg-white/5 border border-white/10 text-muted-foreground">
+                            +{project.technologies.length - 3}
+                          </span>
+                        )}
+                      </div>
+
+                      <div className="flex items-center text-accent text-sm font-medium group-hover:translate-x-2 transition-transform">
+                        View Details <ChevronRight className="w-4 h-4 ml-1" />
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
             </motion.div>
-          ))}
-        </div>
+          )}
+        </AnimatePresence>
       </div>
 
       {/* Modal */}

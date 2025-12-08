@@ -111,14 +111,29 @@
     scroll-behavior: smooth;
     /* Ensure smooth transitions for dark mode */
     transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden; /* Prevent horizontal scroll from animations */
   }
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 }
 
 @layer components {
+  /* ... existing fonts ... */
+  /* Glassmorphism Global Fixes */
+  .glass, .backdrop-blur-md, .backdrop-blur-sm, .backdrop-blur-xl, .backdrop-blur-2xl {
+    -webkit-backdrop-filter: blur(var(--tw-backdrop-blur));
+    backdrop-filter: blur(var(--tw-backdrop-blur));
+  }
+  
+  /* Fallback for browsers without backdrop-filter support (e.g. older Firefox) */
+  @supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+    .glass, .backdrop-blur-md, .backdrop-blur-sm, .backdrop-blur-xl {
+      background-color: rgba(10, 10, 10, 0.9) !important; /* Darker opaque fallback */
+    }
+  }
   /* Typography */
   .font-mono {
     font-family: 'Fira Code', monospace;

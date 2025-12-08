@@ -9,7 +9,7 @@ const CertificationsModern = () => {
   const certifications = portfolioData.education.certifications;
 
   return (
-    <section id="certifications" className="py-20 relative overflow-hidden">
+    <section id="certifications" className="py-20 relative z-10 overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -30,11 +30,12 @@ const CertificationsModern = () => {
           {certifications.map((cert, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -5 }}
+              style={{ originY: 0 }}
+              initial={{ opacity: 0, scaleY: 0 }}
+              whileInView={{ opacity: 1, scaleY: 1 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.2, ease: "circOut", delay: index * 0.03 }}
+              whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
               className="group"
             >
               <Card className="h-full bg-card/40 backdrop-blur-sm border-white/10 overflow-hidden hover:shadow-lg hover:shadow-accent/10 transition-all duration-300 relative">

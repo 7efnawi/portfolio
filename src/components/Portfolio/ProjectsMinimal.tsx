@@ -14,7 +14,7 @@ const ProjectsMinimal = () => {
           transition={{ duration: 0.6 }}
           className="text-4xl md:text-5xl font-bold text-foreground mb-4 text-center font-science"
         >
-          <span className="text-foreground">{portfolioData.projects.title.split(" ")[0]}</span>{" "}
+          <span className="text-white">{portfolioData.projects.title.split(" ")[0]}</span>{" "}
           <span className="text-accent">{portfolioData.projects.title.split(" ").slice(1).join(" ")}</span>
         </motion.h2>
 
