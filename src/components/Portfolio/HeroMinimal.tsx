@@ -25,17 +25,8 @@ const HeroMinimal = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-end lg:items-center relative lg:overflow-hidden"
+      className="min-h-screen flex items-center relative overflow-hidden"
     >
-      {/* Mobile Fixed Background - Parallax Effect */}
-      <div className="fixed inset-0 z-0 lg:hidden h-[100dvh] w-full pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-20" />
-        <img
-          src="/profile_pic_updated.jpg"
-          alt="Yousef Mahmoud"
-          className="w-full h-full object-cover"
-        />
-      </div>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-0 lg:pt-32">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center max-w-7xl mx-auto">
           {/* Profile Image - Shows on top for mobile, right side for desktop */}
@@ -43,7 +34,7 @@ const HeroMinimal = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="hidden lg:flex justify-center items-center lg:order-2"
+            className="relative flex justify-center items-center lg:order-2"
           >
             <motion.img
               src="/profile_pic_updated.jpg"
@@ -67,18 +58,18 @@ const HeroMinimal = () => {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-5 lg:space-y-6 lg:order-1 relative z-10 w-full"
+            className="space-y-5 lg:space-y-6 lg:order-1"
           >
             {/* Main Heading */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="space-y-2 text-center lg:text-left"
+              className="space-y-2"
             >
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white lg:text-foreground leading-tight font-science drop-shadow-md">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground leading-tight font-science">
                 Welcome to{" "}
-                <span className="text-[#37ff25] block sm:inline">
+                <span className="text-accent block sm:inline">
                   {portfolioData.hero.name.split(" ")[0]}'s
                 </span>{" "}
                 Space
@@ -90,12 +81,12 @@ const HeroMinimal = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="space-y-2 text-center lg:text-left"
+              className="space-y-2"
             >
-              <p className="text-lg sm:text-xl lg:text-xl text-white/80 lg:text-muted-foreground">
+              <p className="text-base sm:text-lg lg:text-xl text-muted-foreground">
                 I'm a
               </p>
-              <p className="text-2xl sm:text-3xl lg:text-2xl text-[#37ff25] lg:text-accent font-semibold leading-relaxed drop-shadow-md">
+              <p className="text-lg sm:text-xl lg:text-2xl text-accent font-semibold leading-relaxed">
                 {portfolioData.hero.title}
               </p>
             </motion.div>
@@ -105,9 +96,9 @@ const HeroMinimal = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="py-1 text-center lg:text-left"
+              className="py-1"
             >
-              <p className="text-sm sm:text-base text-white/90 lg:text-accent-light font-semibold tracking-widest uppercase mb-4 lg:mb-0">
+              <p className="text-xs sm:text-sm text-accent-light font-semibold tracking-widest uppercase">
                 Patterns, Insights, Action
               </p>
             </motion.div>
@@ -117,9 +108,9 @@ const HeroMinimal = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="prose prose-invert max-w-none text-center lg:text-left"
+              className="prose prose-invert max-w-none"
             >
-              <div className="text-base lg:text-base text-white/80 lg:text-muted-foreground leading-relaxed space-y-3 whitespace-pre-line drop-shadow-sm">
+              <div className="text-sm lg:text-base text-muted-foreground leading-relaxed space-y-3 whitespace-pre-line">
                 {portfolioData.hero.description}
               </div>
             </motion.div>
@@ -129,7 +120,7 @@ const HeroMinimal = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.8 }}
-              className="flex items-center justify-center lg:justify-start gap-4 pt-2"
+              className="flex items-center gap-4 pt-2"
             >
               {[
                 { href: "https://www.linkedin.com/in/yousef-mahmoud-157b23219", icon: Linkedin, label: "LinkedIn" },
@@ -142,7 +133,7 @@ const HeroMinimal = () => {
                   href={social.href}
                   target={social.href.includes("http") ? "_blank" : undefined}
                   rel={social.href.includes("http") ? "noopener noreferrer" : undefined}
-                  className="w-12 h-12 rounded-full border-2 border-muted-foreground/40 flex items-center justify-center text-white lg:text-foreground hover:bg-[#37ff25] hover:border-[#37ff25] hover:text-black lg:hover:text-white transition-all duration-300"
+                  className="w-12 h-12 rounded-full border-2 border-muted-foreground/40 flex items-center justify-center text-foreground hover:bg-accent hover:border-accent hover:text-white transition-all duration-300"
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   aria-label={social.label}
@@ -157,7 +148,7 @@ const HeroMinimal = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.8 }}
-              className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 pt-4"
+              className="flex flex-col sm:flex-row gap-4 pt-4"
             >
               <Button
                 size="lg"

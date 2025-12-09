@@ -55,8 +55,8 @@ const HeaderMinimal = () => {
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 font-science ${
         isScrolled
-          ? "bg-black/20 backdrop-blur-md border-b border-white/10 shadow-lg"
-          : "bg-transparent backdrop-blur-none"
+          ? "bg-background/80 backdrop-blur-md border-b border-border shadow-md"
+          : "bg-transparent backdrop-blur-sm"
       }`}
     >
       <nav className="container mx-auto px-4 py-4">
@@ -69,8 +69,8 @@ const HeaderMinimal = () => {
             whileHover={{ scale: 1.05 }}
             onClick={() => scrollToSection("#home")}
           >
-            <span className="text-white">{portfolioData.name.split(" ")[0]}</span>
-            <span className="text-[#37ff25]"> Mahmoud</span>
+            <span className="text-foreground">{portfolioData.name.split(" ")[0]}</span>
+            <span className="text-accent"> Mahmoud</span>
           </motion.button>
 
           <div className="hidden md:flex items-center space-x-8">
@@ -80,8 +80,8 @@ const HeaderMinimal = () => {
                 <motion.button
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}
-                  className={`text-sm font-medium transition-all duration-300 ${
-                    isActive ? "text-[#37ff25] drop-shadow-[0_0_8px_rgba(55,255,37,0.5)]" : "text-white/80 hover:text-[#37ff25] hover:drop-shadow-[0_0_8px_rgba(55,255,37,0.5)]"
+                  className={`text-sm font-medium transition-colors duration-200 ${
+                    isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                   }`}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -103,7 +103,7 @@ const HeaderMinimal = () => {
             >
               <Button
                 onClick={() => scrollToSection("#contact")}
-                className="bg-[#37ff25] hover:bg-[#37ff25]/80 text-black font-bold px-6 py-2 rounded-md transition-all shadow-[0_0_15px_rgba(55,255,37,0.3)] hover:shadow-[0_0_25px_rgba(55,255,37,0.5)]"
+                className="bg-accent hover:bg-accent-light text-white font-medium px-6 py-2 rounded-md transition-all"
               >
                 Contact Me!
               </Button>
@@ -116,7 +116,7 @@ const HeaderMinimal = () => {
                 variant="ghost"
                 size="icon"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-white hover:bg-white/10 hover:text-[#37ff25]"
+                className="text-foreground hover:bg-muted"
               >
                 <AnimatePresence mode="wait" initial={false}>
                   {isMenuOpen ? (
@@ -156,7 +156,7 @@ const HeaderMinimal = () => {
               className="md:hidden mt-4 overflow-hidden"
             >
               <motion.div
-                className="rounded-lg border border-white/10 bg-black/80 backdrop-blur-xl shadow-lg overflow-hidden"
+                className="rounded-lg border border-border bg-card shadow-md overflow-hidden"
                 initial={{ y: -20 }}
                 animate={{ y: 0 }}
                 exit={{ y: -20 }}
@@ -169,8 +169,8 @@ const HeaderMinimal = () => {
                       onClick={() => scrollToSection(item.href)}
                       className={`w-full px-4 py-3 text-left text-sm font-medium transition-colors duration-200 ${
                         isActive
-                          ? "text-[#37ff25] bg-white/5"
-                          : "text-white/80 hover:text-[#37ff25] hover:bg-white/5"
+                          ? "text-foreground bg-muted"
+                          : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                       }`}
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
@@ -189,7 +189,7 @@ const HeaderMinimal = () => {
                 >
                   <Button
                     onClick={() => scrollToSection("#contact")}
-                    className="w-full bg-[#37ff25] hover:bg-[#37ff25]/80 text-black font-bold shadow-[0_0_15px_rgba(55,255,37,0.3)]"
+                    className="w-full bg-accent hover:bg-accent-light text-white"
                   >
                     Contact Me!
                   </Button>

@@ -9,6 +9,17 @@ interface ProjectGlassFolderProps {
 
 const ProjectGlassFolder = ({ onOpen }: ProjectGlassFolderProps) => {
   const projects = portfolioData.projects.projectList.slice(0, 4); // Take first 4 projects for preview
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check for mobile device
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.matchMedia("(max-width: 768px)").matches);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   return (
     <div className="w-full max-w-[450px] px-4 md:px-0 mx-auto aspect-[6/5] flex items-center justify-center">
@@ -16,8 +27,8 @@ const ProjectGlassFolder = ({ onOpen }: ProjectGlassFolderProps) => {
         className="relative w-full h-full cursor-pointer group perspective-1000"
         onClick={onOpen}
         whileHover="hover"
-        initial="floating"
-        animate="floating" 
+        initial="rest"
+        animate="rest"
       >
         {/* Layer 1: Folder Back (z-index: 10) */}
         <div 
@@ -55,9 +66,9 @@ const ProjectGlassFolder = ({ onOpen }: ProjectGlassFolderProps) => {
                   boxShadow: "0 4px 6px rgba(0,0,0,0.3)" 
                 }}
                 variants={{
-                  floating: { 
-                    y: ["-5%", "-15%", "-5%"], // Continuous floating wave
-                    rotate: [0, (index - 1.5) * 5, 0],
+                  rest: { 
+                    y: ["0%", "-10%", "0%"],
+                    rotate: [0, (index - 1.5) * 3, 0],
                     scale: 0.95,
                     x: 0,
                     transition: {
@@ -69,17 +80,13 @@ const ProjectGlassFolder = ({ onOpen }: ProjectGlassFolderProps) => {
                     }
                   },
                   hover: { 
-                    y: -120, // Move up significantly on hover
-                    rotate: (index - 1.5) * 12, // Fan out more
+                    y: "-15%", 
+                    rotate: (index - 1.5) * 5, // Fanning effect centered
                     scale: 1,
-                    x: (index - 1.5) * 40, // Spread out horizontally
-                    transition: {
-                      duration: 0.4,
-                      ease: "backOut"
-                    }
+                    x: (index - 1.5) * 10,
+                    transition: { type: "spring", stiffness: 300, damping: 20 }
                   }
                 }}
-                transition={{ type: "spring", stiffness: 260, damping: 20 }}
               >
                 <img 
                   src={project.image} 

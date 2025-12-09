@@ -9,7 +9,7 @@ const CertificationsModern = () => {
   const certifications = portfolioData.education.certifications;
 
   return (
-    <section id="certifications" className="py-20 relative z-10 overflow-hidden">
+    <section id="certifications" className="py-20 relative overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
