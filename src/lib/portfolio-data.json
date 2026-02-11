@@ -106,7 +106,7 @@
         "impact": "Established data-driven benchmarks for viral success, identifying 'Engagement Efficiency' as a key predictor over simple view counts, empowering creators to optimize content strategies.",
         "github": "https://github.com/7efnawi/CodeAlpha_Youtube-trending-videos.git",
         "demo": "",
-        "image": "/project photos/youtube pic.jpeg"
+        "image": "/youtube_pic.jpeg"
       },
       {
         "title": "Los Angeles Crime Analysis",
@@ -120,7 +120,7 @@
         "impact": "Informs resource allocation and policy decisions for LAPD.",
         "github": "https://github.com/7efnawi/Analyzing-Crime-in-Los-Angeles.git",
         "demo": "",
-        "image": "/project photos/la_skyline.jpg"
+        "image": "/la_skyline.jpg"
       },
       {
         "title": "Getting a Good Night's Sleep",
@@ -134,7 +134,7 @@
         "impact": "Uncovered patterns related to lifestyle and sleep health for SleepInc.",
         "github": "https://github.com/7efnawi/Getting-a-Good-Night-s-Sleep.git",
         "demo": "",
-        "image": "/project photos/insomnia.jpg"
+        "image": "/insomnia.jpg"
       },
       {
         "title": "Sales Data Analysis",
@@ -148,7 +148,7 @@
         "impact": "Supported data-driven decision making through sales insights.",
         "github": "https://github.com/7efnawi/Sales-Data-Analysis.git",
         "demo": "",
-        "image": "/project photos/dataset-cover.jpg"
+        "image": "/dataset-cover.jpg"
       },
       {
         "title": "Retail Sales Data Analysis 2023",
@@ -162,7 +162,7 @@
         "impact": "Drove strategic decision-making through comprehensive sales analysis.",
         "github": "https://github.com/7efnawi/Retail-Sales-Data-Analysis.git",
         "demo": "",
-        "image": "/project photos/sales data.png"
+        "image": "/sales_data.png"
       },
       {
         "title": "Nobel Prize Data Analysis",
@@ -176,7 +176,7 @@
         "impact": "Uncovered historical trends and patterns in Nobel Prize awards.",
         "github": "https://github.com/7efnawi/Visualize-Nobel-prize.git",
         "demo": "",
-        "image": "/project photos/Nobel_Prize.png"
+        "image": "/Nobel_Prize.png"
       },
       {
         "title": "AuraSense: Smart Context-Aware System using Object & Emotion Detection",

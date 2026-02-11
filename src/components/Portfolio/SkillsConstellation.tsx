@@ -1,7 +1,11 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import { portfolioData } from "@/lib/portfolio-data";
-import * as Icons from "lucide-react";
+import { Sparkles, Circle, MessageSquare, Puzzle, BrainCircuit, BookOpen, RefreshCw, Users, Clock, type LucideIcon } from "lucide-react";
+
+const iconMap: Record<string, LucideIcon> = {
+  Sparkles, Circle, MessageSquare, Puzzle, BrainCircuit, BookOpen, RefreshCw, Users, Clock,
+};
 import { Card } from "@/components/ui/card";
 
 interface SkillNode {
@@ -60,7 +64,7 @@ const SkillsConstellation = () => {
             transition={{ duration: 0.5, type: "spring" }}
             className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 border border-accent/20 rounded-full mb-6"
           >
-            <Icons.Sparkles className="w-4 h-4 text-accent" />
+            <Sparkles className="w-4 h-4 text-accent" />
             <span className="text-sm font-medium text-accent">Interactive Skill Map</span>
           </motion.div>
 
@@ -155,7 +159,7 @@ const SkillsConstellation = () => {
               </svg>
 
               {filteredSkills.map((skill, index) => {
-                const IconComponent = Icons[skill.icon as keyof typeof Icons] || Icons.Circle;
+                const IconComponent = iconMap[skill.icon] || Circle;
                 return (
                   <motion.div
                     key={skill.name}

@@ -15,12 +15,15 @@ export default defineConfig({
     // mode === 'development' && componentTagger(), // Remove or fix this if 'mode' is not defined
   ].filter(Boolean),
   build: {
+    sourcemap: false,
     rollupOptions: {
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom', 'react-router-dom'],
           ui: ['@radix-ui/react-slot', 'class-variance-authority', 'clsx', 'tailwind-merge'],
           framer: ['framer-motion'],
+          icons: ['lucide-react'],
+          anime: ['animejs'],
         },
       },
     },
