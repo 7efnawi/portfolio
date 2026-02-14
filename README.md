@@ -1,4 +1,4 @@
-# Yousef Mahmoud | AI & Data Science Portfolio
+# Yousef Mahmoud | Data Analyst Portfolio
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?logo=linkedin)](https://www.linkedin.com/in/yousef-mahmoud-157b23219)
 [![GitHub](https://img.shields.io/badge/GitHub-7efnawi-181717?logo=github)](https://github.com/7efnawi)
