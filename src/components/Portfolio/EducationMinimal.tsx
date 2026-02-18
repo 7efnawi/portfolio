@@ -4,7 +4,7 @@ import { Calendar, MapPin, Award, GraduationCap } from "lucide-react";
 
 const EducationMinimal = () => {
   return (
-    <section id="education" className="py-10 md:py-16 relative">
+    <section id="education" className="py-14 md:py-20 relative">
       {/* Background accent */}
       <div 
         className="absolute top-0 right-0 w-1/2 h-full pointer-events-none opacity-50"
@@ -19,7 +19,7 @@ const EducationMinimal = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-bold text-foreground mb-4 text-center font-science"
+          className="text-2xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 text-center font-science"
         >
           <span className="text-foreground">{portfolioData.education.title.split(" ")[0]}</span>{" "}
           <span className="gradient-text-liquid">{portfolioData.education.title.split(" ").slice(1).join(" ")}</span>
@@ -31,7 +31,7 @@ const EducationMinimal = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-16"
+            className="text-base md:text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-8 md:mb-16"
           >
             {portfolioData.education.description}
           </motion.p>

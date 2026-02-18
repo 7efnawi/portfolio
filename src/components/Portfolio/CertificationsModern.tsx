@@ -8,7 +8,7 @@ const CertificationsModern = () => {
   const certifications = portfolioData.education.certifications;
 
   return (
-    <section id="certifications" className="py-10 relative overflow-hidden">
+    <section id="certifications" className="py-14 md:py-20 relative overflow-hidden">
       {/* Background accent */}
       <div 
         className="absolute bottom-0 left-0 w-1/2 h-full pointer-events-none opacity-50"
@@ -23,15 +23,15 @@ const CertificationsModern = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8 md:mb-16"
         >
           <div className="inline-flex items-center gap-2 mb-4">
             <Award style={{ color: '#16FF00' }} size={28} />
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 font-science">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-6 font-science">
             <span className="gradient-text-liquid">Certifications</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
             Continuous learning and professional development achievements.
           </p>
         </motion.div>
@@ -40,8 +40,8 @@ const CertificationsModern = () => {
           {certifications.map((cert, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
               whileHover={{ y: -6, transition: { duration: 0.2 } }}
@@ -96,7 +96,7 @@ const CertificationsModern = () => {
                   {cert.link && (
                     <Button 
                       variant="outline" 
-                      className="w-full rounded-full transition-all group/btn hover:bg-[#16FF00]/10"
+                      className="w-full rounded-full transition-all group/btn hover:bg-[#16FF00]/10 active:scale-95"
                       style={{
                         borderColor: 'rgba(255, 255, 255, 0.15)',
                       }}

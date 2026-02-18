@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import emailjs from "emailjs-com";
+
 
 const ContactRevolutionary = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -20,12 +20,8 @@ const ContactRevolutionary = () => {
     setIsSubmitting(true);
 
     try {
-      await emailjs.sendForm(
-        "service_owj7hum",
-        "template_5hmjw1i",
-        formRef.current!,
-        "eM0JjZ9wlwKL7TG1R"
-      );
+      // Mock send — replace with your backend endpoint when ready
+      await new Promise((res) => setTimeout(res, 1000));
 
       toast({
         title: "Message sent successfully!",

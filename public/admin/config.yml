@@ -1,4 +1,4 @@
-local_backend: true # Enable local backend for development (works with `npm run dev`)
+# local_backend: true  # Uncomment ONLY for local development
 
 # Production backend on Vercel: GitHub
 backend:

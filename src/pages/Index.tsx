@@ -2,8 +2,11 @@ import React, { Suspense } from "react";
 import { motion } from "framer-motion";
 import Header from "@/components/Portfolio/Header";
 import HeroMinimal from "@/components/Portfolio/HeroMinimal";
+import MobileNav from "@/components/Portfolio/MobileNav";
+import ScrollProgress from "@/components/Portfolio/ScrollProgress";
 
 // Lazy-load below-the-fold components for code splitting
+const AboutEnhanced = React.lazy(() => import("@/components/Portfolio/AboutEnhanced"));
 const SkillsMinimal = React.lazy(() => import("@/components/Portfolio/SkillsMinimal"));
 const ProjectsModern = React.lazy(() => import("@/components/Portfolio/ProjectsModern"));
 const EducationMinimal = React.lazy(() => import("@/components/Portfolio/EducationMinimal"));
@@ -19,15 +22,32 @@ const SectionLoader = () => (
   </div>
 );
 
+// Subtle gradient divider between sections
+const SectionDivider = () => (
+  <div className="relative h-px mx-auto max-w-4xl">
+    <div
+      className="absolute inset-0"
+      style={{
+        background:
+          "linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.15), rgba(22, 255, 0, 0.1), rgba(0, 212, 255, 0.15), transparent)",
+      }}
+    />
+  </div>
+);
+
 const Index = () => {
   return (
-    <div className="min-h-screen bg-[#050a15] relative">
+    <div className="min-h-screen bg-[#050a15] relative overflow-x-hidden">
+      {/* Scroll progress bar */}
+      <ScrollProgress />
+
       {/* Data Field Animated Background */}
       <Suspense fallback={null}>
-        <DataFieldBackground particleCount={30} showGrid={true} />
+        <DataFieldBackground particleCount={15} showGrid={true} />
       </Suspense>
 
       <Header />
+      <MobileNav />
       <motion.main
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -36,10 +56,16 @@ const Index = () => {
       >
         <HeroMinimal />
         <Suspense fallback={<SectionLoader />}>
+          <AboutEnhanced />
+          <SectionDivider />
           <SkillsMinimal />
+          <SectionDivider />
           <ProjectsModern />
+          <SectionDivider />
           <EducationMinimal />
+          <SectionDivider />
           <CertificationsModern />
+          <SectionDivider />
           <ContactMinimal />
         </Suspense>
       </motion.main>

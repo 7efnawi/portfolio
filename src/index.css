@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Offset anchor scroll for fixed header */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
 /* Base styles */
 :root {
   --background: 222.2 84% 4.9%;
@@ -69,6 +74,7 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   body {
@@ -76,6 +82,7 @@
     font-feature-settings: "rlig" 1, "calt" 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
 }
 

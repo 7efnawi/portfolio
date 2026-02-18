@@ -19,21 +19,21 @@ const SkillsMinimal = () => {
 
       <div className="container mx-auto px-4 mb-12 relative z-10">
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-bold text-foreground mb-4 text-center font-science"
+          className="text-2xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 text-center font-science"
         >
           <span className="text-foreground">{portfolioData.skills.title.split(" ")[0]}</span>{" "}
           <span className="gradient-text-liquid">{portfolioData.skills.title.split(" ").slice(1).join(" ")}</span>
         </motion.h2>
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-lg text-muted-foreground text-center max-w-2xl mx-auto"
+          className="text-base md:text-lg text-muted-foreground text-center max-w-2xl mx-auto"
         >
           {portfolioData.skills.description}
         </motion.p>
@@ -49,15 +49,15 @@ const SkillsMinimal = () => {
         </h3>
         <div className="relative w-full pause-on-hover">
           {/* Gradient fade edges */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#050a15] to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#050a15] to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-[#050a15] to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-[#050a15] to-transparent z-10 pointer-events-none" />
           
           <div className="flex w-max animate-scroll gap-6">
             {[...portfolioData.skills.hardSkills, ...portfolioData.skills.hardSkills, ...portfolioData.skills.hardSkills].map(
               (skill, index) => (
                 <div
                   key={`hard-${index}`}
-                  className="skill-card-glass flex flex-col items-center justify-center gap-3 w-32 h-32 group cursor-pointer"
+                  className="skill-card-glass flex flex-col items-center justify-center gap-3 w-24 h-24 md:w-32 md:h-32 group cursor-pointer"
                 >
                   <div className="w-12 h-12 relative flex items-center justify-center">
                     <img 
@@ -86,8 +86,8 @@ const SkillsMinimal = () => {
         </h3>
         <div className="relative w-full pause-on-hover">
           {/* Gradient fade edges */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#050a15] to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#050a15] to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-[#050a15] to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-[#050a15] to-transparent z-10 pointer-events-none" />
           
           <div className="flex w-max animate-scroll gap-6" style={{ animationDirection: 'reverse' }}>
             {[...portfolioData.skills.softSkills, ...portfolioData.skills.softSkills, ...portfolioData.skills.softSkills].map(
@@ -96,7 +96,7 @@ const SkillsMinimal = () => {
                 return (
                   <div
                     key={`soft-${index}`}
-                    className="skill-card-glass flex flex-col items-center justify-center gap-3 w-32 h-32 group cursor-pointer"
+                    className="skill-card-glass flex flex-col items-center justify-center gap-3 w-24 h-24 md:w-32 md:h-32 group cursor-pointer"
                   >
                     <div 
                       className="w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300"

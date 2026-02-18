@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 
 const navItems = [
   { href: "#home", label: "Home" },
+  { href: "#about", label: "About" },
   { href: "#skills", label: "Skills" },
   { href: "#projects", label: "Projects" },
   { href: "#education", label: "Education" },
@@ -61,32 +62,23 @@ const Header = () => {
   }, []);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 flex justify-center ${isScrolled ? 'px-0' : 'px-4'}`}>
-      {/* ── Glass Capsule — compact → full-width on scroll ──── */}
+    <header className="hidden md:flex fixed top-0 left-0 right-0 z-50 justify-center px-4">
+      {/* ── Persistent Floating Glass Capsule ──────────────── */}
       <motion.nav
         initial={{ y: -60, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ type: "spring", stiffness: 260, damping: 22, delay: 0.1 }}
-        className="relative flex items-center transition-all duration-500 ease-out"
+        className="relative flex items-center"
         style={{
-          marginTop: isScrolled ? 0 : 24,
-          width: isScrolled ? "100vw" : undefined,
-          borderRadius: isScrolled ? 0 : 9999,
-          background: isScrolled
-            ? "rgba(5, 10, 21, 0.92)"
-            : "rgba(5, 10, 21, 0.55)",
+          marginTop: 24,
+          borderRadius: 9999,
+          background: "rgba(5, 10, 21, 0.55)",
           backdropFilter: "blur(24px)",
           WebkitBackdropFilter: "blur(24px)",
-          border: isScrolled
-            ? "none"
-            : "1px solid rgba(0, 212, 255, 0.12)",
-          borderBottom: isScrolled
-            ? "1px solid rgba(0, 212, 255, 0.1)"
-            : undefined,
-          boxShadow: isScrolled
-            ? "0 4px 30px rgba(0, 212, 255, 0.08)"
-            : "0 8px 32px rgba(0, 212, 255, 0.1), 0 0 1px rgba(22, 255, 0, 0.08)",
-          padding: isScrolled ? "10px 24px" : "8px 14px",
+          border: "1px solid rgba(0, 212, 255, 0.12)",
+          boxShadow:
+            "0 8px 32px rgba(0, 212, 255, 0.1), 0 0 1px rgba(22, 255, 0, 0.08)",
+          padding: "8px 14px",
         }}
       >
         {/* ── Logo ──────────────────────────────────────────── */}

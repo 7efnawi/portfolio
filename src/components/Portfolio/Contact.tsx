@@ -20,11 +20,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { portfolioData } from "@/lib/portfolio-data";
-import emailjs from "emailjs-com";
 
-const SERVICE_ID = "service_pi13toy";
-const TEMPLATE_ID = "template_w2ty59l";
-const PUBLIC_KEY = "QxfHjpYPr2CJGL0iZ";
 
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -99,17 +95,8 @@ const Contact = () => {
     setIsSubmitting(true);
     setLastSubmission(Date.now());
     try {
-      await emailjs.send(
-        SERVICE_ID,
-        TEMPLATE_ID,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-        },
-        PUBLIC_KEY
-      );
+      // Mock send — replace with your backend endpoint when ready
+      await new Promise((res) => setTimeout(res, 1000));
       toast({
         title: "Message sent successfully!",
         description:

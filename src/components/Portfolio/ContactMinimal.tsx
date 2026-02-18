@@ -8,7 +8,7 @@ const iconMap: Record<string, LucideIcon> = {
 };
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import emailjs from "emailjs-com";
+
 
 const TikTokIcon = ({ size = 24, className = "" }: { size?: number; className?: string }) => (
   <svg
@@ -37,12 +37,8 @@ const ContactMinimal = () => {
     setIsSubmitting(true);
 
     try {
-      await emailjs.sendForm(
-        "service_owj7hum",
-        "template_5hmjw1i",
-        formRef.current!,
-        "eM0JjZ9wlwKL7TG1R"
-      );
+      // Mock send — replace with your backend endpoint when ready
+      await new Promise((res) => setTimeout(res, 1000));
 
       toast({
         title: "Message sent successfully!",
@@ -62,14 +58,14 @@ const ContactMinimal = () => {
   };
 
   return (
-    <section id="contact" className="py-10 md:py-16 relative">
+    <section id="contact" className="py-14 md:py-20 relative">
       {/* Background accents */}
       <div 
-        className="absolute top-1/4 left-0 w-96 h-96 rounded-full blur-[150px] pointer-events-none"
+        className="absolute top-1/4 left-0 w-64 md:w-96 h-64 md:h-96 rounded-full blur-[150px] pointer-events-none"
         style={{ background: 'rgba(0, 212, 255, 0.08)' }}
       />
       <div 
-        className="absolute bottom-1/4 right-0 w-96 h-96 rounded-full blur-[150px] pointer-events-none"
+        className="absolute bottom-1/4 right-0 w-64 md:w-96 h-64 md:h-96 rounded-full blur-[150px] pointer-events-none"
         style={{ background: 'rgba(22, 255, 0, 0.06)' }}
       />
 
@@ -79,7 +75,7 @@ const ContactMinimal = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-bold text-foreground mb-4 text-center font-science"
+          className="text-2xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 text-center font-science"
         >
           <span className="text-foreground">{portfolioData.contact.title.split(" ")[0]}</span>{" "}
           <span className="gradient-text-liquid">{portfolioData.contact.title.split(" ").slice(1).join(" ")}</span>
@@ -90,7 +86,7 @@ const ContactMinimal = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-16"
+          className="text-base md:text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-8 md:mb-16"
         >
           {portfolioData.contact.description}
         </motion.p>
@@ -138,7 +134,7 @@ const ContactMinimal = () => {
                 className="block"
               >
                 <Button 
-                  className="w-full py-4 md:py-6 text-base md:text-lg font-bold flex items-center justify-center gap-2 md:gap-3 group/btn h-auto rounded-full relative overflow-hidden"
+                  className="w-full py-4 md:py-6 text-base md:text-lg font-bold flex items-center justify-center gap-2 md:gap-3 group/btn h-auto rounded-full relative overflow-hidden active:scale-95"
                   style={{
                     background: 'linear-gradient(135deg, #25D366, #128C7E)',
                   }}
@@ -233,7 +229,7 @@ const ContactMinimal = () => {
                         scale: 1.1,
                         boxShadow: '0 0 20px rgba(0, 212, 255, 0.4)',
                       }}
-                      className="glass-card p-3 text-foreground rounded-xl hover:border-[#00D4FF]/50 transition-all"
+                      className="glass-card p-3 text-foreground rounded-xl hover:border-[#00D4FF]/50 transition-all active:scale-90"
                       title={social.platform}
                     >
                       <IconComponent size={22} />

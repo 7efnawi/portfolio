@@ -10,7 +10,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative py-16 overflow-hidden" style={{ background: '#050a15' }}>
+    <footer className="relative pt-16 pb-28 md:pb-16 overflow-hidden" style={{ background: '#050a15' }}>
       {/* Top border with gradient glow */}
       <div 
         className="absolute top-0 left-0 right-0 h-px"
@@ -53,7 +53,7 @@ const Footer = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-4xl md:text-5xl font-bold mb-4 font-science"
+              className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 font-science"
             >
               <span className="text-foreground">Yousef</span>
               <span className="gradient-text-liquid"> Mahmoud</span>
@@ -66,7 +66,7 @@ const Footer = () => {
               transition={{ delay: 0.1 }}
               className="text-muted-foreground text-lg mb-2 max-w-2xl mx-auto"
             >
-              Aspiring <span style={{ color: '#16FF00' }} className="font-semibold">Data Analyst</span> | ICT Student
+              Junior <span style={{ color: '#16FF00' }} className="font-semibold">Data Analyst</span> | ICT Student
             </motion.p>
             
             <motion.p 
@@ -79,16 +79,17 @@ const Footer = () => {
               Passionate about leveraging data science and AI to drive innovative solutions
             </motion.p>
 
-            {/* Navigation Links */}
+            {/* Navigation Links — Desktop only */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="flex flex-wrap justify-center gap-6 mb-8"
+              className="hidden md:flex flex-wrap justify-center gap-6 mb-8"
             >
               {[
                 { href: "#home", label: "Home" },
+                { href: "#about", label: "About" },
                 { href: "#skills", label: "Skills" },
                 { href: "#projects", label: "Projects" },
                 { href: "#education", label: "Education" },
@@ -105,7 +106,7 @@ const Footer = () => {
                     const element = document.querySelector(link.href);
                     element?.scrollIntoView({ behavior: "smooth" });
                   }}
-                  className="text-sm font-medium text-muted-foreground hover:text-[#00D4FF] transition-all duration-300 relative group"
+                  className="text-sm font-medium text-muted-foreground hover:text-[#00D4FF] transition-all duration-300 relative group min-h-[44px] flex items-center"
                 >
                   {link.label}
                   <span 
@@ -153,9 +154,10 @@ const Footer = () => {
               <span>and lots of coffee</span>
             </div>
 
+            {/* Back to Top — Desktop only */}
             <Button
               onClick={scrollToTop}
-              className="font-bold group rounded-full relative overflow-hidden"
+              className="hidden md:inline-flex font-bold group rounded-full relative overflow-hidden"
               style={{
                 background: 'transparent',
                 border: '2px solid #00D4FF',
