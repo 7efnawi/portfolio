@@ -70,7 +70,7 @@ const Header = () => {
         transition={{ type: "spring", stiffness: 260, damping: 22, delay: 0.1 }}
         className="relative flex items-center"
         style={{
-          marginTop: 24,
+          marginTop:"max(env(safe-area-inset-top, 0px), 10px)",
           borderRadius: 9999,
           background: "rgba(5, 10, 21, 0.55)",
           backdropFilter: "blur(24px)",
