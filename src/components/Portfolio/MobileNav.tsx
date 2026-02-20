@@ -50,7 +50,7 @@ const MobileNav = () => {
       className="fixed left-1/2 -translate-x-1/2 z-50 flex md:hidden
                  items-center rounded-full p-1.5 gap-0.5"
       style={{
-        bottom: "max(env(safe-area-inset-bottom, 0px), 6%)",
+        bottom: "max(env(safe-area-inset-bottom, 0px), 3%)",
         background: "rgba(5, 10, 21, 0.55)",
         backdropFilter: "blur(48px)",
         WebkitBackdropFilter: "blur(48px)",
