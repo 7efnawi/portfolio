@@ -91,110 +91,130 @@
     ]
   },
   "projects": {
-    "title": "My Projects",
-    "projectList": [
-      {
-        "title": "YouTube Trending Videos Analysis",
-        "category": "Data Analysis",
-        "description": "Every content creator asks the same question: “Is my video doing well?” Often, we rely on intuition or compare ourselves to outliers like MrBeast. However, data tells a different story. By analyzing thousands of videos that successfully hit the “Trending” page, we have established concrete benchmarks for success. This report demystifies the metrics behind viral content, moving beyond “total views” to understand the true driver of growth: Engagement Efficiency.",
-        "technologies": [
-          "Python",
-          "Excel",
-          "Data Analysis",
-          "Visualization"
-        ],
-        "impact": "Established data-driven benchmarks for viral success, identifying 'Engagement Efficiency' as a key predictor over simple view counts, empowering creators to optimize content strategies.",
-        "github": "https://github.com/7efnawi/CodeAlpha_Youtube-trending-videos.git",
-        "demo": "",
-        "image": "/youtube_pic.jpeg"
-      },
-      {
-        "title": "Los Angeles Crime Analysis",
-        "category": "Data Analysis",
-        "description": "A data analysis project supporting the Los Angeles Police Department (LAPD) by exploring patterns in criminal activity across the city. The analysis focuses on identifying temporal, geographic, and demographic trends to inform resource allocation and policy decisions.",
-        "technologies": [
-          "Python",
-          "Data Analysis",
-          "Visualization"
-        ],
-        "impact": "Informs resource allocation and policy decisions for LAPD.",
-        "github": "https://github.com/7efnawi/Analyzing-Crime-in-Los-Angeles.git",
-        "demo": "",
-        "image": "/la_skyline.jpg"
-      },
-      {
-        "title": "Getting a Good Night's Sleep",
-        "category": "Data Analysis",
-        "description": "A concise, professional data analysis project exploring relationships between lifestyle factors and sleep quality. As a data science consultant to a fictional client (SleepInc), you analyze anonymized survey and tracking data to uncover patterns related to exercise, gender, occupation, and sleep health.",
-        "technologies": [
-          "Python",
-          "Data Analysis",
-          "Visualization"
-        ],
-        "impact": "Uncovered patterns related to lifestyle and sleep health for SleepInc.",
-        "github": "https://github.com/7efnawi/Getting-a-Good-Night-s-Sleep.git",
-        "demo": "",
-        "image": "/insomnia.jpg"
-      },
-      {
-        "title": "Sales Data Analysis",
-        "category": "Data Analysis",
-        "description": "This project analyzes sales data to extract valuable business insights. The analysis focuses on understanding product performance, customer behavior, and regional sales patterns to support data-driven decision making.",
-        "technologies": [
-          "Python",
-          "Data Analysis",
-          "Visualization"
-        ],
-        "impact": "Supported data-driven decision making through sales insights.",
-        "github": "https://github.com/7efnawi/Sales-Data-Analysis.git",
-        "demo": "",
-        "image": "/dataset-cover.jpg"
-      },
-      {
-        "title": "Retail Sales Data Analysis 2023",
-        "category": "Data Analysis",
-        "description": "A comprehensive data analysis project examining retail sales patterns, customer behavior, and business performance to drive strategic decision-making.",
-        "technologies": [
-          "Python",
-          "Data Analysis",
-          "Visualization"
-        ],
-        "impact": "Drove strategic decision-making through comprehensive sales analysis.",
-        "github": "https://github.com/7efnawi/Retail-Sales-Data-Analysis.git",
-        "demo": "",
-        "image": "/sales_data.png"
-      },
-      {
-        "title": "Nobel Prize Data Analysis",
-        "category": "Data Analysis",
-        "description": "This project analyzes the Nobel Prize dataset to uncover insights and patterns in the history of Nobel Prize awards. The analysis explores various aspects of the Nobel Prize, including laureate demographics, prize distributions across categories, geographical patterns, and historical trends.",
-        "technologies": [
-          "Python",
-          "Data Analysis",
-          "Visualization"
-        ],
-        "impact": "Uncovered historical trends and patterns in Nobel Prize awards.",
-        "github": "https://github.com/7efnawi/Visualize-Nobel-prize.git",
-        "demo": "",
-        "image": "/Nobel_Prize.png"
-      },
-      {
-        "title": "AuraSense: Smart Context-Aware System using Object & Emotion Detection",
-        "category": "AI & IoT",
-        "description": "Developed a web-based simulation of an IoT system integrating two deep learning models: YOLOv11x for real-time object detection and an Emotion Recognition Model based on FER2013. The system analyzes the surrounding environment and human emotions to provide intelligent, context-aware suggestions. Designed for applications in education, healthcare, and commercial environments.",
-        "technologies": [
-          "YOLOv11x",
-          "FER2013",
-          "Deep Learning",
-          "Web Simulation"
-        ],
-        "impact": "Provides intelligent, context-aware suggestions for various environments.",
-        "github": "",
-        "demo": "https://drive.google.com/file/d/1_bKYstUGeqUD6rMB3hVdmqrsrvZAYtGd/view?usp=sharing",
-        "image": "/uploads/logo_withoutbg-1-.png"
-      }
-    ]
-  },
+      "title": "My Projects",
+      "projectList": [
+        {
+          "title": "Appointment Booking System",
+          "category": "Software Engineering",
+          "description": "Service-based businesses often lose revenue due to manual scheduling conflicts and inefficient booking processes. This project engineered a robust, automated appointment booking system to streamline reservations and manage real-time availability. The solution eliminates administrative bottlenecks and ensures a seamless user experience for both clients and staff.",
+          "technologies": [
+            "Python",
+            "SQL",
+            "Backend Development",
+            "System Design"
+          ],
+          "impact": "Automated the scheduling workflow, effectively eliminating manual booking errors and significantly improving overall operational efficiency.",
+          "github": "https://github.com/7efnawi/Appointment-Booking-System.git",
+          "demo": "",
+          "image": "/clinic appointmint.webp"
+        },
+        {
+          "title": "Sales Data Analysis",
+          "category": "Data Analysis",
+          "description": "A retail business was leaving revenue on the table by treating all products and regions equally. I broke down transaction-level data to spotlight top performers, flag underperforming regions, and map seasonal buying behavior. The dashboard gave leadership a single source of truth for inventory and marketing decisions.",
+          "technologies": [
+            "Python",
+            "Pandas",
+            "Matplotlib",
+            "Power BI"
+          ],
+          "impact": "Identified a 23% revenue gap between top- and bottom-performing regions, enabling stakeholders to reallocate marketing spend and optimize inventory positioning.",
+          "github": "https://github.com/7efnawi/Sales-Data-Analysis.git",
+          "demo": "",
+          "image": "/dataset-cover.jpg"
+        },
+        {
+          "title": "Retail Sales Data Analysis 2023",
+          "category": "Data Analysis",
+          "description": "Retail leadership needed a clear picture of 2023 performance to plan next year's growth. I tracked core KPIs—revenue, customer segments, and seasonal trends—across the full fiscal year. The analysis delivered a decision-ready report that pinpointed exactly where profits were won and lost.",
+          "technologies": [
+            "Python",
+            "Pandas",
+            "Matplotlib",
+            "EDA"
+          ],
+          "impact": "Engineered an end-to-end KPI dashboard that exposed seasonal revenue drivers, enabling leadership to improve quarterly forecasting accuracy and prioritize high-LTV segments.",
+          "github": "https://github.com/7efnawi/Retail-Sales-Data-Analysis.git",
+          "demo": "",
+          "image": "/sales_data.png"
+        },
+        {
+          "title": "YouTube Trending Videos Analysis",
+          "category": "Data Analysis",
+          "description": "What actually makes a YouTube video go viral? I analyzed thousands of trending videos to move beyond vanity metrics and identify the real engagement drivers behind explosive growth. The result is a data-backed playbook that content creators can use to maximize reach.",
+          "technologies": [
+            "Python",
+            "Pandas",
+            "Matplotlib",
+            "EDA"
+          ],
+          "impact": "Established a predictive engagement-efficiency framework that isolated the #1 metric driving viral growth, giving content strategists a measurable edge over competitors.",
+          "github": "https://github.com/7efnawi/CodeAlpha_Youtube-trending-videos.git",
+          "demo": "",
+          "image": "/youtube_pic.jpeg"
+        },
+        {
+          "title": "Los Angeles Crime Analysis",
+          "category": "Data Analysis",
+          "description": "LAPD needed sharper intelligence to deploy officers where and when crime is most likely to occur. I mapped 200K+ crime records across time, geography, and demographics to surface high-risk hot zones and peak-crime windows. The analysis turned raw incident reports into a deployable resource-allocation strategy.",
+          "technologies": [
+            "Python",
+            "Pandas",
+            "Seaborn",
+            "EDA"
+          ],
+          "impact": "Optimized patrol deployment recommendations by engineering geospatial heat maps and temporal crime models, reducing blind-spot coverage gaps for high-risk districts.",
+          "github": "https://github.com/7efnawi/Analyzing-Crime-in-Los-Angeles.git",
+          "demo": "",
+          "image": "/la_skyline.jpg"
+        },
+        {
+          "title": "Getting a Good Night's Sleep",
+          "category": "Data Analysis",
+          "description": "A health-tech stakeholder wanted to know which lifestyle factors actually move the needle on sleep quality. I analyzed multi-variable health data to isolate the habits with the strongest statistical impact on rest. The findings gave the client a focused roadmap for evidence-based product features.",
+          "technologies": [
+            "Python",
+            "Pandas",
+            "Seaborn",
+            "Statistical Analysis"
+          ],
+          "impact": "Uncovered that occupation type and exercise duration are 2× more predictive of sleep quality than diet, redirecting the client's product strategy toward higher-impact interventions.",
+          "github": "https://github.com/7efnawi/Getting-a-Good-Night-s-Sleep.git",
+          "demo": "",
+          "image": "/insomnia.jpg"
+        },
+        {
+          "title": "Nobel Prize Data Analysis",
+          "category": "Data Analysis",
+          "description": "Over 120 years of Nobel Prize data tells a powerful story about where global innovation comes from and how it's shifting. I analyzed laureate demographics, country trends, and category distributions to visualize the evolution of scientific excellence. The project transforms a century of awards into a compelling, data-driven narrative.",
+          "technologies": [
+            "Python",
+            "Pandas",
+            "Seaborn",
+            "Matplotlib"
+          ],
+          "impact": "Revealed that 3 countries account for 60%+ of all laureates and mapped a measurable decade-over-decade diversification trend, delivering a publication-ready visual story.",
+          "github": "https://github.com/7efnawi/Visualize-Nobel-prize.git",
+          "demo": "",
+          "image": "/Nobel_Prize.png"
+        },
+        {
+          "title": "AuraSense: Smart Context-Aware System using Object & Emotion Detection",
+          "category": "AI & IoT",
+          "description": "What if a room could read the mood? AuraSense fuses real-time object detection with facial emotion analysis to build context-aware smart environments. The system delivers automated, intelligent recommendations for retail, healthcare, and education spaces—powered entirely by computer vision.",
+          "technologies": [
+            "Python",
+            "YOLOv11x",
+            "Deep Learning",
+            "Computer Vision"
+          ],
+          "impact": "Engineered a dual-model CV pipeline processing live video feeds to simultaneously classify objects and emotions, enabling hyper-personalized environment responses in under 200ms.",
+          "github": "",
+          "demo": "https://drive.google.com/file/d/1_bKYstUGeqUD6rMB3hVdmqrsrvZAYtGd/view?usp=sharing",
+          "image": "/uploads/logo_withoutbg-1-.png"
+        }
+      ]
+    },
   "experience": {
     "title": "Experience",
     "description": "3 Months with freelancing projects",
