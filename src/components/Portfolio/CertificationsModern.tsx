@@ -95,17 +95,24 @@ const CertificationsModern = () => {
                 <div className="mt-auto">
                   {cert.link && (
                     <Button 
+                      asChild
                       variant="outline" 
-                      className="w-full rounded-full transition-all group/btn hover:bg-[#16FF00]/10 active:scale-95"
+                      className="w-full rounded-full transition-all group/btn hover:bg-[#16FF00]/10 active:scale-95 min-h-[44px]"
                       style={{
                         borderColor: 'rgba(255, 255, 255, 0.15)',
                       }}
-                      onClick={() => window.open(cert.link, "_blank")}
                     >
-                      <span className="group-hover/btn:text-[#16FF00] transition-colors">
-                        View Credential
-                      </span>
-                      <ExternalLink className="w-4 h-4 ml-2 group-hover/btn:text-[#16FF00] transition-colors" />
+                      <a
+                        href={cert.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center w-full"
+                      >
+                        <span className="group-hover/btn:text-[#16FF00] transition-colors">
+                          View Credential
+                        </span>
+                        <ExternalLink className="w-4 h-4 ml-2 group-hover/btn:text-[#16FF00] transition-colors" />
+                      </a>
                     </Button>
                   )}
                 </div>

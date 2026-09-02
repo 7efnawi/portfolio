@@ -26,7 +26,7 @@ const HeroRevolutionary = () => {
       setCurrentStat((prev) => (prev + 1) % stats.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, []);
+  }, [stats.length]);
 
   const scrollToNext = () => {
     const aboutSection = document.querySelector("#skills");

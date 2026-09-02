@@ -72,7 +72,7 @@ export default async function handler(req: Request): Promise<Response> {
         'Set-Cookie': 'oauth_state=; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=0',
       },
     });
-  } catch (err: any) {
+  } catch {
     // Never leak internal error details to the client
     return new Response('OAuth error: an internal error occurred', { status: 500 });
   }

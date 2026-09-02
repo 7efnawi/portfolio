@@ -97,7 +97,7 @@ const ProjectsEnhanced = () => {
   );
 };
 
-const ProjectCard = ({ project, index }: { project: any; index: number }) => {
+const ProjectCard = ({ project, index }: { project: typeof portfolioData.projects.projectList[number]; index: number }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence, useMotionValue, useTransform, PanInfo } from "framer-motion";
+import { motion, AnimatePresence, useMotionValue, useTransform, useDragControls, PanInfo } from "framer-motion";
 import { portfolioData } from "@/lib/portfolio-data";
 import { Github, ExternalLink, X, ChevronRight, Code, Zap, Minus } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -21,14 +21,27 @@ const ProjectsModern = () => {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
   const { projectList, title, description } = portfolioData.projects;
   const isMobile = useIsMobile();
+  const dragControls = useDragControls();
 
   const currentProject = selectedProject !== null ? projectList[selectedProject] : null;
+
+  // Listen for external open-project events (e.g. from About section)
+  useEffect(() => {
+    const handleOpenProject = (e: Event) => {
+      const customEvent = e as CustomEvent<{ index: number }>;
+      if (typeof customEvent.detail?.index === "number") {
+        setSelectedProject(customEvent.detail.index);
+      }
+    };
+    window.addEventListener("open-project", handleOpenProject);
+    return () => window.removeEventListener("open-project", handleOpenProject);
+  }, []);
 
   // Bottom sheet drag-to-dismiss
   const sheetY = useMotionValue(0);
   const sheetOpacity = useTransform(sheetY, [0, 300], [1, 0.2]);
 
-  const handleDragEnd = (_: any, info: PanInfo) => {
+  const handleDragEnd = (_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
     if (info.offset.y > 120 || info.velocity.y > 500) {
       setSelectedProject(null);
     }
@@ -174,12 +187,41 @@ const ProjectsModern = () => {
                   )}
                 </div>
 
-                {/* View details link */}
-                <div 
-                  className="flex items-center text-sm font-medium group-hover:translate-x-2 transition-transform"
-                  style={{ color: '#16FF00' }}
-                >
-                  View Details <ChevronRight className="w-4 h-4 ml-1" />
+                {/* View details link & quick direct actions */}
+                <div className="flex items-center justify-between pt-1">
+                  <div 
+                    className="flex items-center text-sm font-medium group-hover:translate-x-1 transition-transform"
+                    style={{ color: '#16FF00' }}
+                  >
+                    View Details <ChevronRight className="w-4 h-4 ml-1" />
+                  </div>
+
+                  <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 rounded-full glass-card text-muted-foreground hover:text-white hover:border-[#00D4FF]/50 transition-colors"
+                        title="View Code on GitHub"
+                        aria-label="View Code on GitHub"
+                      >
+                        <Github className="w-4 h-4" />
+                      </a>
+                    )}
+                    {project.demo && (
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 rounded-full glass-card text-muted-foreground hover:text-[#00D4FF] hover:border-[#00D4FF]/50 transition-colors"
+                        title="Live Demo"
+                        aria-label="Live Demo"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -206,6 +248,8 @@ const ProjectsModern = () => {
                 exit={{ y: "100%" }}
                 transition={{ type: "spring", damping: 28, stiffness: 300 }}
                 drag="y"
+                dragListener={false}
+                dragControls={dragControls}
                 dragConstraints={{ top: 0 }}
                 dragElastic={0.2}
                 onDragEnd={handleDragEnd}
@@ -216,7 +260,10 @@ const ProjectsModern = () => {
                 aria-label={currentProject.title}
               >
                 {/* Drag handle */}
-                <div className="flex justify-center py-3 flex-shrink-0 cursor-grab active:cursor-grabbing">
+                <div
+                  onPointerDown={(e) => dragControls.start(e)}
+                  className="flex justify-center py-3 flex-shrink-0 cursor-grab active:cursor-grabbing touch-none"
+                >
                   <Minus className="w-10 h-1 text-white/30" strokeWidth={4} />
                 </div>
 
@@ -306,23 +353,37 @@ const ProjectsModern = () => {
                     <div className="flex gap-3 pt-2 pb-6">
                       {currentProject.demo && (
                         <Button
+                          asChild
                           className="gap-2 rounded-full flex-1 active:scale-95 min-h-[44px]"
                           style={{ background: 'linear-gradient(135deg, #00D4FF, #0066FF)' }}
-                          onClick={() => window.open(currentProject.demo, "_blank")}
                         >
-                          <ExternalLink className="w-4 h-4" />
-                          Live Demo
+                          <a
+                            href={currentProject.demo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-center gap-2 w-full text-white font-medium"
+                          >
+                            <ExternalLink className="w-4 h-4" />
+                            Live Demo
+                          </a>
                         </Button>
                       )}
                       {currentProject.github && (
                         <Button
+                          asChild
                           variant="outline"
                           className="gap-2 rounded-full flex-1 hover:bg-white/10 active:scale-95 min-h-[44px]"
                           style={{ borderColor: 'rgba(255, 255, 255, 0.2)' }}
-                          onClick={() => window.open(currentProject.github, "_blank")}
                         >
-                          <Github className="w-4 h-4" />
-                          View Code
+                          <a
+                            href={currentProject.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-center gap-2 w-full text-white font-medium"
+                          >
+                            <Github className="w-4 h-4" />
+                            View Code
+                          </a>
                         </Button>
                       )}
                     </div>
@@ -428,23 +489,37 @@ const ProjectsModern = () => {
                         <div className="flex flex-wrap gap-4 pt-4">
                           {currentProject.demo && (
                             <Button
-                              className="gap-2 rounded-full"
+                              asChild
+                              className="gap-2 rounded-full min-h-[44px]"
                               style={{ background: 'linear-gradient(135deg, #00D4FF, #0066FF)' }}
-                              onClick={() => window.open(currentProject.demo, "_blank")}
                             >
-                              <ExternalLink className="w-4 h-4" />
-                              Live Demo
+                              <a
+                                href={currentProject.demo}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center justify-center gap-2 text-white font-medium px-4"
+                              >
+                                <ExternalLink className="w-4 h-4" />
+                                Live Demo
+                              </a>
                             </Button>
                           )}
                           {currentProject.github && (
                             <Button
+                              asChild
                               variant="outline"
-                              className="gap-2 rounded-full hover:bg-white/10"
+                              className="gap-2 rounded-full hover:bg-white/10 min-h-[44px]"
                               style={{ borderColor: 'rgba(255, 255, 255, 0.2)' }}
-                              onClick={() => window.open(currentProject.github, "_blank")}
                             >
-                              <Github className="w-4 h-4" />
-                              View Code
+                              <a
+                                href={currentProject.github}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center justify-center gap-2 text-white font-medium px-4"
+                              >
+                                <Github className="w-4 h-4" />
+                                View Code
+                              </a>
                             </Button>
                           )}
                         </div>

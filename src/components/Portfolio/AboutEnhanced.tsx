@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { portfolioData } from "@/lib/portfolio-data";
 import {
   BarChart3,
   Code2,
@@ -284,6 +285,16 @@ const AboutEnhanced = () => {
                       document
                         .getElementById("projects")
                         ?.scrollIntoView({ behavior: "smooth" });
+                      const projectIdx = portfolioData.projects.projectList.findIndex((p) =>
+                        p.title.toLowerCase().includes(project.title.toLowerCase().slice(0, 10))
+                      );
+                      if (projectIdx !== -1) {
+                        setTimeout(() => {
+                          window.dispatchEvent(
+                            new CustomEvent("open-project", { detail: { index: projectIdx } })
+                          );
+                        }, 500);
+                      }
                     }}
                     initial={{ opacity: 0, x: -12 }}
                     animate={isInView ? { opacity: 1, x: 0 } : {}}

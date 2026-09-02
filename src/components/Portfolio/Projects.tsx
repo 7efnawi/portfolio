@@ -132,7 +132,7 @@ const ProjectsCarousel = ({
     };
     handler();
     el.addEventListener("scroll", handler, { passive: true });
-    return () => el.removeEventListener("scroll", handler as any);
+    return () => el.removeEventListener("scroll", handler);
   }, []);
 
   // Keyboard navigation
@@ -383,7 +383,8 @@ const ProjectsCarousel = ({
             className="absolute left-4 md:left-10 p-2 rounded-full bg-background/70 border border-border text-foreground hover:bg-background"
             onClick={(e) => {
               e.stopPropagation();
-              const gallery = ((projects[lightbox.projectIndex] as any)?.gallery as string[] | undefined) ?? [projects[lightbox.projectIndex].image];
+              const currentProj = projects[lightbox.projectIndex] as { image: string; gallery?: string[] };
+              const gallery = currentProj?.gallery ?? [currentProj.image];
               setLightbox((lb) => ({ ...lb, imageIndex: (lb.imageIndex - 1 + gallery.length) % gallery.length }));
             }}
           >
@@ -394,7 +395,8 @@ const ProjectsCarousel = ({
             className="absolute right-4 md:right-10 p-2 rounded-full bg-background/70 border border-border text-foreground hover:bg-background"
             onClick={(e) => {
               e.stopPropagation();
-              const gallery = ((projects[lightbox.projectIndex] as any)?.gallery as string[] | undefined) ?? [projects[lightbox.projectIndex].image];
+              const currentProj = projects[lightbox.projectIndex] as { image: string; gallery?: string[] };
+              const gallery = currentProj?.gallery ?? [currentProj.image];
               setLightbox((lb) => ({ ...lb, imageIndex: (lb.imageIndex + 1) % gallery.length }));
             }}
           >
@@ -402,16 +404,17 @@ const ProjectsCarousel = ({
           </button>
           <div className="relative max-w-5xl w-[92vw] md:w-[80vw]" onClick={(e) => e.stopPropagation()}>
             {(() => {
-              const gallery = ((projects[lightbox.projectIndex] as any)?.gallery as string[] | undefined) ?? [projects[lightbox.projectIndex].image];
+              const currentProj = projects[lightbox.projectIndex] as { image: string; gallery?: string[] };
+              const gallery = currentProj?.gallery ?? [currentProj.image];
               const src = gallery[lightbox.imageIndex];
               return (
                 <img src={src} alt="Project preview" className="w-full h-auto object-contain rounded-lg shadow-2xl" loading="lazy" decoding="async" />
               );
             })()}
             {/* Thumbnails if multiple */}
-            {((projects[lightbox.projectIndex] as any)?.gallery?.length ? (
+            {((projects[lightbox.projectIndex] as { gallery?: string[] })?.gallery?.length ? (
               <div className="mt-4 grid grid-flow-col auto-cols-[72px] gap-2 overflow-x-auto px-1">
-                {(((projects[lightbox.projectIndex] as any).gallery as string[])).map((g, i) => (
+                {((projects[lightbox.projectIndex] as { gallery: string[] }).gallery).map((g, i) => (
                   <button key={i} className={`h-16 w-18 overflow-hidden rounded-md border ${i === lightbox.imageIndex ? 'border-accent' : 'border-border'}`} onClick={() => setLightbox((lb) => ({ ...lb, imageIndex: i }))}>
                     <img src={g} alt="thumb" className="h-full w-full object-cover" loading="lazy" decoding="async" />
                   </button>

@@ -151,9 +151,9 @@ const Education = () => {
                         </a>
                       </Button>
                     )}
-                    {Array.isArray((cert as any).skills) && (cert as any).skills.length > 0 && (
+                    {'skills' in cert && Array.isArray((cert as { skills?: unknown[] }).skills) && (cert as { skills: string[] }).skills.length > 0 && (
                       <div className="flex flex-wrap gap-2">
-                        {((cert as any).skills as string[]).map((skill) => (
+                        {(cert as { skills: string[] }).skills.map((skill) => (
                           <span
                             key={skill}
                             className="px-2 py-1 bg-muted/70 backdrop-blur text-muted-foreground rounded-full text-xs border border-border/40"

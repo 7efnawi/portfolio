@@ -179,10 +179,11 @@ const EducationEnhanced = () => {
                           </Button>
                         </motion.div>
                       )}
-                      {Array.isArray((cert as any).skills) &&
-                        (cert as any).skills.length > 0 && (
+                      {'skills' in cert &&
+                        Array.isArray((cert as { skills?: unknown[] }).skills) &&
+                        (cert as { skills: string[] }).skills.length > 0 && (
                           <div className="flex flex-wrap gap-2">
-                            {((cert as any).skills as string[]).map((skill, skillIndex) => (
+                            {(cert as { skills: string[] }).skills.map((skill, skillIndex) => (
                               <motion.span
                                 key={skill}
                                 initial={{ opacity: 0, scale: 0.8 }}

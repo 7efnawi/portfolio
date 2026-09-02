@@ -104,7 +104,7 @@
             "System Design"
           ],
           "impact": "Automated the scheduling workflow, effectively eliminating manual booking errors and significantly improving overall operational efficiency.",
-          "github": "https://github.com/7efnawi/Appointment-Booking-System.git",
+          "github": "https://github.com/7efnawi/Appointment-Booking-System",
           "demo": "",
           "image": "/clinic appointmint.webp"
         },
@@ -119,7 +119,7 @@
             "Power BI"
           ],
           "impact": "Identified a 23% revenue gap between top- and bottom-performing regions, enabling stakeholders to reallocate marketing spend and optimize inventory positioning.",
-          "github": "https://github.com/7efnawi/Sales-Data-Analysis.git",
+          "github": "https://github.com/7efnawi/Sales-Data-Analysis",
           "demo": "",
           "image": "/dataset-cover.jpg"
         },
@@ -134,7 +134,7 @@
             "EDA"
           ],
           "impact": "Engineered an end-to-end KPI dashboard that exposed seasonal revenue drivers, enabling leadership to improve quarterly forecasting accuracy and prioritize high-LTV segments.",
-          "github": "https://github.com/7efnawi/Retail-Sales-Data-Analysis.git",
+          "github": "https://github.com/7efnawi/Retail-Sales-Data-Analysis",
           "demo": "",
           "image": "/sales_data.png"
         },
@@ -149,7 +149,7 @@
             "EDA"
           ],
           "impact": "Established a predictive engagement-efficiency framework that isolated the #1 metric driving viral growth, giving content strategists a measurable edge over competitors.",
-          "github": "https://github.com/7efnawi/CodeAlpha_Youtube-trending-videos.git",
+          "github": "https://github.com/7efnawi/CodeAlpha_Youtube-trending-videos",
           "demo": "",
           "image": "/youtube_pic.jpeg"
         },
@@ -164,7 +164,7 @@
             "EDA"
           ],
           "impact": "Optimized patrol deployment recommendations by engineering geospatial heat maps and temporal crime models, reducing blind-spot coverage gaps for high-risk districts.",
-          "github": "https://github.com/7efnawi/Analyzing-Crime-in-Los-Angeles.git",
+          "github": "https://github.com/7efnawi/Analyzing-Crime-in-Los-Angeles",
           "demo": "",
           "image": "/la_skyline.jpg"
         },
@@ -179,7 +179,7 @@
             "Statistical Analysis"
           ],
           "impact": "Uncovered that occupation type and exercise duration are 2× more predictive of sleep quality than diet, redirecting the client's product strategy toward higher-impact interventions.",
-          "github": "https://github.com/7efnawi/Getting-a-Good-Night-s-Sleep.git",
+          "github": "https://github.com/7efnawi/Getting-a-Good-Night-s-Sleep",
           "demo": "",
           "image": "/insomnia.jpg"
         },
@@ -194,7 +194,7 @@
             "Matplotlib"
           ],
           "impact": "Revealed that 3 countries account for 60%+ of all laureates and mapped a measurable decade-over-decade diversification trend, delivering a publication-ready visual story.",
-          "github": "https://github.com/7efnawi/Visualize-Nobel-prize.git",
+          "github": "https://github.com/7efnawi/Visualize-Nobel-prize",
           "demo": "",
           "image": "/Nobel_Prize.png"
         },

@@ -188,11 +188,14 @@ export const useAnimeTimeline = () => {
     };
   }, []);
 
-  const add = useCallback((target: any, params: any, offset?: string | number) => {
-    if (timelineRef.current) {
-      timelineRef.current.add(target, params, offset);
-    }
-  }, []);
+  const add = useCallback(
+    (...args: Parameters<ReturnType<typeof createTimeline>['add']>) => {
+      if (timelineRef.current) {
+        timelineRef.current.add(...args);
+      }
+    },
+    []
+  );
 
   return { timeline: timelineRef, add };
 };

@@ -177,7 +177,7 @@ const HeroMinimal = () => {
               asChild
             >
               <a
-                href="/Yousef Mahmoud Hefnawi.pdf"
+                href="/Yousef%20Mahmoud%20Hefnawi.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2"
@@ -395,7 +395,7 @@ const HeroMinimal = () => {
                   asChild
                 >
                   <a
-                    href="/Yousef Mahmoud Hefnawi.pdf"
+                    href="/Yousef%20Mahmoud%20Hefnawi.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2"

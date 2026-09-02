@@ -128,7 +128,7 @@ const ContactMinimal = () => {
               </p>
 
               <a
-                href="https://wa.me/201017906167?text=Hello! I visited your portfolio and would like to connect."
+                href="https://wa.me/201017906167?text=Hello!%20I%20visited%20your%20portfolio%20and%20would%20like%20to%20connect."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block"
