@@ -72,31 +72,53 @@ const Experience = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="glass-card p-6 md:p-8 relative group hover:border-[#00D4FF]/40 transition-all duration-300"
             >
-              {/* Top Row: Role, Company, Period & Badges */}
-              <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-5">
-                <div>
-                  <div className="flex flex-wrap items-center gap-2.5 mb-2">
-                    <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-[#00D4FF] transition-colors">
-                      {exp.title}
-                    </h3>
-                    <Badge 
-                      className="border-none text-xs font-semibold px-2.5 py-0.5"
-                      style={{
-                        background: 'linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(22, 255, 0, 0.2))',
-                        border: '1px solid rgba(0, 212, 255, 0.35)',
-                        color: '#00D4FF',
-                      }}
+              {/* Top Row: Role, Company, Logos, Period & Badges */}
+              <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-5 mb-6">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                  {/* Initiative & Ministry Logos */}
+                  {exp.logos && exp.logos.length > 0 && (
+                    <div 
+                      className="flex items-center gap-2.5 bg-white/95 backdrop-blur-sm px-3.5 py-2 rounded-xl border border-white/30 shadow-md shrink-0"
+                      title="Digital Egypt Pioneers Initiative (DEPI) - Ministry of Communications and Information Technology"
                     >
-                      Active
-                    </Badge>
+                      {exp.logos.map((logo, lIndex) => (
+                        <div key={lIndex} className="flex items-center">
+                          {lIndex > 0 && <div className="h-7 w-px bg-slate-300 mx-2" />}
+                          <img
+                            src={logo}
+                            alt={lIndex === 0 ? "DEPI - رواد مصر الرقمية Logo" : "وزارة الاتصالات وتكنولوجيا المعلومات - MCIT Egypt Logo"}
+                            className={`h-9 sm:h-10 w-auto object-contain ${lIndex === 0 ? "max-w-[48px]" : "max-w-[130px]"}`}
+                            loading="lazy"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  <div>
+                    <div className="flex flex-wrap items-center gap-2.5 mb-1.5">
+                      <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-[#00D4FF] transition-colors">
+                        {exp.title}
+                      </h3>
+                      <Badge 
+                        className="border-none text-xs font-semibold px-2.5 py-0.5"
+                        style={{
+                          background: 'linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(22, 255, 0, 0.2))',
+                          border: '1px solid rgba(0, 212, 255, 0.35)',
+                          color: '#00D4FF',
+                        }}
+                      >
+                        Active
+                      </Badge>
+                    </div>
+                    <h4 className="text-base md:text-lg font-medium text-foreground/90">
+                      {exp.company}
+                    </h4>
                   </div>
-                  <h4 className="text-base md:text-lg font-medium text-foreground/90">
-                    {exp.company}
-                  </h4>
                 </div>
 
                 {/* Metadata badges (Period & Location) */}
-                <div className="flex flex-wrap items-center gap-3 text-xs md:text-sm text-muted-foreground shrink-0">
+                <div className="flex flex-wrap items-center gap-3 text-xs md:text-sm text-muted-foreground shrink-0 self-start sm:self-auto">
                   <div 
                     className="flex items-center gap-1.5 px-3 py-1 rounded-full"
                     style={{

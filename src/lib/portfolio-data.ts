@@ -46,6 +46,7 @@ interface Experience {
   company: string;
   location: string;
   period: string;
+  logos?: string[];
   achievements: string[];
   technologies: string[];
 }

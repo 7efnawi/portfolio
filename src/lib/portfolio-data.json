@@ -228,6 +228,10 @@
         "company": "Digital Egypt Pioneers Initiative (DEPI)",
         "location": "Egypt · Hybrid",
         "period": "Jul 2026 – Present",
+        "logos": [
+          "/DEPI - logo.png",
+          "/وزارة الاتصالات لوجو.png"
+        ],
         "achievements": [
           "Built and optimized ETL/ELT pipelines using SQL and Python, applying Microsoft Azure cloud-based data engineering concepts to real-world workflows.",
           "Applied data modeling, cleaning, and validation techniques within an Agile, Git-based team to support scalable analytics and BI solutions."

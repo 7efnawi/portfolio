@@ -86,6 +86,7 @@ collections:
                   - { label: "Company", name: "company", widget: "string" }
                   - { label: "Location", name: "location", widget: "string" }
                   - { label: "Period", name: "period", widget: "string" }
+                  - { label: "Logos", name: "logos", widget: "list", field: { label: "Logo", name: "logo", widget: "image" }, required: false }
                   - { label: "Achievements", name: "achievements", widget: "list", field: { label: "Achievement", name: "achievement", widget: "string" } }
                   - { label: "Technologies", name: "technologies", widget: "list", field: { label: "Technology", name: "technology", widget: "string" } }
           - label: "Education"
