@@ -7,10 +7,11 @@ import { animate, utils } from "animejs";
 
 // ── Typewriter Hook ───────────────────────────────────────────
 const TYPEWRITER_STRINGS = [
-  "Python & SQL",
-  "Power BI Dashboards",
-  "Exploratory Data Analysis (EDA)",
-  "Data Wrangling & ETL",
+  "ETL & ELT Pipelines",
+  "Python & SQL Workflows",
+  "Data Modeling & Architecture",
+  "Azure Cloud Concepts",
+  "Database Optimization",
 ];
 
 const useTypewriter = (strings: string[], typingSpeed = 80, deletingSpeed = 40, pauseMs = 2000) => {
@@ -67,9 +68,9 @@ const WhatsappIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-// ── Hero description (hardcoded for clarity) ──────────────────
+// ── Hero description ──────────────────────────────────────────
 const HERO_DESCRIPTION =
-  "I am a Data Analyst specializing in transforming raw, complex datasets into actionable business intelligence. With hands-on experience in Python, SQL, and Power BI, I build interactive dashboards and automate reporting workflows.";
+  "I am a Data Engineer and ICT undergraduate specializing in designing reliable ETL/ELT pipelines, data modeling, and database optimization. With hands-on experience in Python, SQL, and Azure cloud concepts, I transform raw data into scalable, production-ready workflows and actionable intelligence.";
 
 const HeroMinimal = () => {
   const dataNodesRef = useRef<HTMLDivElement>(null);
@@ -147,7 +148,7 @@ const HeroMinimal = () => {
 
           {/* Title */}
           <p className="text-lg font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-emerald-400 mt-2">
-            Aspiring Data Analyst
+            Data Engineer
           </p>
 
           {/* Typewriter — Mobile */}
@@ -302,7 +303,7 @@ const HeroMinimal = () => {
                   </span>
                 </p>
                 <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-sans font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#00D4FF] to-[#16FF00] leading-snug pb-1">
-                  Aspiring Data Analyst
+                  Data Engineer
                 </h1>
               </motion.div>
 
@@ -317,7 +318,7 @@ const HeroMinimal = () => {
                   className="text-xs sm:text-sm font-semibold tracking-widest uppercase"
                   style={{ color: '#00D4FF', textShadow: '0 0 10px rgba(0, 212, 255, 0.5)' }}
                 >
-                  Patterns, Insights, Action
+                  Pipelines, Data Modeling, Scalable Architecture
                 </p>
 
                 {/* Typewriter — Desktop */}

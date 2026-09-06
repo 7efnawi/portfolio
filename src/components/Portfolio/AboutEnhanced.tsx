@@ -13,23 +13,23 @@ import {
 
 const highlights = [
   {
-    title: "Data Analytics",
+    title: "Data Engineering & ETL",
     description:
-      "Statistical analysis, EDA, data mining, and transforming raw data into actionable insights",
-    icon: BarChart3,
+      "Designing robust ETL/ELT pipelines, data transformation, and automating scalable ingestion workflows",
+    icon: Code2,
     color: "#00D4FF",
   },
   {
-    title: "Python & SQL",
+    title: "Python & SQL Modeling",
     description:
-      "Data cleaning, wrangling, ETL pipelines, and database optimization for scalable workflows",
-    icon: Code2,
+      "Database schema design, query optimization, data validation, and high-performance pipeline architecture",
+    icon: BarChart3,
     color: "#16FF00",
   },
   {
-    title: "BI & Dashboards",
+    title: "Analytics & BI",
     description:
-      "Interactive Power BI dashboards, automated reporting, and KPI tracking for stakeholders",
+      "Interactive Power BI dashboards, KPI tracking, and turning pipeline outputs into decision-ready insights",
     icon: LayoutDashboard,
     color: "#8B5CF6",
   },
@@ -102,12 +102,10 @@ const AboutEnhanced = () => {
             <div className="space-y-5">
               {/* ─ Intro ─ */}
               <p className="text-sm md:text-base lg:text-lg text-foreground leading-relaxed text-center">
-                Junior{" "}
                 <span className="font-bold" style={{ color: "#00D4FF" }}>
-                  Data Analyst
+                  Data Engineer
                 </span>{" "}
-                with over a year of hands-on experience turning raw data
-                into{" "}
+                and ICT undergraduate with hands-on experience designing ETL/ELT pipelines, optimizing relational databases, and transforming complex data into{" "}
                 <span
                   className="font-bold"
                   style={{
@@ -115,14 +113,14 @@ const AboutEnhanced = () => {
                     textShadow: "0 0 8px rgba(22,255,0,0.35)",
                   }}
                 >
-                  actionable business insights
+                  scalable, actionable business intelligence
                 </span>
                 .
               </p>
 
               {/* ─ Tech chips ─ */}
               <div className="flex flex-wrap justify-center gap-2">
-                {["Python", "SQL", "Power BI", "Excel", "EDA", "ETL"].map(
+                {["Python", "SQL", "ETL / ELT", "Azure", "Power BI", "Data Modeling", "Scikit-learn", "Pandas"].map(
                   (tech) => (
                     <span
                       key={tech}
@@ -153,9 +151,9 @@ const AboutEnhanced = () => {
                     What I Do
                   </h4>
                   {[
-                    "Interactive dashboards & data visualization",
-                    "Automated reporting workflows",
-                    "Data mining, KPI tracking & analysis",
+                    "End-to-end ETL & ELT pipeline engineering",
+                    "Database schema modeling & query optimization",
+                    "Automated cloud workflows & BI dashboard integration",
                   ].map((item) => (
                     <p
                       key={item}
@@ -178,9 +176,9 @@ const AboutEnhanced = () => {
                     Core Strengths
                   </h4>
                   {[
-                    "Data cleaning, wrangling & transformation",
-                    "Statistical analysis & EDA",
-                    "Stakeholder collaboration & storytelling",
+                    "Pipeline design, data transformation & cleaning",
+                    "Data modeling, validation & statistical analysis",
+                    "Agile team collaboration & stakeholder reporting",
                   ].map((item) => (
                     <p
                       key={item}
@@ -198,7 +196,7 @@ const AboutEnhanced = () => {
                 <span className="font-medium text-foreground/80">
                   New Cairo Technological University
                 </span>{" "}
-                · BTEC L3 Extended Diploma (DDM)
+                (GPA 3.28/4.0) · BTEC L3 Extended Diploma (95.4%)
               </p>
             </div>
           </motion.div>

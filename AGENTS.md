@@ -16,9 +16,10 @@ Vite + React 18 + TypeScript + Tailwind + shadcn/ui single-page portfolio (Youse
 - The JSON is managed via Decap CMS at `/admin` (`public/admin/`). Field schema is in `public/admin/config.yml`; update that file when changing the JSON shape. Media uploads go to `public/uploads`.
 - `api/*.ts` are Vercel edge functions implementing Decap CMS GitHub OAuth (`GITHUB_CLIENT_ID` env var on Vercel). They don't run under `vite dev`.
 
-## Component variants trap
+## Component structure & Navigation
 
-`src/components/Portfolio/` contains many dead variants (`*Enhanced`, `*Minimal`, `*Revolutionary`, etc.). Only the components imported in `src/pages/Index.tsx` render (Header, HeroMinimal, MobileNav, ScrollProgress + lazy-loaded About/Skills/Projects/Education/Certifications/Contact/Footer/DataFieldBackground). Always check `Index.tsx` imports before editing a Portfolio component — most siblings are unused.
+- `src/components/Portfolio/` contains the 13 active canonical portfolio components (Header, HeroMinimal, MobileNav, ScrollProgress, DataFieldBackground, AboutEnhanced, Experience, SkillsMinimal, ProjectsModern, EducationMinimal, CertificationsModern, ContactMinimal, Footer). Dead variants have been pruned.
+- Navigation items and section ordering are driven centrally by `src/lib/sections.ts` (providing `getHeaderNavItems`, `getMobileNavItems`, `getFooterNavItems`). Edit `sections.ts` to add or reorder portfolio sections.
 
 ## Conventions
 

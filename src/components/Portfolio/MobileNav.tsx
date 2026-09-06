@@ -1,15 +1,8 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
-import { Home, User, Code2, FolderGit2, GraduationCap, Mail } from "lucide-react";
+import { getMobileNavItems } from "@/lib/sections";
 
-const navItems = [
-  { id: "home", label: "Home", icon: Home },
-  { id: "about", label: "About", icon: User },
-  { id: "skills", label: "Skills", icon: Code2 },
-  { id: "projects", label: "Work", icon: FolderGit2 },
-  { id: "education", label: "Edu", icon: GraduationCap },
-  { id: "contact", label: "Contact", icon: Mail },
-];
+const navItems = getMobileNavItems();
 
 const MobileNav = () => {
   const [activeSection, setActiveSection] = useState("home");

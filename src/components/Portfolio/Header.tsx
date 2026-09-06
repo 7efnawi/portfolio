@@ -1,15 +1,9 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { getHeaderNavItems } from "@/lib/sections";
 
-const navItems = [
-  { href: "#home", label: "Home" },
-  { href: "#about", label: "About" },
-  { href: "#skills", label: "Skills" },
-  { href: "#projects", label: "Projects" },
-  { href: "#education", label: "Education" },
-  { href: "#contact", label: "Contact" },
-];
+const navItems = getHeaderNavItems();
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

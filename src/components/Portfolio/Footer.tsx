@@ -1,6 +1,7 @@
 import { Heart, ArrowUp, Sparkles, Database } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { getFooterNavItems } from "@/lib/sections";
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -66,7 +67,7 @@ const Footer = () => {
               transition={{ delay: 0.1 }}
               className="text-muted-foreground text-lg mb-2 max-w-2xl mx-auto"
             >
-              Junior <span style={{ color: '#16FF00' }} className="font-semibold">Data Analyst</span> | ICT Student
+              <span style={{ color: '#16FF00' }} className="font-semibold">Data Engineer</span> | ICT Student
             </motion.p>
             
             <motion.p 
@@ -76,7 +77,7 @@ const Footer = () => {
               transition={{ delay: 0.2 }}
               className="text-muted-foreground/80 text-sm mb-8 max-w-2xl mx-auto"
             >
-              Passionate about leveraging data science and AI to drive innovative solutions
+              Passionate about building scalable data pipelines, database architecture, and analytics solutions
             </motion.p>
 
             {/* Navigation Links — Desktop only */}
@@ -87,14 +88,7 @@ const Footer = () => {
               transition={{ delay: 0.3 }}
               className="hidden md:flex flex-wrap justify-center gap-6 mb-8"
             >
-              {[
-                { href: "#home", label: "Home" },
-                { href: "#about", label: "About" },
-                { href: "#skills", label: "Skills" },
-                { href: "#projects", label: "Projects" },
-                { href: "#education", label: "Education" },
-                { href: "#contact", label: "Contact" },
-              ].map((link, index) => (
+              {getFooterNavItems().map((link, index) => (
                 <motion.button
                   key={link.href}
                   initial={{ opacity: 0, scale: 0.8 }}

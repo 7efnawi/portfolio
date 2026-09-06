@@ -7,6 +7,7 @@ import ScrollProgress from "@/components/Portfolio/ScrollProgress";
 
 // Lazy-load below-the-fold components for code splitting
 const AboutEnhanced = React.lazy(() => import("@/components/Portfolio/AboutEnhanced"));
+const Experience = React.lazy(() => import("@/components/Portfolio/Experience"));
 const SkillsMinimal = React.lazy(() => import("@/components/Portfolio/SkillsMinimal"));
 const ProjectsModern = React.lazy(() => import("@/components/Portfolio/ProjectsModern"));
 const EducationMinimal = React.lazy(() => import("@/components/Portfolio/EducationMinimal"));
@@ -57,6 +58,8 @@ const Index = () => {
         <HeroMinimal />
         <Suspense fallback={<SectionLoader />}>
           <AboutEnhanced />
+          <SectionDivider />
+          <Experience />
           <SectionDivider />
           <SkillsMinimal />
           <SectionDivider />
