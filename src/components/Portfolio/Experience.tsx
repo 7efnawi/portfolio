@@ -72,72 +72,82 @@ const Experience = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="glass-card p-6 md:p-8 relative group hover:border-[#00D4FF]/40 transition-all duration-300"
             >
-              {/* Top Row: Role, Company, Logos, Period & Badges */}
-              <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-5 mb-6">
-                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                  {/* Initiative & Ministry Logos */}
+              {/* Header: Logos, Title, Company & Period */}
+              <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 mb-6 border-b border-white/[0.08]">
+                {/* Left Group: Logos + Title/Company Info */}
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5">
+                  {/* Accreditation Badge with Logos */}
                   {exp.logos && exp.logos.length > 0 && (
                     <div 
-                      className="flex items-center gap-2.5 bg-white/95 backdrop-blur-sm px-3.5 py-2 rounded-xl border border-white/30 shadow-md shrink-0"
-                      title="Digital Egypt Pioneers Initiative (DEPI) - Ministry of Communications and Information Technology"
+                      className="flex items-center gap-3 bg-white/95 rounded-2xl p-2.5 px-3.5 shadow-[0_8px_25px_rgba(0,0,0,0.3)] border border-white/40 ring-1 ring-cyan-500/20 shrink-0"
+                      title="Digital Egypt Pioneers Initiative (DEPI) · Ministry of Communications and Information Technology"
                     >
-                      {exp.logos.map((logo, lIndex) => (
-                        <div key={lIndex} className="flex items-center">
-                          {lIndex > 0 && <div className="h-7 w-px bg-slate-300 mx-2" />}
+                      <img
+                        src={exp.logos[0]}
+                        alt="DEPI Logo"
+                        className="h-11 w-auto max-w-[48px] object-contain"
+                        loading="lazy"
+                      />
+                      {exp.logos[1] && (
+                        <>
+                          <div className="h-7 w-px bg-slate-300" />
                           <img
-                            src={logo}
-                            alt={lIndex === 0 ? "DEPI - رواد مصر الرقمية Logo" : "وزارة الاتصالات وتكنولوجيا المعلومات - MCIT Egypt Logo"}
-                            className={`h-9 sm:h-10 w-auto object-contain ${lIndex === 0 ? "max-w-[48px]" : "max-w-[130px]"}`}
+                            src={exp.logos[1]}
+                            alt="Ministry of Communications and Information Technology Logo"
+                            className="h-9 w-auto max-w-[135px] object-contain"
                             loading="lazy"
                           />
-                        </div>
-                      ))}
+                        </>
+                      )}
                     </div>
                   )}
 
-                  <div>
-                    <div className="flex flex-wrap items-center gap-2.5 mb-1.5">
-                      <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-[#00D4FF] transition-colors">
+                  {/* Title, Badge & Company */}
+                  <div className="space-y-1.5">
+                    <div className="flex flex-wrap items-center gap-2.5">
+                      <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-[#00D4FF] transition-colors tracking-tight">
                         {exp.title}
                       </h3>
                       <Badge 
-                        className="border-none text-xs font-semibold px-2.5 py-0.5"
+                        className="border-none text-xs font-semibold px-2.5 py-0.5 inline-flex items-center gap-1.5"
                         style={{
-                          background: 'linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(22, 255, 0, 0.2))',
-                          border: '1px solid rgba(0, 212, 255, 0.35)',
-                          color: '#00D4FF',
+                          background: 'rgba(22, 255, 0, 0.12)',
+                          border: '1px solid rgba(22, 255, 0, 0.35)',
+                          color: '#16FF00',
                         }}
                       >
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#16FF00] animate-pulse" />
                         Active
                       </Badge>
                     </div>
-                    <h4 className="text-base md:text-lg font-medium text-foreground/90">
+
+                    <div className="text-base sm:text-lg font-medium text-slate-200">
                       {exp.company}
-                    </h4>
+                    </div>
+
+                    {/* Metadata on mobile/tablet (if stacked) */}
+                    <div className="flex flex-wrap items-center gap-2.5 pt-1 md:hidden text-xs text-muted-foreground">
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 font-medium">
+                        <Calendar size={13} className="text-[#00D4FF]" />
+                        {exp.period}
+                      </span>
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-800/80 border border-slate-700/60 text-slate-300 font-medium">
+                        <MapPin size={13} className="text-[#16FF00]" />
+                        {exp.location}
+                      </span>
+                    </div>
                   </div>
                 </div>
 
-                {/* Metadata badges (Period & Location) */}
-                <div className="flex flex-wrap items-center gap-3 text-xs md:text-sm text-muted-foreground shrink-0 self-start sm:self-auto">
-                  <div 
-                    className="flex items-center gap-1.5 px-3 py-1 rounded-full"
-                    style={{
-                      background: 'rgba(0, 212, 255, 0.08)',
-                      border: '1px solid rgba(0, 212, 255, 0.2)',
-                    }}
-                  >
-                    <Calendar size={14} style={{ color: '#00D4FF' }} />
-                    <span className="text-foreground/90 font-medium">{exp.period}</span>
+                {/* Right Group: Metadata on Desktop */}
+                <div className="hidden md:flex flex-col items-end gap-2 shrink-0">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/25 text-cyan-300 text-xs font-medium shadow-sm">
+                    <Calendar size={13} className="text-[#00D4FF]" />
+                    <span>{exp.period}</span>
                   </div>
-                  <div 
-                    className="flex items-center gap-1.5 px-3 py-1 rounded-full"
-                    style={{
-                      background: 'rgba(22, 255, 0, 0.08)',
-                      border: '1px solid rgba(22, 255, 0, 0.2)',
-                    }}
-                  >
-                    <MapPin size={14} style={{ color: '#16FF00' }} />
-                    <span className="text-foreground/90">{exp.location}</span>
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-800/80 border border-slate-700/60 text-slate-300 text-xs font-medium shadow-sm">
+                    <MapPin size={13} className="text-[#16FF00]" />
+                    <span>{exp.location}</span>
                   </div>
                 </div>
               </div>
