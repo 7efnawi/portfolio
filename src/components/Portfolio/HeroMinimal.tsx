@@ -70,7 +70,7 @@ const WhatsappIcon = ({ className }: { className?: string }) => (
 
 // ── Hero description ──────────────────────────────────────────
 const HERO_DESCRIPTION =
-  "I am a Data Engineer and ICT undergraduate specializing in designing reliable ETL/ELT pipelines, data modeling, and database optimization. With hands-on experience in Python, SQL, and Azure cloud concepts, I transform raw data into scalable, production-ready workflows and actionable intelligence.";
+  "Turning chaotic data into reliable, high-speed pipelines that power critical business decisions. I engineer scalable ETL/ELT workflows and optimize databases using Python, SQL, and Azure—ensuring your data is always clean, automated, and production-ready.";
 
 const HeroMinimal = () => {
   const dataNodesRef = useRef<HTMLDivElement>(null);
