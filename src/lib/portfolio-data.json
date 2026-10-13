@@ -98,6 +98,57 @@
       "title": "My Projects",
       "projectList": [
         {
+          "title": "Local Weather Data Platform & ETL Pipeline",
+          "category": "Data Engineering",
+          "description": "An enterprise-patterned data engineering ETL pipeline ingesting real-time meteorological observations for all 27 Egyptian governorates from the Open-Meteo REST API. Built with Medallion Architecture (Bronze, Silver, Gold), the pipeline features session pooling, data quality contracts, columnar Parquet storage, and an idempotent SQLite UPSERT engine for fast analytical querying.",
+          "technologies": [
+            "Python",
+            "Medallion Architecture",
+            "Parquet",
+            "SQLite",
+            "REST API",
+            "ETL Pipelines"
+          ],
+          "impact": "Engineered a fault-tolerant multi-tier pipeline with automated schema validation and columnar storage, ensuring 100% idempotent data synchronization across 27 regional endpoints.",
+          "github": "https://github.com/7efnawi/Weather-ETL",
+          "demo": "",
+          "image": "/weather data pipeline.png"
+        },
+        {
+          "title": "Retail Data Pipeline: Holiday Demand & Sales Analysis",
+          "category": "Data Engineering",
+          "description": "An end-to-end ETL pipeline evaluating holiday seasonality, promotional markdowns, and macroeconomic indicators across Walmart store departments. Ingests heterogeneous data by merging operational PostgreSQL transactional databases with columnar Parquet files across 230,000+ records, performing automated cleaning, skewed value imputation, and curated aggregations.",
+          "technologies": [
+            "Python",
+            "PostgreSQL",
+            "Apache Arrow / Parquet",
+            "ETL Pipelines",
+            "Pandas",
+            "Data Validation"
+          ],
+          "impact": "Unified relational databases and columnar Parquet telemetry across 230K+ transactions, automating statistical cleaning and delivering monthly aggregate models to evaluate seasonal demand surges.",
+          "github": "https://github.com/7efnawi/Building-a-Retail-Data-Pipeline",
+          "demo": "",
+          "image": "/retail data pipeline.png"
+        },
+        {
+          "title": "Order Control System (OMS)",
+          "category": "Software Engineering",
+          "description": "A production-grade, real-time order management platform built for multi-brand dark kitchen operations, managing 4 virtual restaurant brands and 6 delivery platforms. Eliminates manual spreadsheets with a deterministic status state machine, advisory locking for concurrency safety, zero-drift financial reconciliation, and native bilingual Arabic/English interfaces.",
+          "technologies": [
+            "Next.js",
+            "TypeScript",
+            "PostgreSQL",
+            "Prisma",
+            "Tailwind CSS",
+            "System Design"
+          ],
+          "impact": "Replaced fragmented operational spreadsheets with a sub-30s high-speed POS, real-time kitchen Kanban board with live prep timers, and 100% mathematically reconciled multi-channel revenue accounting.",
+          "github": "https://github.com/7efnawi/Orders-Management-System",
+          "demo": "",
+          "image": "/OMS.png"
+        },
+        {
           "title": "Appointment Booking System",
           "category": "Software Engineering",
           "description": "Service-based businesses often lose revenue due to manual scheduling conflicts and inefficient booking processes. This project engineered a robust, automated appointment booking system to streamline reservations and manage real-time availability. The solution eliminates administrative bottlenecks and ensures a seamless user experience for both clients and staff.",
