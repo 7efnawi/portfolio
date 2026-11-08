@@ -324,6 +324,22 @@
     ],
     "certifications": [
       {
+        "title": "Data Analyst in Python",
+        "issuer": "DataCamp",
+        "date": "Oct 2026",
+        "credential": "",
+        "link": "https://www.datacamp.com/completed/statement-of-accomplishment/track/eec89efdd7f4408fa565879a16b21941683eacc1?utm_medium=organic_social&utm_campaign=sharewidget&utm_content=soa",
+        "icon": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%2322c55e' d='M12.946 18.151v-5.239L21.209 8.2L19.2 7.048l-6.254 3.567V5.36c0-.356-.192-.689-.5-.866L4.922.177a1.434 1.434 0 0 0-1.455.044a1.438 1.438 0 0 0-.676 1.224v14.777A1.44 1.44 0 0 0 4.92 17.49l6.032-3.44v4.683a1 1 0 0 0 .504.867l7.73 4.4l2.01-1.152l-8.25-4.697zM10.953 5.938v5.814L4.785 15.27V2.4l6.168 3.539v-.001z'%3E%3C/path%3E%3C/svg%3E"
+      },
+      {
+        "title": "Associate Data Engineer in SQL",
+        "issuer": "DataCamp",
+        "date": "Aug 2026",
+        "credential": "",
+        "link": "https://www.datacamp.com/completed/statement-of-accomplishment/track/92c971ff7490ed2e32b36aa6cb9e287a72a1c997?utm_medium=organic_social&utm_campaign=sharewidget&utm_content=soa",
+        "icon": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%2322c55e' d='M12.946 18.151v-5.239L21.209 8.2L19.2 7.048l-6.254 3.567V5.36c0-.356-.192-.689-.5-.866L4.922.177a1.434 1.434 0 0 0-1.455.044a1.438 1.438 0 0 0-.676 1.224v14.777A1.44 1.44 0 0 0 4.92 17.49l6.032-3.44v4.683a1 1 0 0 0 .504.867l7.73 4.4l2.01-1.152l-8.25-4.697zM10.953 5.938v5.814L4.785 15.27V2.4l6.168 3.539v-.001z'%3E%3C/path%3E%3C/svg%3E"
+      },
+      {
         "title": "BCG - Data for Decision Makers Job Simulation",
         "issuer": "Boston Consulting Group",
         "date": "Nov 2025",
