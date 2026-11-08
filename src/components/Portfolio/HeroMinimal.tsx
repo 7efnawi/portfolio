@@ -142,12 +142,12 @@ const HeroMinimal = () => {
           className="absolute bottom-[14%] left-0 right-0 px-6 flex flex-col items-center text-center"
         >
           {/* Name */}
-          <h1 className="text-3xl font-bold text-white tracking-tight">
+          <h1 className="text-3xl font-display font-bold text-white tracking-tight">
             {portfolioData.hero.name}
           </h1>
 
           {/* Title */}
-          <p className="text-lg font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-emerald-400 mt-2">
+          <p className="text-lg font-display font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-emerald-400 mt-2">
             Data Engineer
           </p>
 
@@ -302,7 +302,7 @@ const HeroMinimal = () => {
                     {portfolioData.hero.name}
                   </span>
                 </p>
-                <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-sans font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#00D4FF] to-[#16FF00] leading-snug pb-1">
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-display font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#00D4FF] to-[#16FF00] leading-snug pb-1">
                   Data Engineer
                 </h1>
               </motion.div>

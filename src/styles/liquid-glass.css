@@ -3,7 +3,7 @@
    Portfolio with Data Field Animations
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Plus+Jakarta+Sans:wght@300..800&family=JetBrains+Mono:wght@400..700&display=swap');
 
 /* --------------------------------------------------------------------------
    CSS Variables - Liquid Glass Theme
@@ -43,11 +43,15 @@
    -------------------------------------------------------------------------- */
 body {
   background: var(--bg-deep);
-  font-family: 'Inter', sans-serif;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 }
 
-.font-science, .font-orbitron {
-  font-family: 'Orbitron', sans-serif;
+.font-science, .font-orbitron, .font-display {
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
 }
 
 /* --------------------------------------------------------------------------

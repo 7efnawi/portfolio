@@ -19,6 +19,12 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+				display: ['"Bricolage Grotesque"', 'sans-serif'],
+				science: ['"Bricolage Grotesque"', 'sans-serif'],
+				mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
